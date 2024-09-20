@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact Us - Lightspeed Global - Model Kits, Paints, and More</title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Navigation Menu PlaceHolder -->
+    <div id="navigation-menu-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 lg:px-0 py-20 text-[#333333]">
+      <!-- Page Title -->
+      <section class="text-center mb-12">
+        <h1 class="text-2xl font-bold mb-4">Contact Us</h1>
+      </section>
+
+      <!-- Contact Form and Address Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white shadow-lg rounded-lg p-8">
+          <form action="#" method="POST" class="space-y-6">
+            <!-- Name Input -->
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Your email address"
+                required
+              />
+            </div>
+
+            <!-- Message Textarea -->
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Message</label
+              >
+              <textarea
+                name="message"
+                id="message"
+                rows="6"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Your message"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white py-3 rounded-md font-medium text-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Address and Contact Information -->
+        <div class="space-y-12">
+          <!-- Canada Office -->
+          <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-lg font-semibold mb-4">Our Canada Office</h2>
+            <p class="text-md text-gray-700">Lightspeed Global Inc</p>
+            <p class="text-gray-500">
+              340 King Street East, 4th Floor<br />Toronto, ON M5A 1K8, Canada
+            </p>
+            <p class="text-md text-gray-700 mt-4">
+              <strong>Phone:</strong> 647-812-1951
+            </p>
+            <p class="text-md text-gray-700">
+              <strong>Email:</strong>
+              <a
+                href="mailto:care@lsghobby.com"
+                class="text-blue-600 hover:underline"
+                >care@lsghobby.com</a
+              >
+            </p>
+          </div>
+
+          <!-- USA Office -->
+          <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-lg font-semibold mb-4">Our USA Office</h2>
+            <p class="text-md text-gray-700">LSG Hobby Inc</p>
+            <p class="text-gray-500">
+              1205 N Eliseo Felix Jr Way, Ste A110<br />Avondale, AZ 85323, USA
+            </p>
+            <p class="text-md text-gray-700 mt-4">
+              <strong>Phone:</strong> 716-246-0520
+            </p>
+            <p class="text-md text-gray-700">
+              <strong>Email:</strong>
+              <a
+                href="mailto:care@lsghobby.com"
+                class="text-blue-600 hover:underline"
+                >care@lsghobby.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Section (Optional) -->
+      <div class="my-20">
+        <h2 class="text-xl font-semibold mt-20 mb-6 text-center">
+          Find Us on the Map
+        </h2>
+        <div class="w-full h-96 bg-gray-200">
+          <!-- You can embed a Google Map iframe here -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23084.144374354993!2d-79.58823255177506!3d43.67899233725372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b39965b000001%3A0x874fddd6335a4400!2sLightspeed%20Global!5e0!3m2!1sen!2seg!4v1726773502419!5m2!1sen!2seg"
+            class="w-full h-full rounded-md"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("/layout/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load navigation
+          const navigationResponse = await fetch("/layout/navigation.html");
+          const navigationData = await navigationResponse.text();
+          document.getElementById("navigation-menu-placeholder").outerHTML =
+            navigationData;
+
+          // Load footer
+          const footerResponse = await fetch("/layout/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

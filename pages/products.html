@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lightspeed Global - Model Kits, Paints, and More</title>
+    <title>Products - Lightspeed Global - Model Kits, Paints, and More</title>
     <meta
       name="description"
       content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
@@ -30,17 +30,13 @@
       style="max-width: 1200px"
       class="mx-auto px-3 lg:px-0 mt-1 mb-20 overflow-hidden"
     >
-      <!-- Categories Slider PlaceHolder -->
-      <div id="categories-slider-placeholder"></div>
-      <!-- Banner Carousel PlaceHolder -->
-      <div id="banner-carousel-placeholder"></div>
-      <!-- Three-Images Slider PlaceHolder -->
-      <div id="three-images-slider-placeholder"></div>
-
       <!-- Products Table Section -->
       <section class="w-full my-5">
         <div id="table-controls-placeholder"></div>
-        <div id="products-table-placeholder"></div>
+        <div class="flex mt-2 flex-col-reverse lg:flex-row gap-10 lg:gap-2">
+          <div id="categories-filters-placeholder"></div>
+          <div id="products-table-placeholder"></div>
+        </div>
         <div id="table-pagination-placeholder"></div>
       </section>
     </main>
@@ -53,7 +49,6 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-
     <script>
       // Define the `isAdmin` flag
       const isAdmin = true; // Change to false if the user is not an admin
@@ -72,37 +67,21 @@
           document.getElementById("navigation-menu-placeholder").outerHTML =
             navigationData;
 
-          // Load categories slider
-          const categoriesSliderResponse = await fetch(
-            "/snippets/catgories-slider.html"
-          );
-          const categoriesSliderData = await categoriesSliderResponse.text();
-          document.getElementById("categories-slider-placeholder").outerHTML =
-            categoriesSliderData;
-
-          // Load banner carousel
-          const bannerCarouselResponse = await fetch(
-            "/snippets/banner-carousel.html"
-          );
-          const bannerCarouselData = await bannerCarouselResponse.text();
-          document.getElementById("banner-carousel-placeholder").outerHTML =
-            bannerCarouselData;
-
-          // Load three images slider
-          const threeImagesSliderResponse = await fetch(
-            "/snippets/three-images-slider.html"
-          );
-          const threeImagesSliderData = await threeImagesSliderResponse.text();
-          document.getElementById("three-images-slider-placeholder").outerHTML =
-            threeImagesSliderData;
-
           // Load table controls
           const tableControlsResponse = await fetch(
-            "/snippets/table-controls-w-tabs.html"
+            "/snippets/table-controls-w-filter.html"
           );
           const tableControlsData = await tableControlsResponse.text();
           document.getElementById("table-controls-placeholder").outerHTML =
             tableControlsData;
+
+          // Load products table and render products
+          const categoriesFiltersResponse = await fetch(
+            "/snippets/categories-sidebar-filter.html"
+          );
+          const categoriesFiltersData = await categoriesFiltersResponse.text();
+          document.getElementById("categories-filters-placeholder").outerHTML =
+            categoriesFiltersData;
 
           // Load products table and render products
           const productsTableResponse = await fetch(
@@ -148,7 +127,6 @@
         // After loadComponents is done, load the other scripts
         try {
           await loadScript("/scripts/filter-by-categories.js");
-          await loadScript("/scripts/categories-carousel.js");
           await loadScript("/scripts/products-data.js");
           await loadScript("/scripts/table-filters.js");
           await loadScript("/scripts/table-pagination.js");

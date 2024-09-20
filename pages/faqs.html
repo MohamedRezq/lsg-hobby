@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FAQ - Lightspeed Global - Model Kits, Paints, and More</title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Navigation Menu PlaceHolder -->
+    <div id="navigation-menu-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 lg:px-0 py-12 text-[#333333]">
+      <!-- FAQ Page Title -->
+      <section class="text-center mb-12">
+        <h1 class="text-2xl font-bold mb-4">Frequently Asked Questions</h1>
+      </section>
+
+      <!-- General Section -->
+      <section class="mb-12">
+        <h2 class="text-xl font-bold mb-6">General</h2>
+
+        <!-- Who are you? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Who are you?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Lightspeed Global distributes plastic model kits, accessories, and
+              collectibles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Do you sell to the public? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Do you sell to the public? Who can register?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              We only sell to dealers and retailers with physical
+              brick-and-mortar stores. We do not sell to sellers who exclusively
+              sell on third-party marketplaces like Amazon, eBay, or Walmart.
+            </p>
+          </div>
+        </div>
+
+        <!-- What is the minimum order? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            What is the minimum order?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>The minimum order is $350.</p>
+          </div>
+        </div>
+
+        <!-- What brands do you carry? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            What brands do you carry?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Please refer to our About page for a complete list of the brands
+              we carry.
+            </p>
+          </div>
+        </div>
+
+        <!-- How do I see the prices? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            How do I see the prices?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              To see our prices, log into the website. To request a login,
+              please click on the Register button on the Login page.
+            </p>
+          </div>
+        </div>
+
+        <!-- What forms of payment do you accept? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            What forms of payment do you accept?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              We accept all major credit cards, Email Money Transfers (within
+              Canada), and ACH Transfers (within the US).
+            </p>
+          </div>
+        </div>
+
+        <!-- Can I order replacement parts? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Can I order replacement parts?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Please reach out to your retailer for parts requests. We no longer
+              accept replacement part requests directly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Do you have a warehouse in USA and Canada? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Do you have a warehouse in the USA and Canada?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Yes, we have a warehouse in Avondale, Arizona (USA) and Toronto,
+              Ontario (Canada).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shipping Section -->
+      <section class="mb-12">
+        <h2 class="text-xl font-bold mb-6">Shipping</h2>
+
+        <!-- Where do you ship? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Where do you ship?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>We ship throughout Canada and the United States.</p>
+          </div>
+        </div>
+
+        <!-- What are your shipping terms? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            What are your shipping terms?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              We strive to fulfill orders within 2 business days. If there are
+              any issues, we will contact you.
+            </p>
+          </div>
+        </div>
+
+        <!-- How much do you charge for shipping? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            How much do you charge for shipping?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              We offer free shipping within the continental US and Canada for
+              orders over $500. Orders under $500 are capped at 10% of the
+              invoice total.
+            </p>
+          </div>
+        </div>
+
+        <!-- Parts were damaged during shipment. What can I do? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            Parts were damaged during shipment. What can I do?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Contact us regarding the damaged items. Return the damaged
+              products to our warehouse (Toronto or Buffalo), and we will issue
+              a credit to your account.
+            </p>
+          </div>
+        </div>
+
+        <!-- I received the wrong product or something is missing. -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            I received the wrong product or something is missing.
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              Contact us at care@lsghobby.com if you received the wrong product
+              or something is missing from your order.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pre-order Section -->
+      <section class="mb-12">
+        <h2 class="text-xl font-bold mb-6">Pre-order</h2>
+
+        <!-- What is a pre-order? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            What is a pre-order?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              A pre-order allows you to reserve items before they arrive at our
+              warehouse.
+            </p>
+          </div>
+        </div>
+
+        <!-- How to pre-order? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            How to pre-order?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              To pre-order, simply add the product marked as "pre-order" to your
+              cart and proceed to checkout.
+            </p>
+          </div>
+        </div>
+
+        <!-- When will I receive my pre-ordered items? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            When will I receive my pre-ordered items?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              We strive to ship pre-orders as soon as they arrive at our
+              warehouse, usually on the product's scheduled release date.
+            </p>
+          </div>
+        </div>
+
+        <!-- When will I be charged? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            When will I be charged?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>
+              You will be charged for pre-ordered items when they are ready to
+              be shipped.
+            </p>
+          </div>
+        </div>
+
+        <!-- How do I Cancel a Pre-Order? -->
+        <div
+          class="border-b-2 py-2 border-gray-200 mb-4"
+          x-data="{ open: false }"
+        >
+          <h3
+            @click="open = !open"
+            class="text-md font-semibold cursor-pointer flex justify-between items-center"
+          >
+            How do I Cancel a Pre-Order?
+            <i :class="open ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+          </h3>
+          <div x-show="open" class="mt-2 text-gray-700 text-md">
+            <p>Contact us by phone or email to cancel your pre-order.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Information Section -->
+      <section class="container mx-auto text-center pb-16">
+        <h2 class="section-title font-bold mt-20 mb-10">Contact Us</h2>
+        <div
+          class="flex flex-col lg:flex-row justify-around items-start space-y-6 lg:space-y-0"
+        >
+          <div class="px-10">
+            <h3 class="section-content font-bold mb-2">
+              Lightspeed Global Inc (Canada)
+            </h3>
+            <p class="section-content text-gray-700">
+              <span class="font-semibold"
+                >340 King Street East, 4th Floor, Toronto, ON M5A 1K8</span
+              >
+            </p>
+            <p class="section-content text-gray-700">
+              Phone: <span class="font-semibold">647-812-1951</span>
+            </p>
+            <p class="section-content text-gray-700">
+              Email: <span class="font-semibold">care@lsghobby.com</span>
+            </p>
+          </div>
+          <div class="px-10">
+            <h3 class="section-content font-bold mb-2">LSG Hobby Inc (USA)</h3>
+            <p class="section-content text-gray-700">
+              <span class="font-semibold"
+                >1205 N Eliseo Felix Jr Way, Ste A110, Avondale, AZ 85323</span
+              >
+            </p>
+            <p class="section-content text-gray-700">
+              Phone: <span class="font-semibold">716-246-0520</span>
+            </p>
+            <p class="section-content text-gray-700">
+              Email: <span class="font-semibold">care@lsghobby.com</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("/layout/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load navigation
+          const navigationResponse = await fetch("/layout/navigation.html");
+          const navigationData = await navigationResponse.text();
+          document.getElementById("navigation-menu-placeholder").outerHTML =
+            navigationData;
+
+          // Load footer
+          const footerResponse = await fetch("/layout/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
