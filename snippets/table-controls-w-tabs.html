@@ -1,0 +1,57 @@
+<!-- Table Controls with Tabs -->
+<div
+  class="flex flex-col-reverse sm:flex-row items-start sm:items-end justify-between px-1"
+>
+  <div class="flex items-center gap-1 px-1">
+    <a
+      href="#"
+      class="py-2 px-2 border-b-4 border-yellow-300 rounded-tr-sm rounded-tl-sm text-center text-sm font-semibold text-[#333333]"
+      >Featured</a
+    >
+    <a
+      href="#"
+      class="py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      >Best Seller</a
+    >
+    <a
+      href="#"
+      class="py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      >New</a
+    >
+  </div>
+  <div class="flex items-center space-x-1 pb-2">
+    <!-- Sort By -->
+    <div class="flex items-center space-x-2">
+      <span class="hidden lg:inline text-gray-400 font-semibold text-xs"
+        >Sort By:</span
+      >
+      <div class="relative inline-block text-left">
+        <select
+          class="border text-xs rounded-md text-gray-700 text-xs font-semibold px-1 py-1 focus:outline-none focus:border-gray-500"
+        >
+          <option>Most Recent</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+    <!-- View per page -->
+    <div class="flex items-center space-x-1">
+      <span class="hidden lg:inline text-gray-400 text-xs font-semibold"
+        >View:</span
+      >
+      <div class="relative inline-block text-left">
+        <select
+          class="border rounded-md text-gray-700 text-xs font-semibold px-0 py-1 focus:outline-none focus:border-gray-500"
+        >
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+      </div>
+      <span class="hidden lg:inline text-gray-400 font-semibold text-xs"
+        >per page</span
+      >
+    </div>
+  </div>
+</div>

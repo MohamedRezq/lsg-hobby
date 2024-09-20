@@ -1,0 +1,57 @@
+<!-- Three-images slider -->
+<div
+  x-data="{
+          activeSlide: 0,
+          slides: [
+              '/assets/banner-sm-1.png',
+              '/assets/banner-sm-2.png',
+              '/assets/banner-sm-3.png',
+              'https://via.placeholder.com/300x80?text=Image+4',
+              'https://via.placeholder.com/300x80?text=Image+5',
+              'https://via.placeholder.com/300x80?text=Image+6'
+            ]
+          }"
+  class="relative w-full flex justify-center items-center overflow-hidden"
+>
+  <!-- Previous Button -->
+  <button
+    @click="activeSlide = activeSlide > 0 ? activeSlide - 1 : slides.length - currentImagesCount()"
+    style="background-color: #333333"
+    class="absolute h-8 w-8 flex items-center justify-center top-1/2 left-5 -translate-y-1/2 bg-gray-600 text-white p-2 rounded-full focus:outline-none"
+  >
+    &#10094;
+  </button>
+
+  <!-- Carousel Images -->
+  <div
+    class="flex justify-center space-x-5 my-5 overflow-hidden w-full mx-1 hide-scrollbar"
+  >
+    <template
+      x-for="(slide, index) in slides.slice(activeSlide, activeSlide + 3)"
+      :key="index"
+    >
+      <div
+        :style="{
+            width: screenSize() === 'sm' ? '100%' : screenSize() === 'md' ? '50%' : '33.33%'
+          }"
+        style="margin-left: 0 !important"
+        class="flex-shrink-0 gap-0 md:gap-1 lg:gap-2"
+      >
+        <img
+          :src="slide"
+          alt="Carousel Image"
+          class="w-full h-72 object-cover rounded-3xl px-1"
+        />
+      </div>
+    </template>
+  </div>
+
+  <!-- Next Button -->
+  <button
+    @click="activeSlide = (activeSlide + 1) % (slides.length - currentImagesCount())"
+    style="background-color: #333333"
+    class="absolute h-8 w-8 flex items-center justify-center top-1/2 right-5 -translate-y-1/2 bg-gray-600 text-white p-2 rounded-full focus:outline-none"
+  >
+    &#10095;
+  </button>
+</div>
