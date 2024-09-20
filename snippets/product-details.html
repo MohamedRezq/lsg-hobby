@@ -1,0 +1,124 @@
+<div
+  id="product-details-container"
+  class="container mx-auto px-4 py-8 flex flex-col lg:flex-row lg:space-x-8"
+>
+  <!-- Product Image and Carousel Section -->
+  <div class="lg:w-2/5 w-full">
+    <!-- Main Image -->
+    <div id="main-product-image" class="relative w-full h-[500px] mb-4">
+      <img
+        src=""
+        alt="Product Image"
+        class="w-full h-96 object-cover rounded-lg shadow-sm"
+        id="current-main-image"
+      />
+      <button
+        id="prev-slide"
+        class="absolute top-1/2 left-0 px-2 py-1 bg-gray-300 text-sm"
+      >
+        &#10094;
+      </button>
+      <button
+        id="next-slide"
+        class="absolute top-1/2 right-0 px-2 py-1 bg-gray-300 text-sm"
+      >
+        &#10095;
+      </button>
+    </div>
+
+    <!-- Thumbnails -->
+    <div
+      id="thumbnail-carousel"
+      class="flex space-x-2 overflow-x-auto hide-scrollbar"
+    >
+      <!-- Thumbnails will be inserted here dynamically -->
+    </div>
+  </div>
+
+  <!-- Product Info Section -->
+  <div class="lg:w-3/5 w-full text-sm">
+    <h1 id="product-name" class="text-sm font-bold text-[#333333]"></h1>
+    <h1
+      id="product-description"
+      class="text-lg font-semibold text-[#333333]"
+    ></h1>
+    <div class="mt-1 text-gray-500">
+      <p>SKU: <span id="product-sku" class="font-bold"></span></p>
+      <p>MFG CODE: <span id="product-mfg-code" class="font-bold"></span></p>
+      <p>UPC: <span id="product-upc" class="font-bold"></span></p>
+      <p class="mt-1">
+        Category:
+        <span id="product-category" class="font-bold text-[#333333]"></span>
+      </p>
+    </div>
+
+    <!-- Pricing -->
+    <div id="pricing" class="my-4 text-sm">
+      <p id="net-price" class="line-through text-gray-500"></p>
+      <p id="final-price" class="text-md font-semibold text-[#333333]"></p>
+      <p id="srp" class="text-sm font-bold text-yellow-600"></p>
+      <span
+        class="bg-green-100 text-green-700 px-2 py-1 rounded-md"
+        id="availability-status"
+      ></span>
+    </div>
+
+    <!-- Stock and Add to Cart -->
+    <div class="my-4">
+      <span
+        class="text-sm font-semibold text-gray-600"
+        id="pre-order-status"
+      ></span>
+      <div class="mt-2 flex items-center">
+        <input
+          type="number"
+          class="w-12 border rounded-md text-center py-1 text-sm"
+          value="1"
+          min="1"
+          id="quantity-input"
+        />
+        <button
+          class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded-md ml-2"
+          id="add-to-cart"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Details and Specifications Tabs -->
+<div class="container mx-auto mt-8 px-4 text-sm">
+  <div class="flex space-x-8 px-4">
+    <button
+      id="details-tab"
+      class="border-b-4 border-yellow-500 px-4 py-2 font-semibold"
+    >
+      Product Details
+    </button>
+    <button
+      id="specifications-tab"
+      class="border-b-4 border-transparent px-4 py-2"
+    >
+      Specifications
+    </button>
+  </div>
+  <div id="product-details" class="text-gray-600 bg-gray-100 p-5 rounded-lg">
+    <p id="details"></p>
+  </div>
+  <div id="product-specifications" class="hidden">
+    <ul id="spec-list" class="list-disc pl-10 bg-gray-100 p-5 rounded-lg"></ul>
+  </div>
+</div>
+
+<!-- Related Products Section -->
+<div id="related-products" class="container mx-auto">
+  <h2 class="text-lg font-bold text-gray-700 mb-4 mt-20">Related Products</h2>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    id="related-products-list"
+  >
+    <!-- Related products will be dynamically inserted here -->
+  </div>
+</div>
