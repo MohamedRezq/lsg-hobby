@@ -5,20 +5,27 @@
   <div class="flex items-center gap-1 px-1">
     <a
       href="#"
-      class="py-2 px-2 border-b-4 border-yellow-300 rounded-tr-sm rounded-tl-sm text-center text-sm font-semibold text-[#333333]"
+      id="featured-tab"
+      class="tab-link py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      data-tab="featured"
       >Featured</a
     >
     <a
       href="#"
-      class="py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      id="best-seller-tab"
+      class="tab-link py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      data-tab="best-seller"
       >Best Seller</a
     >
     <a
       href="#"
-      class="py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      id="new-tab"
+      class="tab-link py-2 px-2 border-b-4 border-gray-50 rounded-tr-sm rounded-tl-sm text-center text-sm text-gray-500"
+      data-tab="new"
       >New</a
     >
   </div>
+
   <div class="flex items-center space-x-1 pb-2">
     <!-- Sort By -->
     <div class="flex items-center space-x-2">
@@ -27,14 +34,16 @@
       >
       <div class="relative inline-block text-left">
         <select
+          id="sort-select"
           class="border text-xs rounded-md text-gray-700 text-xs font-semibold px-1 py-1 focus:outline-none focus:border-gray-500"
         >
-          <option>Most Recent</option>
-          <option>Price: Low to High</option>
-          <option>Price: High to Low</option>
+          <option value="recent">Most Recent</option>
+          <option value="low-to-high">Price: Low to High</option>
+          <option value="high-to-low">Price: High to Low</option>
         </select>
       </div>
     </div>
+
     <!-- View per page -->
     <div class="flex items-center space-x-1">
       <span class="hidden lg:inline text-gray-400 text-xs font-semibold"
@@ -42,11 +51,12 @@
       >
       <div class="relative inline-block text-left">
         <select
+          id="page-count-select"
           class="border rounded-md text-gray-700 text-xs font-semibold px-0 py-1 focus:outline-none focus:border-gray-500"
         >
-          <option>25</option>
-          <option>50</option>
-          <option>100</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
         </select>
       </div>
       <span class="hidden lg:inline text-gray-400 font-semibold text-xs"
