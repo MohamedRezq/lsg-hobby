@@ -15,8 +15,6 @@ const products = [
       "https://images.lsghobby.com/BNDAI-2615240/thumbnail/thumb_BNDAI-2615240.jpg",
     eta: "2024-Dec",
     reserve: "PO #1234",
-    discount: "-20%",
-    finalPrice: "$44.97",
   },
   {
     name: "Abteilung502 Soviet Armored Forces",
@@ -33,8 +31,6 @@ const products = [
       "https://images.lsghobby.com/AK-ABT610-ES/thumbnail/thumb_AK-ABT610-ES.jpg",
     eta: "2025-Jan",
     reserve: "PO #5678",
-    discount: "-20%",
-    finalPrice: "$29.40",
   },
   {
     name: "HiQ Parts Sponsor Logo Decal",
@@ -106,8 +102,6 @@ const products = [
       "https://images.lsghobby.com/GSC-PR82118/thumbnail/thumb_GSC-PR82118.jpg",
     eta: "2025-Mar",
     reserve: "PO #1235",
-    discount: "-15%",
-    finalPrice: "$245.80",
   },
   {
     name: "Max Factory",
@@ -125,8 +119,6 @@ const products = [
       "https://images.lsghobby.com/GSC-M04399/thumbnail/thumb_GSC-M04399.jpg",
     eta: "2025-Mar",
     reserve: "PO #5679",
-    discount: "-10%",
-    finalPrice: "$268.61",
   },
   {
     name: "Good Smile",
@@ -232,26 +224,28 @@ function renderProductTable() {
   </div>
 </td>
 <td class="px-2 py-2 align-top text-xs font-semibold text-gray-700">${
-      product.description
+      product.description ?? ""
     }</td>
-<td class="px-2 py-2 align-top text-xs font-semibold">${product.scale}</td>
+<td class="px-2 py-2 align-top text-xs font-semibold">${
+      product.scale ?? ""
+    }</td>
 <td class="px-2 py-2 text-right align-top text-xs">
   <div class="flex flex-col items-end">
     <div class="flex items-end gap-2">
       <span class="text-xs font-semibold text-red-600">${
-        product.discount
+        product.discount ?? ""
       }</span>
       <span class="text-xs font-semibold text-[#333333]">${
-        product.finalPrice
+        product.finalPrice ?? ""
       }</span>
     </div>
-    <span class="text-xs text-gray-500">Original price: <span class="text-xs line-through">${
-      product.srp
-    }</span></span>
+    <span class="text-xs text-gray-500">Original price: <span class="text-xs ${
+      product.discount ? "line-through" : "text-black font-semibold"
+    }">${product.netPrice ?? ""}</span></span>
   </div>
 </td>
 <td class="px-2 py-2 text-right align-top text-xs font-semibold text-[#333333]">${
-      product.netPrice
+      product.srp
     }</td>
 <td class="px-2 py-2 text-center align-top">
   <i class="${
@@ -328,26 +322,26 @@ function renderProductCards() {
       }
     </div>
     <p class="text-gray-700">
-      SKU: <span class="font-semibold">${product.sku}</span>
+      SKU: <span class="font-semibold">${product.sku ?? ""}</span>
     </p>
     <p class="text-gray-700">
-      MFG Code: <span class="font-semibold">${product.mfgCode}</span>
+      MFG Code: <span class="font-semibold">${product.mfgCode ?? ""}</span>
     </p>
     <p class="text-gray-700">
-      UPC: <span class="font-semibold">${product.upc}</span>
+      UPC: <span class="font-semibold">${product.upc ?? ""}</span>
     </p>
     <p class="text-gray-700">
-      Category: <span class="font-bold">${product.category}</span>
+      Category: <span class="font-bold">${product.category ?? ""}</span>
     </p>
   </div>
 </div>
 <div class="w-full flex justify-between items-start">
   <div class="flex flex-col items-start justify-end h-full">
     <div style="font-size: 8pt" class="font-semibold text-green-600">
-      Reserve on ${product.reserve}
+      Reserve on ${product.reserve ?? ""}
     </div>
     <div style="font-size: 8pt" class="font-semibold text-yellow-600">
-      ETA: ${product.eta}
+      ETA: ${product.eta ?? ""}
     </div>
     <div style="font-size: 8pt" class="mt-1 flex flex-col justify-start">
       <div class="text-[8pt] font-semibold text-[#333333]" title="Back Ordered">
@@ -365,21 +359,23 @@ function renderProductCards() {
     <div class="flex flex-col items-end">
       <div class="flex items-end gap-2">
         <span style="font-size: 8pt" class="text-xs font-semibold text-red-600">
-          ${product.discount}
+          ${product.discount ?? ""}
         </span>
         <span class="text-xs font-semibold text-[#333333]">${
-          product.finalPrice
+          product.finalPrice ?? ""
         }</span>
       </div>
       <span style="font-size: 8pt" class="=text-gray-500">
         Original price:
-        <span style="font-size: 8.5pt" class="text-xs line-through">${
-          product.srp
-        }</span>
+        <span style="font-size: 8.5pt" class="text-xs ${
+          product.discount ? "line-through" : "text-black font-semibold"
+        }">${product.netPrice ?? ""}</span>
       </span>
       <span style="font-size: 8pt" class="text-xs">
         SRP:
-        <span class="text-xs font-semibold text-[#333333]">${product.srp}</span>
+        <span class="text-xs font-semibold text-[#333333]">${
+          product.srp ?? ""
+        }</span>
       </span>
       <div class="mt-1 flex items-center gap-1">
         <span class="rounded-md bg-blue-200 px-2 py-0.5 text-xs text-blue-800">PreOrder</span>

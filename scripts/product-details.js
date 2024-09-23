@@ -288,11 +288,15 @@ function renderRelatedProducts() {
         <span style="font-size: 8pt" class="text-xs font-semibold text-red-600">
           ${product.discount}
         </span>
-        <span class="text-xs font-semibold text-[#333333]">${product.finalPrice}</span>
+        <span class="text-xs font-semibold text-[#333333]">${
+          product.finalPrice
+        }</span>
       </div>
       <span style="font-size: 8pt" class="=text-gray-500">
         Original price:
-        <span style="font-size: 8.5pt" class="text-xs line-through">${product.srp}</span>
+        <span style="font-size: 8.5pt" class="text-xs ${
+          product.discount ? "line-through" : "text-black font-semibold"
+        }">${product.netPrice}</span>
       </span>
       <span style="font-size: 8pt" class="text-xs">
         SRP:
