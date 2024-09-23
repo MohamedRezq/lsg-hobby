@@ -49,13 +49,10 @@ function renderProductDetails() {
   document.getElementById("product-category").innerText = `${product.category}`;
 
   // Set pricing
-  document.getElementById("srp").innerText = `SRP: ${product.srp}`;
-  document.getElementById(
-    "net-price"
-  ).innerText = `Net Price: ${product.netPrice}`;
-  document.getElementById(
-    "final-price"
-  ).innerText = `Final Price: ${product.finalPrice}`;
+  document.getElementById("srp").innerText = `${product.srp}`;
+  document.getElementById("net-price").innerText = `${product.netPrice}`;
+  document.getElementById("discount").innerText = product.discount;
+  document.getElementById("final-price").innerText = `${product.finalPrice}`;
   document.getElementById(
     "availability-status"
   ).innerText = `Pre-Order Available. ETA: ${product.eta}`;

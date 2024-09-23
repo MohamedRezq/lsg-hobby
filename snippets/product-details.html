@@ -1,11 +1,14 @@
 <div
   id="product-details-container"
-  class="container mx-auto px-4 py-8 flex flex-col lg:flex-row lg:space-x-8"
+  class="container mx-auto px-4 py-8 flex flex-col lg:flex-row space-y-8 lg:space-x-8"
 >
   <!-- Product Image and Carousel Section -->
   <div class="lg:w-2/5 w-full">
     <!-- Main Image -->
-    <div id="main-product-image" class="relative w-full h-[500px] mb-4">
+    <div
+      id="main-product-image"
+      class="relative w-full h-[300px] lg:h-[500px] mb-4"
+    >
       <img
         src=""
         alt="Product Image"
@@ -48,19 +51,37 @@
       <p>UPC: <span id="product-upc" class="font-bold"></span></p>
       <p class="mt-1">
         Category:
-        <span id="product-category" class="font-bold text-[#333333]"></span>
+        <span id="product-category" class="font-bold"></span>
       </p>
     </div>
 
     <!-- Pricing -->
     <div id="pricing" class="my-4 text-sm">
-      <p id="net-price" class="line-through text-gray-500"></p>
-      <p id="final-price" class="text-md font-semibold text-[#333333]"></p>
-      <p id="srp" class="text-sm font-bold text-yellow-600"></p>
-      <span
-        class="bg-green-100 text-green-700 px-2 py-1 rounded-md"
+      <p class="flex items-center justify-between w-48">
+        <span>Net Price:</span>
+        <span
+          ><span
+            id="discount"
+            class="ml-3 text-red-500 text-xs font-bold"
+          ></span>
+          <span id="final-price" class="font-bold"></span
+        ></span>
+      </p>
+      <p class="flex items-center justify-between w-48">
+        Original Price:
+        <span
+          id="net-price"
+          class="line-through font-semibold text-gray-500"
+        ></span>
+      </p>
+      <p class="flex items-center justify-between w-48">
+        SRP: <span id="srp" class="font-bold"></span>
+      </p>
+      <div
+        style="width: fit-content"
+        class="bg-green-100 text-green-700 px-3 py-1 rounded-md mt-3 font-semibold text-xs"
         id="availability-status"
-      ></span>
+      ></div>
     </div>
 
     <!-- Stock and Add to Cart -->
@@ -93,13 +114,13 @@
   <div class="flex space-x-8 px-4">
     <button
       id="details-tab"
-      class="border-b-4 border-yellow-500 px-4 py-2 font-semibold"
+      class="border-b-4 border-yellow-500 px-2 py-2 font-semibold"
     >
       Product Details
     </button>
     <button
       id="specifications-tab"
-      class="border-b-4 border-transparent px-4 py-2"
+      class="border-b-4 border-transparent px-2 py-2"
     >
       Specifications
     </button>

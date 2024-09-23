@@ -235,9 +235,6 @@ function renderProductTable() {
       product.description
     }</td>
 <td class="px-2 py-2 align-top text-xs font-semibold">${product.scale}</td>
-<td class="px-2 py-2 text-right align-top text-xs font-semibold text-[#333333]">${
-      product.netPrice
-    }</td>
 <td class="px-2 py-2 text-right align-top text-xs">
   <div class="flex flex-col items-end">
     <div class="flex items-end gap-2">
@@ -253,6 +250,9 @@ function renderProductTable() {
     }</span></span>
   </div>
 </td>
+<td class="px-2 py-2 text-right align-top text-xs font-semibold text-[#333333]">${
+      product.netPrice
+    }</td>
 <td class="px-2 py-2 text-center align-top">
   <i class="${
     product.stock.toronto > 0 || product.stock.phoenix > 0
