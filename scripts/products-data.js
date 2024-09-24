@@ -61,6 +61,12 @@ function renderProductTable(products) {
 <a href="/pages/product.html?id=${product.id}" class="hover:underline">
     ${product.description ?? ""}
   </a>
+  <div class="mt-1 text-xs font-semibold text-green-600">
+  ${product.reserve ?? ""}
+                    </div>
+                    <div class="text-xs font-semibold text-yellow-600">
+                    ${product.eta ?? ""}
+                    </div>
 </td>
 <td class="px-2 py-2 align-top text-xs font-semibold">${
       product.scale ?? ""
@@ -133,6 +139,23 @@ function renderProductTable(products) {
       Add to Cart
     </button>
   </div>
+  <div class="mt-1 flex flex-col justify-start gap-0 pl-1 text-xs">
+                      <div
+                        class="text-[8pt] font-semibold text-[#333333]"
+                      >
+                      ${product.moq ?? ""}
+                      </div>
+                      <div
+                        class="text-[8pt] font-semibold text-yellow-700"
+                      >
+                      ${product.backOrdered ?? ""}
+                      </div>
+                      <div
+                        class="text-[8pt] text-gray-500"
+                      >
+                      ${product.lastPurchased ?? ""}
+                      </div>
+                    </div>
 </td>
 </tr>
 `;

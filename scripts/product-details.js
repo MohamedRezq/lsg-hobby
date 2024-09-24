@@ -42,12 +42,47 @@ function renderProductDetails(product) {
   // Set pricing
   document.getElementById("srp").innerText = product.srp;
   document.getElementById("net-price").innerText = product.netPrice;
+  if (product.discount) {
+    document.getElementById("net-price").classList.add("line-through");
+  } else {
+    document.getElementById("original-price-label").classList.add("hidden");
+  }
   document.getElementById("discount").innerText = product.discount || "";
+  document.getElementById("product-details-moq").innerText = product.moq || "";
+  document.getElementById("product-details-back-ordered").innerText =
+    product.backOrdered || "";
+  document.getElementById("product-details-last-purchased").innerText =
+    product.lastPurchased || "";
   document.getElementById("final-price").innerText = product.finalPrice || "";
+  document.getElementById("product-details-tag").innerText = product.tag || "";
+  document.getElementById("product-details-scale").innerText =
+    product.scale || "";
 
-  document.getElementById(
-    "availability-status"
-  ).innerText = `Pre-Order Available. ETA: ${product.eta}`;
+  function getTagStyling() {
+    let classNames = "";
+
+    if (product.tag == "New") {
+      classNames = "bg-green-200 text-green-700";
+    } else if (product.tag == "PreOrder") {
+      classNames = "bg-blue-200 text-blue-700";
+    } else if (product.tag == "Special Order") {
+      classNames = "bg-purple-200 text-purple-700";
+    } else {
+      classNames = "bg-gray-200 text-gray-700";
+    }
+
+    const classListArray = classNames.split(" ");
+
+    return classListArray;
+  }
+
+  document
+    .getElementById("product-details-tag")
+    .classList.add(...getTagStyling());
+
+  document.getElementById("availability-status").innerText = `${
+    product.reserve ?? ""
+  }`;
 
   // Set product details
   document.getElementById("details").innerText = product.details;

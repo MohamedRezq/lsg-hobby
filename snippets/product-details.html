@@ -36,11 +36,18 @@
   </div>
 
   <!-- Product Info Section -->
-  <div class="lg:w-3/5 w-full text-sm">
-    <h1 id="product-name" class="text-sm font-bold text-[#333333]"></h1>
+  <div class="lg:w-2/5 w-full text-sm">
+    <div class="mt-2 text-gray-700 w-full flex justify-between items-end">
+      <h1 id="product-name" class="text-sm font-bold text-[#333333]"></h1>
+      <div
+        style="font-size: 8pt"
+        class="px-3 py-1 rounded-md mt-3 font-semibold text-xs inline-block"
+        id="product-details-tag"
+      ></div>
+    </div>
     <h1
       id="product-description"
-      class="text-lg font-semibold text-[#333333]"
+      class="text-lg mt-2 font-semibold text-[#333333]"
     ></h1>
     <div class="mt-1 text-gray-500">
       <p>SKU: <span id="product-sku" class="font-bold"></span></p>
@@ -49,39 +56,56 @@
       <p class="mt-1">
         Category: <span id="product-category" class="font-bold"></span>
       </p>
+      <p class="my-3 font-semibold text-xs" id="product-details-scale">
+        Scale:
+      </p>
+      <span
+        class="bg-green-100 text-green-700 px-3 py-1 rounded-md mt-3 font-semibold text-xs"
+        id="availability-status"
+      ></span>
     </div>
     <!-- Pricing -->
-    <div id="pricing" class="my-4 text-sm">
-      <p class="flex items-center justify-between w-48">
-        <span>Net Price:</span>
+    <div id="pricing" class="my-4 text-md w-full flex flex-col items-end">
+      <p class="flex items-center justify-end w-48">
         <span
           ><span
             id="discount"
-            class="ml-3 text-red-500 text-xs font-bold"
+            class="mr-3 text-red-500 text-sm font-bold"
           ></span
-          ><span id="final-price" class="font-bold"></span
+          ><span id="final-price" class="font-bold text-base"></span
         ></span>
       </p>
-      <p class="flex items-center justify-between w-48">
-        Original Price:<span
+      <p
+        class="flex items-center justify-between flex-row-reverse w-36 text-xs"
+      >
+        <span
           id="net-price"
-          class="line-through font-semibold text-gray-500"
+          class="font-semibold text-base text-gray-500"
         ></span>
+        <span id="original-price-label">Original Price:</span>
       </p>
-      <p class="flex items-center justify-between w-48">
-        SRP: <span id="srp" class="font-bold"></span>
+      <p
+        class="flex items-center text-xs flex-row-reverse justify-between w-36"
+      >
+        <span id="srp" class="font-bold text-base"></span><span>SRP: </span>
       </p>
-      <div
-        class="bg-green-100 text-green-700 px-3 py-1 rounded-md mt-3 font-semibold text-xs"
-        id="availability-status"
-      ></div>
     </div>
     <!-- Stock and Add to Cart -->
-    <div class="my-4">
-      <span
-        class="text-sm font-semibold text-gray-600"
-        id="pre-order-status"
-      ></span>
+    <div class="my-4 w-full flex justify-between">
+      <div class="mt-1 flex flex-col justify-start gap-0 pl-1 text-xs">
+        <div
+          id="product-details-moq"
+          class="text-[8pt] font-semibold text-[#333333]"
+        ></div>
+        <div
+          id="product-details-back-ordered"
+          class="text-[8pt] font-semibold text-yellow-700"
+        ></div>
+        <div
+          id="product-details-last-purchased"
+          class="text-[8pt] text-gray-500"
+        ></div>
+      </div>
       <div class="mt-2 flex items-center">
         <input
           type="number"
