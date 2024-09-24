@@ -28,14 +28,11 @@
         &#10095;
       </button>
     </div>
-
     <!-- Thumbnails -->
     <div
       id="thumbnail-carousel"
       class="flex space-x-2 overflow-x-auto hide-scrollbar"
-    >
-      <!-- Thumbnails will be inserted here dynamically -->
-    </div>
+    ></div>
   </div>
 
   <!-- Product Info Section -->
@@ -50,11 +47,9 @@
       <p>MFG CODE: <span id="product-mfg-code" class="font-bold"></span></p>
       <p>UPC: <span id="product-upc" class="font-bold"></span></p>
       <p class="mt-1">
-        Category:
-        <span id="product-category" class="font-bold"></span>
+        Category: <span id="product-category" class="font-bold"></span>
       </p>
     </div>
-
     <!-- Pricing -->
     <div id="pricing" class="my-4 text-sm">
       <p class="flex items-center justify-between w-48">
@@ -63,13 +58,12 @@
           ><span
             id="discount"
             class="ml-3 text-red-500 text-xs font-bold"
-          ></span>
-          <span id="final-price" class="font-bold"></span
+          ></span
+          ><span id="final-price" class="font-bold"></span
         ></span>
       </p>
       <p class="flex items-center justify-between w-48">
-        Original Price:
-        <span
+        Original Price:<span
           id="net-price"
           class="line-through font-semibold text-gray-500"
         ></span>
@@ -78,12 +72,10 @@
         SRP: <span id="srp" class="font-bold"></span>
       </p>
       <div
-        style="width: fit-content"
         class="bg-green-100 text-green-700 px-3 py-1 rounded-md mt-3 font-semibold text-xs"
         id="availability-status"
       ></div>
     </div>
-
     <!-- Stock and Add to Cart -->
     <div class="my-4">
       <span
@@ -136,10 +128,25 @@
 <!-- Related Products Section -->
 <div id="related-products" class="container mx-auto">
   <h2 class="text-lg font-bold text-gray-700 mb-4 mt-20">Related Products</h2>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-    id="related-products-list"
-  >
-    <!-- Related products will be dynamically inserted here -->
+  <div class="flex justify-between items-center mb-4">
+    <button
+      id="related-prev"
+      style="height: fit-content"
+      class="bg-gray-300 px-3 py-2 mr-3 rounded-lg text-xs"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button
+      id="related-next"
+      style="height: fit-content"
+      class="bg-gray-300 px-3 py-2 ml-3 rounded-lg text-xs"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
   </div>
+  <div
+    style="max-height: min-content"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"
+    id="related-products-list"
+  ></div>
 </div>
