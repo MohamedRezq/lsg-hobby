@@ -42,7 +42,6 @@ function renderProductTable(products) {
       product.name
     }" class="h-20 w-20 rounded-lg object-contain shadow-sm">
   <div>
-    <div class="text-xs font-bold text-gray-700">${product.name}</div>
     <div class="text-xs text-gray-500">SKU: <span class="font-semibold">${
       product.sku
     }</span></div>
@@ -57,8 +56,13 @@ function renderProductTable(products) {
     }</span></div>
   </div>
 </td>
-<td class="px-2 py-2 align-top text-xs font-semibold text-gray-700">
-<a href="/pages/product.html?id=${product.id}" class="hover:underline">
+<td class="px-2 pt-2 pb-1 align-top text-xs font-semibold text-gray-700">
+<div style="font-size: 9pt" class="text-xs font-semibold mb-1 text-gray-500">${
+      product.name
+    }</div>
+<a href="/pages/product.html?id=${
+      product.id
+    }" class="hover:underline font-bold">
     ${product.description ?? ""}
   </a>
   <div class="mt-1 text-xs font-semibold text-green-600">
@@ -68,22 +72,22 @@ function renderProductTable(products) {
                     ${product.eta ?? ""}
                     </div>
 </td>
-<td class="px-2 py-2 align-top text-xs font-semibold">${
+<td style="font-size: 9pt" class="px-2 pt-2 pb-1 align-top font-semibold">${
       product.scale ?? ""
     }</td>
-<td class="px-2 py-2 text-right align-top text-xs">
+<td class="px-2 pt-2 pb-1 text-right align-top text-xs">
   <div class="flex flex-col items-end">
     <div class="flex items-end gap-2">
       <span class="text-xs font-semibold text-red-600">${
         product.discount ?? ""
       }</span>
-      <span class="text-xs font-semibold text-[#333333]">${
+      <span style="font-size: 10pt" class="font-semibold text-[#333333]">${
         product.finalPrice ?? ""
       }</span>
     </div>
-    <span class="text-xs text-gray-500">${
-      product.discount ? "Original price: " : ""
-    }<span class="text-xs ${
+    <span style="font-size: 8.5pt" class="text-gray-500">${
+      product.discount ? "price: " : ""
+    }<span style="font-size: 10pt" class="text-xs ml-1 ${
       product.discount ? "line-through" : "text-black font-semibold"
     }">${product.netPrice ?? ""}</span></span>
     ${
@@ -108,10 +112,10 @@ function renderProductTable(products) {
     }
   </div>
 </td>
-<td class="px-2 py-2 text-right align-top text-xs font-semibold text-[#333333]">${
+<td style="font-size: 10pt" class="px-2 pt-2 pb-1 text-right align-top text-xs font-semibold text-[#333333]">${
       product.srp
     }</td>
-<td class="px-2 py-2 text-center align-top">
+<td class="px-2 pt-2 pb-1 text-center align-top">
   <i class="${
     product.stock.toronto > 0 || product.stock.phoenix > 0
       ? "fas fa-check-circle text-green-500"
@@ -126,7 +130,7 @@ function renderProductTable(products) {
     }</div>
   </div>
 </td>
-<td class="py-2 text-left align-top">
+<td class="pt-2 pb-1 text-left align-top">
   <div class="mb-1 flex items-center justify-start space-x-2">
     <input type="number" style="max-width: 55px" step="2" class="block rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs text-[#333333]" placeholder="2" required ${
       isOutOfStock ? "disabled" : ""
@@ -141,17 +145,20 @@ function renderProductTable(products) {
   </div>
   <div class="mt-1 flex flex-col justify-start gap-0 pl-1 text-xs">
                       <div
-                        class="text-[8pt] font-semibold text-[#333333]"
+                      style="font-size: 8.5pt"
+                        class="font-semibold text-[#333333]"
                       >
                       ${product.moq ?? ""}
                       </div>
                       <div
-                        class="text-[8pt] font-semibold text-yellow-700"
+                      style="font-size: 8.5pt"
+                        class="font-semibold text-yellow-700"
                       >
                       ${product.backOrdered ?? ""}
                       </div>
                       <div
-                        class="text-[8pt] text-gray-500"
+                      style="font-size: 8.5pt"
+                        class="text-gray-500"
                       >
                       ${product.lastPurchased ?? ""}
                       </div>

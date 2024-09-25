@@ -234,8 +234,8 @@ function renderRelatedProducts(products) {
               Scale: <span class="font-bold text-center">${product.scale}</span>
             </div>
           </div>
-          <div style="font-size: 8pt" class="flex flex-col gap-0.25 text-[#333333]">
-            <h2 style="font-size: 8pt" class="font-bold leading-tight">${
+          <div class="flex flex-col gap-0.25 text-[#333333]">
+            <h2 style="font-size: 8pt" class="font-bold leading-tight text-gray-500">${
               product.name
             }</h2>
             <p style="font-size: 8.5pt" class="font-semibold">${
