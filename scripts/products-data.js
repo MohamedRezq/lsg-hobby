@@ -37,27 +37,27 @@ function renderProductTable(products) {
 
     const row = `
 <tr class="bg-white transition duration-200 ease-in-out hover:bg-gray-50">
-<td class="flex gap-2 space-y-1 px-2 py-1 align-top">
+<td style="font-size: 8.5pt" class="flex gap-2 space-y-1 px-2 py-1 align-top">
   <img src="${product.image}" alt="${
       product.name
     }" class="h-20 w-20 rounded-lg object-contain shadow-sm">
   <div>
-    <div class="text-xs text-gray-500">SKU: <span class="font-semibold">${
+    <div class="text-gray-500">SKU: <span class="font-semibold">${
       product.sku
     }</span></div>
-    <div class="text-xs text-gray-500">MFG CODE: <span class="font-semibold">${
+    <div class="text-gray-500">MFG CODE: <span class="font-semibold">${
       product.mfgCode
     }</span></div>
-    <div class="text-xs text-gray-500">UPC: <span class="font-semibold">${
+    <div class="text-gray-500">UPC: <span class="font-semibold">${
       product.upc
     }</span></div>
-    <div class="text-xs font-normal text-gray-500">Category: <span class="font-bold text-gray-700">${
+    <div class="font-normal text-gray-500">Category: <span class="font-bold text-gray-700">${
       product.category
     }</span></div>
   </div>
 </td>
 <td class="px-2 pt-2 pb-1 align-top text-xs font-semibold text-gray-700">
-<div style="font-size: 9pt" class="text-xs font-semibold mb-1 text-gray-500">${
+<div style="font-size: 8.5pt" class="font-semibold text-gray-500">${
       product.name
     }</div>
 <a href="/pages/product.html?id=${
@@ -65,10 +65,10 @@ function renderProductTable(products) {
     }" class="hover:underline font-bold">
     ${product.description ?? ""}
   </a>
-  <div class="mt-1 text-xs font-semibold text-green-600">
+  <div style="font-size: 8.5pt" class="mt-0.5 font-semibold text-green-600">
   ${product.reserve ?? ""}
                     </div>
-                    <div class="text-xs font-semibold text-yellow-600">
+                    <div style="font-size: 8.5pt" class="text-xs font-semibold text-yellow-600">
                     ${product.eta ?? ""}
                     </div>
 </td>
@@ -92,22 +92,22 @@ function renderProductTable(products) {
     }">${product.netPrice ?? ""}</span></span>
     ${
       product.tag == "New"
-        ? "<div class='bg-green-200 text-green-700 text-xs mt-1 px-2 rounded-md py-1'>New</div>"
+        ? "<div class='bg-green-200 text-green-700 mt-1 px-2 rounded-md py-1'>New</div>"
         : ""
     }
     ${
       product.tag == "Special Order"
-        ? "<div class='bg-purple-200 text-purple-700 text-xs mt-1 px-2 rounded-md py-1'>Special Order</div>"
+        ? "<div class='bg-purple-200 text-purple-700 mt-1 px-2 rounded-md py-1'>Special Order</div>"
         : ""
     }
     ${
       product.tag == "PreOrder"
-        ? "<div class='bg-blue-200 text-blue-700 text-xs mt-1 px-2 rounded-md py-1'>PreOrder</div>"
+        ? "<div class='bg-blue-200 text-blue-700 mt-1 px-2 rounded-md py-1'>PreOrder</div>"
         : ""
     }
     ${
       product.tag == "Discontinued"
-        ? "<div class='bg-gray-200 text-gray-700 text-xs mt-1 px-2 rounded-md py-1'>Discontinued</div>"
+        ? "<div class='bg-gray-200 text-gray-700 mt-1 px-2 rounded-md py-1'>Discontinued</div>"
         : ""
     }
   </div>
