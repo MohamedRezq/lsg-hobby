@@ -43,8 +43,16 @@ function renderProductDetails(product) {
   document.getElementById("srp").innerText = product.srp;
   document.getElementById("net-price").innerText = product.netPrice;
   if (product.discount) {
-    document.getElementById("net-price").classList.add("line-through");
+    document
+      .getElementById("net-price")
+      .classList.add(
+        "line-through",
+        "text-base",
+        "font-normal",
+        "text-gray-500"
+      );
   } else {
+    document.getElementById("net-price").classList.add("text-xl", "font-bold");
     document.getElementById("original-price-label").classList.add("hidden");
   }
   document.getElementById("discount").innerText = product.discount || "";

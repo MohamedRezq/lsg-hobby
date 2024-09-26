@@ -137,32 +137,37 @@
             border-collapse: collapse;
         }
         th:first-child, td:first-child {
-            width:230px; /* Fixed width for the first column */
-            min-width: 230px
+            width:90px; /* Fixed width for the first column */
+            min-width: 90px
         }
-        th:nth-child(3), td:nth-child(3) {
+        th:nth-child(2), td:nth-child(2) {
+            width: 150px; /* Fixed width for the third column */
+            min-width: 150px;
+        }
+        th:nth-child(4), td:nth-child(4) {
             width: 55px; /* Fixed width for the third column */
             min-width: 55px;
         }
-        th:nth-child(4), td:nth-child(4) {
-            width: 130px; /* Fixed width for the fourth column */
-            min-width: 130px;
-        }
         th:nth-child(5), td:nth-child(5) {
+            width: 110px; /* Fixed width for the fourth column */
+            min-width: 110px;
+        }
+        th:nth-child(6), td:nth-child(6) {
             width: 60px; /* Fixed width for the fifth column */
             min-width: 60px;
         }
-        th:nth-child(6), td:nth-child(6) {
+        th:nth-child(7), td:nth-child(7) {
             width: 100px; /* Fixed width for the fifth column */
             min-width: 100px;
         }
-        th:nth-child(7), td:nth-child(7) {
+        th:nth-child(8), td:nth-child(8) {
             width: 170px; /* Fixed width for the fifth column */
             min-width: 170px;
         }
         /* Let the second column take the remaining width */
-        th:nth-child(2), td:nth-child(2) {
+        th:nth-child(3), td:nth-child(3) {
             width: auto;
             min-width: 240px;
         }
+        tr:nth-child(even) {background-color: #f2f2f2;}
 </style>

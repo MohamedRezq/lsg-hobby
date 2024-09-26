@@ -1,6 +1,6 @@
 <div
   id="product-details-container"
-  class="container mx-auto px-4 py-8 flex flex-col lg:flex-row space-y-8 lg:space-x-8"
+  class="container mx-auto px-4 py-8 flex flex-col lg:flex-row lg:space-x-8"
 >
   <!-- Product Image and Carousel Section -->
   <div class="lg:w-2/5 w-full">
@@ -36,8 +36,8 @@
   </div>
 
   <!-- Product Info Section -->
-  <div class="lg:w-2/5 w-full text-sm">
-    <div class="mt-2 text-gray-700 w-full flex justify-between items-end">
+  <div class="lg:w-2/5 w-full text-sm flex flex-col items-start h-full">
+    <div class="text-gray-700 w-full flex justify-between items-end">
       <h1 id="product-name" class="text-sm font-bold text-gray-500"></h1>
       <div
         style="font-size: 8pt"
@@ -47,7 +47,7 @@
     </div>
     <h1
       id="product-description"
-      class="text-lg mt-2 font-semibold text-[#333333] my-3"
+      class="text-lg font-bold mt-2 font-semibold text-[#333333] my-3"
     ></h1>
     <div class="mt-1 text-gray-500 text-sm">
       <p>SKU: <span id="product-sku" class="font-bold"></span></p>
@@ -56,13 +56,9 @@
       <p class="mt-1">
         Category: <span id="product-category" class="font-bold"></span>
       </p>
-      <div
-        style="width: fit-content"
-        class="font-semibold text-xs bg-gray-400 text-white px-2 mt-2 py-1 rounded-sm"
-        id="product-details-scale"
-      >
-        Scale:
-      </div>
+      <p class="mt-1">
+        Scale: <span id="product-details-scale" class="font-bold"></span>
+      </p>
       <div
         style="width: fit-content"
         class="bg-green-100 text-green-700 px-2 py-1.5 rounded-sm mt-1 font-semibold text-xs"
@@ -77,38 +73,39 @@
             id="discount"
             class="mr-3 text-red-500 text-sm font-bold"
           ></span
-          ><span id="final-price" class="font-bold text-base"></span
+          ><span id="final-price" class="font-bold text-2xl"></span
         ></span>
       </p>
       <p
         class="flex items-center justify-between flex-row-reverse w-24 text-xs"
       >
-        <span
-          id="net-price"
-          class="font-semibold text-base text-[#333333]"
-        ></span>
-        <span id="original-price-label">Price:</span>
+        <span id="net-price" class=""></span>
+        <span id="original-price-label" class="text-gray-600">Net:</span>
       </p>
       <p
-        class="flex items-center text-xs flex-row-reverse justify-between w-24 text-gray-500"
+        class="flex items-center text-xs flex-row-reverse justify-between w-24 text-gray-600"
       >
-        <span id="srp" class="font-bold text-base"></span><span>SRP: </span>
+        <span id="srp" class="font-semibold text-base"></span><span>SRP: </span>
       </p>
     </div>
     <!-- Stock and Add to Cart -->
-    <div class="my-4 w-full flex justify-between">
-      <div class="mt-1 flex flex-col justify-start gap-0 pl-1 text-xs">
+    <div
+      class="my-4 w-full flex flex-col sm:flex-row items-end sm:items-center justify-between gap-5"
+    >
+      <div
+        class="mt-1 flex flex-col justify-start gap-0 pl-1 text-xs text-right sm:text-left"
+      >
         <div
           id="product-details-moq"
-          class="text-[8pt] font-semibold text-[#333333]"
+          class="text-[9pt] font-semibold text-[#333333]"
         ></div>
         <div
           id="product-details-back-ordered"
-          class="text-[8pt] font-semibold text-yellow-700"
+          class="text-[9pt] font-semibold text-yellow-700"
         ></div>
         <div
           id="product-details-last-purchased"
-          class="text-[8pt] text-gray-500"
+          class="text-[9pt] text-gray-500"
         ></div>
       </div>
       <div class="mt-2 flex items-center">
@@ -120,6 +117,7 @@
           id="quantity-input"
         />
         <button
+          style="min-width: 120px"
           class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded-md ml-2"
           id="add-to-cart"
         >

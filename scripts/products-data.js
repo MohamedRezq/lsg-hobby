@@ -37,10 +37,10 @@ function renderProductTable(products) {
 
     const row = `
 <tr class="bg-white transition duration-200 ease-in-out hover:bg-gray-50">
-<td style="font-size: 8.5pt" class="flex gap-2 space-y-1 px-2 py-1 align-top">
-  <img src="${product.image}" alt="${
+<td style="padding-left: 10px"><img src="${product.image}" alt="${
       product.name
-    }" class="h-20 w-20 rounded-lg object-contain shadow-sm">
+    }" class="h-20 w-20 rounded-lg object-contain shadow-sm"></td>
+<td style="font-size: 8.5pt" class="flex gap-2 space-y-1 px-2 py-1 align-top">
   <div>
     <div class="text-gray-500">SKU: <span class="font-semibold">${
       product.sku
@@ -56,11 +56,11 @@ function renderProductTable(products) {
     }</span></div>
   </div>
 </td>
-<td class="px-2 pt-2 pb-1 align-top text-xs font-semibold text-gray-700">
+<td class="px-1 pt-1 pb-1 align-top text-xs font-semibold text-gray-700">
 <div style="font-size: 8.5pt" class="font-semibold text-gray-500">${
       product.name
     }</div>
-<a href="/pages/product.html?id=${
+<a style="font-size: 9.5pt" href="/pages/product.html?id=${
       product.id
     }" class="hover:underline font-bold">
     ${product.description ?? ""}
@@ -72,65 +72,67 @@ function renderProductTable(products) {
                     ${product.eta ?? ""}
                     </div>
 </td>
-<td style="font-size: 9pt" class="px-2 pt-2 pb-1 align-top font-semibold">${
+<td style="font-size: 10pt" class="px-2 text-gray-600 pt-1 pb-1 align-top font-semibold">${
       product.scale ?? ""
     }</td>
-<td class="px-2 pt-2 pb-1 text-right align-top text-xs">
+<td class="px-1 pt-2 pb-1 text-right align-top text-xs">
   <div class="flex flex-col items-end">
     <div class="flex items-end gap-2">
-      <span class="text-xs font-semibold text-red-600">${
+      <span style="font-size: 8.5pt" class="font-semibold text-red-600">${
         product.discount ?? ""
       }</span>
-      <span style="font-size: 10pt" class="font-semibold text-[#333333]">${
+      <span style="font-size: 11pt" class="font-bold text-[#333333]">${
         product.finalPrice ?? ""
       }</span>
     </div>
     <span style="font-size: 8.5pt" class="text-gray-500">${
-      product.discount ? "price: " : ""
-    }<span style="font-size: 10pt" class="text-xs ml-1 ${
-      product.discount ? "line-through" : "text-black font-semibold"
+      product.discount ? "" : ""
+    }<span style="font-size: ${
+      product.discount ? "9pt" : "11pt"
+    }" class="text-xs ml-1 ${
+      product.discount ? "line-through" : "text-black font-bold"
     }">${product.netPrice ?? ""}</span></span>
     ${
       product.tag == "New"
-        ? "<div class='bg-green-200 text-green-700 mt-1 px-2 rounded-md py-1'>New</div>"
+        ? "<div style='font-size: 8pt' class='bg-green-200 text-green-700 mt-1 px-2 rounded-md py-1 font-semibold'>New</div>"
         : ""
     }
     ${
       product.tag == "Special Order"
-        ? "<div class='bg-purple-200 text-purple-700 mt-1 px-2 rounded-md py-1'>Special Order</div>"
+        ? "<div style='font-size: 8pt' class='bg-purple-200 text-purple-700 mt-1 px-2 rounded-md py-1 font-semibold'>Special Order</div>"
         : ""
     }
     ${
       product.tag == "PreOrder"
-        ? "<div class='bg-blue-200 text-blue-700 mt-1 px-2 rounded-md py-1'>PreOrder</div>"
+        ? "<div style='font-size: 8pt' class='bg-blue-200 text-blue-700 mt-1 px-2 rounded-md py-1 font-semibold'>PreOrder</div>"
         : ""
     }
     ${
       product.tag == "Discontinued"
-        ? "<div class='bg-gray-200 text-gray-700 mt-1 px-2 rounded-md py-1'>Discontinued</div>"
+        ? "<div style='font-size: 8pt' class='bg-gray-200 text-gray-700 mt-1 px-2 rounded-md py-1 font-semibold'>Discontinued</div>"
         : ""
     }
   </div>
 </td>
-<td style="font-size: 10pt" class="px-2 pt-2 pb-1 text-right align-top text-xs font-semibold text-[#333333]">${
+<td style="font-size: 11pt" class="px-2 pt-2 pb-1 text-right align-top text-xs font-semibold text-gray-600">${
       product.srp
     }</td>
-<td class="px-2 pt-2 pb-1 text-center align-top">
+<td class="px-1 pt-1 pb-1 text-center align-top">
   <i class="${
     product.stock.toronto > 0 || product.stock.phoenix > 0
       ? "fas fa-check-circle text-green-500"
       : "fas fa-times-circle text-red-500"
   }"></i>
   <div class="mt-1 flex flex-col justify-center">
-    <div class="text-xs font-semibold text-gray-500">TOR: ${
+    <div style="font-size: 8.5pt" class="font-semibold text-gray-500">TOR: ${
       product.stock.toronto
     }</div>
-    <div class="text-xs font-semibold text-gray-500">PHX: ${
+    <div style="font-size: 8.5pt" class="font-semibold text-gray-500">PHX: ${
       product.stock.phoenix
     }</div>
   </div>
 </td>
-<td class="pt-2 pb-1 text-left align-top">
+<td class="pt-1 pb-1 text-left align-top">
   <div class="mb-1 flex items-center justify-start space-x-2">
     <input type="number" style="max-width: 55px" step="2" class="block rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs text-[#333333]" placeholder="2" required ${
       isOutOfStock ? "disabled" : ""
