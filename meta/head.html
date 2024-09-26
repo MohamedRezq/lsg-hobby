@@ -75,106 +75,233 @@
 
 <!-- All Styles -->
 <style>
-     /* Basic Reset */
-     * {
-       margin: 0;
-       padding: 0;
-       box-sizing: border-box;
-     }
+       /* Basic Reset */
+       * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+       }
 
-     body {
-       font-family: 'Open Sans', sans-serif;
-     }
+       body {
+         font-family: 'Open Sans', sans-serif;
+       }
 
-     /* Container for max width on desktop */
-     .container {
-       max-width: 1200px;
-       margin: 0 auto;
-       padding: 0 20px
-       margin-bottom: 50px;
-     }
+       /* Container for max width on desktop */
+       .container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 20px
+         margin-bottom: 50px;
+       }
 
-     /* Hide scrollbar */
-    .no-scrollbar::-webkit-scrollbar {
-     display: none;
+       /* Hide scrollbar */
+      .no-scrollbar::-webkit-scrollbar {
+       display: none;
+      }
+
+      .no-scrollbar {
+       -ms-overflow-style: none; /* IE and Edge */
+       scrollbar-width: none; /* Firefox */
+      }
+
+      /* Custom scrollbar */
+    .carousel-wrapper::-webkit-scrollbar {
+      height: 6px;
+      width: 100px !important;
+      display: none;
     }
 
-    .no-scrollbar {
-     -ms-overflow-style: none; /* IE and Edge */
-     scrollbar-width: none; /* Firefox */
+    .carousel-wrapper::-webkit-scrollbar-thumb {
+      background-color: #333333; /* Color of the scrollbar */
+      border-radius: 10px;
     }
 
-    /* Custom scrollbar */
-  .carousel-wrapper::-webkit-scrollbar {
-    height: 6px;
-    width: 100px !important;
-    display: none;
+    .carousel-wrapper::-webkit-scrollbar-track {
+      background-color: #f0f0f0; /* Background of the track */
+    }
+
+       .main-table {
+         margin-top: 20px;
+         margin-bottom: 50px;
+       }
+
+       .section-title{
+              font-size: 1.6rem;
+           }
+
+           .section-content{
+              font-size: 0.9rem;
+           }
+           table {
+              width: 100%;
+              border-collapse: collapse;
+          }
+          th:first-child, td:first-child {
+              width:90px; /* Fixed width for the first column */
+              min-width: 90px
+          }
+          th:nth-child(2), td:nth-child(2) {
+              width: 150px; /* Fixed width for the third column */
+              min-width: 150px;
+          }
+          th:nth-child(4), td:nth-child(4) {
+              width: 55px; /* Fixed width for the third column */
+              min-width: 55px;
+          }
+          th:nth-child(5), td:nth-child(5) {
+              width: 110px; /* Fixed width for the fourth column */
+              min-width: 110px;
+          }
+          th:nth-child(6), td:nth-child(6) {
+              width: 60px; /* Fixed width for the fifth column */
+              min-width: 60px;
+          }
+          th:nth-child(7), td:nth-child(7) {
+              width: 100px; /* Fixed width for the fifth column */
+              min-width: 100px;
+          }
+          th:nth-child(8), td:nth-child(8) {
+              width: 170px; /* Fixed width for the fifth column */
+              min-width: 170px;
+          }
+          /* Let the second column take the remaining width */
+          th:nth-child(3), td:nth-child(3) {
+              width: auto;
+              min-width: 240px;
+          }
+          tr:nth-child(even) {background-color: #f2f2f2;}
+          .action-button{
+            background-color: #feea3a;
+            box-shadow: #333333;
+          }
+          .action-button:hover{
+            background-color: #ebd405;
+          }
+
+          /* Main container styling */
+  /* Article name */
+  .blog-container #article-name {
+    margin-top: 30px;
+      font-size: 1.6rem; /* Larger for better visibility */
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+      text-align: center;
   }
 
-  .carousel-wrapper::-webkit-scrollbar-thumb {
-    background-color: #333333; /* Color of the scrollbar */
-    border-radius: 10px;
+  /* Author info */
+  .blog-container #article-author {
+      font-size: 1rem; /* Slightly larger */
+      color: #666;
+      text-align: center;
+      margin-bottom: 25px;
   }
 
-  .carousel-wrapper::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Background of the track */
+  /* Image styling */
+  .blog-container img.fill {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
+      margin-bottom: 25px;
   }
 
-     .main-table {
-       margin-top: 20px;
-       margin-bottom: 50px;
-     }
+  /* Section titles (strong tag) */
+  .blog-container p strong {
+      font-size: 1rem; /* Increased size for better visibility */
+      color: #222;
+      display: block;
+      margin-top: 25px;
+      margin-bottom: 15px;
+  }
 
-     .section-title{
-            font-size: 1.6rem;
-         }
+  /* List items with icons */
+  .blog-container ul,
+  .blog-container ol {
+      margin-left: 10px;
+      margin-bottom: 20px;
+      color: #444;
+  }
 
-         .section-content{
-            font-size: 0.9rem;
-         }
-         table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th:first-child, td:first-child {
-            width:90px; /* Fixed width for the first column */
-            min-width: 90px
-        }
-        th:nth-child(2), td:nth-child(2) {
-            width: 150px; /* Fixed width for the third column */
-            min-width: 150px;
-        }
-        th:nth-child(4), td:nth-child(4) {
-            width: 55px; /* Fixed width for the third column */
-            min-width: 55px;
-        }
-        th:nth-child(5), td:nth-child(5) {
-            width: 110px; /* Fixed width for the fourth column */
-            min-width: 110px;
-        }
-        th:nth-child(6), td:nth-child(6) {
-            width: 60px; /* Fixed width for the fifth column */
-            min-width: 60px;
-        }
-        th:nth-child(7), td:nth-child(7) {
-            width: 100px; /* Fixed width for the fifth column */
-            min-width: 100px;
-        }
-        th:nth-child(8), td:nth-child(8) {
-            width: 170px; /* Fixed width for the fifth column */
-            min-width: 170px;
-        }
-        /* Let the second column take the remaining width */
-        th:nth-child(3), td:nth-child(3) {
-            width: auto;
-            min-width: 240px;
-        }
-        tr:nth-child(even) {background-color: #f2f2f2;}
-        .action-button{
-          background-color: #feea3a;
-          box-shadow: #333333;
-        }
-        .action-button:hover{
-          background-color: #ebd405;
-        }
+  .blog-container ul li {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 25px;
+  }
+
+  .blog-container ul li:before {
+      content: '\f192'; /* Numbered list */
+      font-family: FontAwesome;
+      color: #333333; /* Blue bullet for visibility */
+      position: absolute;
+      left: 0;
+      top: 0;
+  }
+
+  .blog-container ol li {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      counter-increment: item;
+      padding-left: 5px;
+  }
+
+  .blog-container ol li:before {
+      content: '\f192'; /* Numbered list */
+      font-family: FontAwesome;
+      font-size: 1rem;
+      color: #333333; /* Number color */
+      position: absolute;
+      left: 0;
+      top: -50px;
+  }
+
+  /* Link styles */
+  .blog-container a {
+      color: #333333;
+      font-weight: 900;
+      text-decoration: underline;
+  }
+
+  .blog-container a:after {
+      content: '\f35d';
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      margin:0px 5px 0px 5px;
+      text-decoration:none;
+
+  .blog-container a:hover {
+      text-decoration: underline;
+  }
+
+  /* Box shadow and padding only for relevant sections */
+  .blog-container > #LsgArticle > div:not([style*="width: 100%"]) {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+  }
+
+  /* Responsive text and container for mobile */
+  @media (max-width: 768px) {
+      .blog-container {
+          padding: 10px;
+      }
+
+      .blog-container #article-name {
+          font-size: 1.8rem; /* Slightly reduced for mobile */
+      }
+
+      .blog-container #article-author {
+          font-size: 1.1rem;
+      }
+
+      .blog-container ul li,
+      .blog-container ol li {
+          font-size: 1rem; /* More readable on smaller screens */
+      }
+  }
 </style>
