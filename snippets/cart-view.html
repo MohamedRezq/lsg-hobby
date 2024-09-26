@@ -1,49 +1,71 @@
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="container mx-auto lg:p-6">
   <!-- Cart Items Section -->
-  <div class="lg:col-span-8 bg-white p-4 shadow rounded">
-    <div id="cart-items" class="space-y-4">
-      <!-- Dynamic cart items will be inserted here -->
-    </div>
-  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+    <div class="lg:col-span-8 bg-white p-4 shadow-lg rounded">
+      <h2 class="text-xl font-bold mb-4">Shopping Cart</h2>
 
-  <!-- Summary Section -->
-  <div class="lg:col-span-4 bg-white p-6 shadow rounded">
-    <h2 class="text-2xl font-semibold mb-4">Cart Summary</h2>
-    <div id="summary">
-      <p class="text-lg">
-        Subtotal: <span id="subtotal" class="font-semibold">$0.00</span>
-      </p>
-      <p class="text-lg">
-        Shipping: <span id="shipping" class="font-semibold">$5.00</span>
-      </p>
-      <p class="text-lg font-semibold mt-4">
-        Total: <span id="total" class="font-bold text-xl">$0.00</span>
-      </p>
+      <!-- Cart Items will be dynamically loaded here -->
+      <div id="cart-items"></div>
+
+      <!-- Update Cart Button -->
       <button
-        id="checkout"
-        class="mt-6 w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600"
+        id="update-cart"
+        class="bg-gray-500 text-sm text-white px-4 py-2 rounded mt-4 hover:bg-gray-600"
+      >
+        Continue Shopping <i class="fas fa-cart-plus ml-2"></i>
+      </button>
+    </div>
+
+    <!-- Cart Summary Section -->
+    <div class="lg:col-span-4 bg-gray-50 p-4 shadow-lg rounded">
+      <h3 class="text-xl font-bold mb-4">Cart Summary</h3>
+      <div class="flex justify-between text-base mb-2">
+        <p>Subtotal (items):</p>
+        <p id="subtotal" class="font-bold">$0.00</p>
+      </div>
+      <div class="flex justify-between mb-2 text-base">
+        <p>Shipping:</p>
+        <p class="font-bold">$5.00</p>
+      </div>
+      <hr class="my-2" />
+      <div class="flex justify-between font-bold text-base items-center">
+        <p>Total Invoice Shippable:</p>
+        <p id="total" class="text-lg">$0.00</p>
+      </div>
+      <button
+        style="background-color: #feea3a"
+        class="px-4 py-2 w-full mt-4 text-[#333333] rounded text-sm font-bold"
       >
         Proceed to Checkout
       </button>
+
+      <!-- Shipping Address Section -->
+      <div class="mt-6">
+        <h4 class="text-base font-semibold mb-2">
+          Shipping Address
+          <a
+            href="edit-shipping-address.html"
+            class="float-right text-[#333333] hover:underline"
+          >
+            <i class="fas fa-edit"></i>
+          </a>
+        </h4>
+        <div id="shipping-address" class="p-1"></div>
+      </div>
+
+      <!-- Billing Address Section -->
+      <div class="mt-6">
+        <h4 class="text-base font-bold mb-2">
+          Billing Address
+          <a
+            href="edit-billing-address.html"
+            class="float-right text-[#333333] hover:underline"
+          >
+            <i class="fas fa-edit"></i>
+          </a>
+        </h4>
+        <div id="billing-address" class="p-1"></div>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- Shipping Options Section -->
-<div class="mt-8 bg-white p-4 shadow rounded">
-  <h3 class="text-xl font-semibold mb-4">Shipping Options</h3>
-  <label class="inline-flex items-center mr-4">
-    <input
-      type="radio"
-      class="form-radio"
-      name="shippingOption"
-      value="ship"
-      checked
-    />
-    <span class="ml-2">Ship this order (including Backorders)</span>
-  </label>
-  <label class="inline-flex items-center">
-    <input type="radio" class="form-radio" name="shippingOption" value="hold" />
-    <span class="ml-2">Hold this order</span>
-  </label>
 </div>
