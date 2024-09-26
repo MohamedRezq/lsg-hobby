@@ -20,12 +20,16 @@
     <div class="lg:col-span-4 bg-gray-50 p-4 shadow-lg rounded">
       <h3 class="text-xl font-bold mb-4">Cart Summary</h3>
       <div class="flex justify-between text-base mb-2">
-        <p>Subtotal (items):</p>
-        <p id="subtotal" class="font-bold">$0.00</p>
+        <p>Subtotal (items)</p>
+        <p id="subtotal" class="font-semibold">$0.00</p>
       </div>
       <div class="flex justify-between mb-2 text-base">
-        <p>Shipping:</p>
-        <p class="font-bold">$5.00</p>
+        <p>Shippable Backorders (Qty: 5)</p>
+        <p class="font-semibold">$79.95</p>
+      </div>
+      <div class="flex justify-between mb-2 text-base">
+        <p>Shipping</p>
+        <p class="font-semibold">$5.00</p>
       </div>
       <hr class="my-2" />
       <div class="flex justify-between font-bold text-base items-center">
@@ -65,6 +69,41 @@
           </a>
         </h4>
         <div id="billing-address" class="p-1"></div>
+      </div>
+      <!-- Shipping Options -->
+      <div class="mt-6">
+        <h4 class="text-base font-bold mb-2">Shipping Option</h4>
+        <div class="flex flex-col pl-1">
+          <label class="text-sm font-semibold mr-2 mb-2">
+            <input
+              type="radio"
+              name="shippingOption"
+              value="ship"
+              checked
+              class="text-sm font-semibold mr-2"
+            />
+            Ship this order (including Backorders)
+          </label>
+          <label class="text-sm font-semibold mr-2 mb-2">
+            <input
+              type="radio"
+              name="shippingOption"
+              value="hold"
+              class="text-sm font-semibold mr-2"
+            />
+            Hold this order
+          </label>
+        </div>
+      </div>
+
+      <div class="mt-6 text-xs font-semibold">
+        * By completing this authorization form, you are authorizing LSG Hobby
+        to charge your credit card for purchases at the time of shipment or
+        according to your payment terms.
+
+        <div class="text-red-600 mt-2">
+          * You will not be charged until your shipment is ready.
+        </div>
       </div>
     </div>
   </div>
