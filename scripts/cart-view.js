@@ -58,8 +58,8 @@ function renderCartItems(items) {
           </div>
         </div>
         <div class="flex items-center justify-between sm:w-fit sm:justify-end self-end mt-3">
-          <div style="width: 100px" class="flex items-center mr-4 justify-between w-24 border-2 border-gray-200 rounded-lg">
-            <button style="width: 30px" class="text-gray-600 text-center py-0.5 bg-gray-200 hover:bg-gray-300 rounded-md" onclick="updateQuantity(${
+          <div style="width: 100px" class="flex items-center mr-3 justify-between w-24 border-2 border-gray-200 rounded-lg">
+            <button style="width: 30px" class="text-gray-600 text-center py-0.5 bg-gray-200 hover:bg-gray-300 rounded-tl-md rounded-bl-md" onclick="updateQuantity(${
               item.id
             }, -1)">
               -
@@ -67,13 +67,13 @@ function renderCartItems(items) {
             <div style="width: 40px" type="number" class="text-center py-0.5 border-none">${
               item.quantity
             }</div>
-            <button style="width: 30px" class="text-gray-600 bg-gray-200 hover:bg-gray-300  py-0.5 rounded-md" onclick="updateQuantity(${
+            <button style="width: 30px" class="text-gray-600 bg-gray-200 hover:bg-gray-300  py-0.5 rounded-tr-md rounded-br-md" onclick="updateQuantity(${
               item.id
             }, 1)">
               +
             </button>
           </div>
-          <p class="text-lg pr-4 font-bold">$${(
+          <p style="min-width: 90px; text-align: right" class="text-lg pr-4 font-bold">$${(
             item.finalPrice * item.quantity
           ).toFixed(2)}</p>
         </div>
