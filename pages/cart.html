@@ -67,6 +67,14 @@
           document.getElementById("cart-view-placeholder").outerHTML =
             cartViewData;
 
+          // Load products table and render products
+          const productsTableResponse = await fetch(
+            "/snippets/products-table.html"
+          );
+          const productsTableData = await productsTableResponse.text();
+          document.getElementById("products-table-placeholder").outerHTML =
+            productsTableData;
+
           // Load footer
           const footerResponse = await fetch("/layout/footer.html");
           const footerData = await footerResponse.text();
@@ -95,6 +103,7 @@
         // After loadComponents is done, load the other scripts
         try {
           await loadScript("/scripts/cart-view.js");
+          await loadScript("/scripts/products-data.js");
           console.log("All scripts loaded successfully");
         } catch (error) {
           console.error("Error loading external scripts:", error);

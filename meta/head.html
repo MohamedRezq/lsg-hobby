@@ -75,290 +75,288 @@
 
 <!-- All Styles -->
 <style>
-         /* Basic Reset */
-         * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-         }
+              /* Basic Reset */
+              * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+              }
 
-         body {
-           font-family: 'Open Sans', sans-serif;
-         }
+              body {
+                font-family: 'Open Sans', sans-serif;
+              }
 
-         /* Container for max width on desktop */
-         .container {
-           max-width: 1200px;
-           margin: 0 auto;
-           padding: 0 20px
-           margin-bottom: 50px;
-         }
+              /* Container for max width on desktop */
+              .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px
+                margin-bottom: 50px;
+              }
 
-         /* Hide scrollbar */
-        .no-scrollbar::-webkit-scrollbar {
-         display: none;
-        }
-
-        .no-scrollbar {
-         -ms-overflow-style: none; /* IE and Edge */
-         scrollbar-width: none; /* Firefox */
-        }
-
-        /* Custom scrollbar */
-      .carousel-wrapper::-webkit-scrollbar {
-        height: 6px;
-        width: 100px !important;
-        display: none;
-      }
-
-      .carousel-wrapper::-webkit-scrollbar-thumb {
-        background-color: #333333; /* Color of the scrollbar */
-        border-radius: 10px;
-      }
-
-      .carousel-wrapper::-webkit-scrollbar-track {
-        background-color: #f0f0f0; /* Background of the track */
-      }
-
-         .main-table {
-           margin-top: 20px;
-           margin-bottom: 50px;
-         }
-
-         .section-title{
-                font-size: 1.6rem;
+              /* Hide scrollbar */
+             .no-scrollbar::-webkit-scrollbar {
+              display: none;
              }
 
-             .section-content{
-                font-size: 0.9rem;
+             .no-scrollbar {
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* Firefox */
              }
-             table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            th:first-child, td:first-child {
-                width:90px; /* Fixed width for the first column */
-                min-width: 90px
-            }
-            th:nth-child(2), td:nth-child(2) {
-                width: 150px; /* Fixed width for the third column */
-                min-width: 150px;
-            }
-            th:nth-child(4), td:nth-child(4) {
-                width: 55px; /* Fixed width for the third column */
-                min-width: 55px;
-            }
-            th:nth-child(5), td:nth-child(5) {
-                width: 110px; /* Fixed width for the fourth column */
-                min-width: 110px;
-            }
-            th:nth-child(6), td:nth-child(6) {
-                width: 60px; /* Fixed width for the fifth column */
-                min-width: 60px;
-            }
-            th:nth-child(7), td:nth-child(7) {
-                width: 100px; /* Fixed width for the fifth column */
-                min-width: 100px;
-            }
-            th:nth-child(8), td:nth-child(8) {
-                width: 170px; /* Fixed width for the fifth column */
-                min-width: 170px;
-            }
-            /* Let the second column take the remaining width */
-            th:nth-child(3), td:nth-child(3) {
-                width: auto;
-                min-width: 240px;
-            }
-            tr:nth-child(even) {background-color: #f2f2f2;}
-            .action-button{
-              background-color: #feea3a;
-              box-shadow: #333333;
-            }
-            .action-button:hover{
-              background-color: #ebd405;
-            }
-            .text-action-button{
-              color: #e0a20f;
-              box-shadow: #333333;
-            }
-            .text-action-button:hover{
-              color: #bb8504;
-              text-decoration: underline;
-            }
-            .custom-number-input::-webkit-inner-spin-button,
-            .custom-number-input::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
-            }
 
-            /* Main container styling */
-      /* Article name */
-      .blog-container #article-name {
-        margin-top: 30px;
-          font-size: 1.6rem; /* Larger for better visibility */
-          font-weight: 700;
-          color: #333;
-          margin-bottom: 15px;
-          text-align: center;
-      }
+             /* Custom scrollbar */
+           .carousel-wrapper::-webkit-scrollbar {
+             height: 6px;
+             width: 100px !important;
+             display: none;
+           }
 
-      /* Author info */
-      .blog-container #article-author {
-          font-size: 1rem; /* Slightly larger */
-          color: #666;
-          text-align: center;
-          margin-bottom: 25px;
-      }
+           .carousel-wrapper::-webkit-scrollbar-thumb {
+             background-color: #333333; /* Color of the scrollbar */
+             border-radius: 10px;
+           }
 
-      /* Image styling */
-      .blog-container img.fill {
-          max-width: 100%;
-          height: auto;
-          border-radius: 8px;
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
-          margin-bottom: 25px;
-      }
+           .carousel-wrapper::-webkit-scrollbar-track {
+             background-color: #f0f0f0; /* Background of the track */
+           }
 
-      /* Section titles (strong tag) */
-      .blog-container p strong {
-          font-size: 1rem; /* Increased size for better visibility */
-          color: #222;
-          display: block;
-          margin-top: 25px;
-          margin-bottom: 15px;
-      }
+              .main-table {
+                margin-top: 20px;
+                margin-bottom: 50px;
+              }
 
-     /* Article name */
-  .blog-container #article-name {
-      margin-top: 30px;
-      font-size: 1.6rem; /* Larger for better visibility */
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 15px;
-      text-align: center;
-  }
+              .section-title{
+                     font-size: 1.6rem;
+                  }
 
-  /* Author info */
-  .blog-container #article-author {
-      font-size: 1rem; /* Slightly larger */
-      color: #666;
-      text-align: center;
-      margin-bottom: 25px;
-  }
+                  .section-content{
+                     font-size: 0.9rem;
+                  }
+                  table {
+                     width: 100%;
+                     border-collapse: collapse;
+                 }
+                 th:first-child, td:first-child {
+                     width:90px; /* Fixed width for the first column */
+                     min-width: 90px
+                 }
+                 th:nth-child(2), td:nth-child(2) {
+                     width: 150px; /* Fixed width for the third column */
+                     min-width: 150px;
+                 }
+                 th:nth-child(4), td:nth-child(4) {
+                     width: 55px; /* Fixed width for the third column */
+                     min-width: 55px;
+                 }
+                 th:nth-child(5), td:nth-child(5) {
+                     width: 110px; /* Fixed width for the fourth column */
+                     min-width: 110px;
+                 }
+                 th:nth-child(6), td:nth-child(6) {
+                     width: 60px; /* Fixed width for the fifth column */
+                     min-width: 60px;
+                 }
+                 th:nth-child(7), td:nth-child(7) {
+                     width: 100px; /* Fixed width for the fifth column */
+                     min-width: 100px;
+                 }
+                 th:nth-child(8), td:nth-child(8) {
+                     width: 170px; /* Fixed width for the fifth column */
+                     min-width: 170px;
+                 }
+                 /* Let the second column take the remaining width */
+                 th:nth-child(3), td:nth-child(3) {
+                     width: auto;
+                     min-width: 240px;
+                 }
+                 tr:nth-child(even) {background-color: #f2f2f2;}
+                 .action-button{
+                   background-color: #feea3a;
+                   box-shadow: #333333;
+                 }
+                 .action-button:hover{
+                   background-color: #ebd405;
+                 }
+                 .text-action-button{
+                   color: #e0a20f;
+                   box-shadow: #333333;
+                 }
+                 .text-action-button:hover{
+                   color: #bb8504;
+                   text-decoration: underline;
+                 }
+                 .custom-number-input::-webkit-inner-spin-button,
+                 .custom-number-input::-webkit-outer-spin-button {
+                   -webkit-appearance: none;
+                   margin: 0;
+                 }
 
-  /* Image styling */
-  .blog-container img.fill {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
-      margin-bottom: 25px;
-  }
+            /* Article name */
+     .blog-container #article-name {
+         margin-top: 30px;
+         font-size: 1.8rem; /* Larger for better visibility */
+         font-weight: 700;
+         color: #333;
+         text-align: center;
+     }
 
-  /* Section titles (strong tag) */
-  .blog-container p strong {
-      font-size: 1rem; /* Increased size for better visibility */
-      color: #222;
-      display: block;
-      margin-top: 25px;
-      margin-bottom: 15px;
-  }
+     /* Author info */
+     .blog-container #article-author {
+         font-size: 1rem; /* Slightly larger */
+         color: #666;
+         text-align: center;
+         display: ruby !important;
+     }
 
-  /* Regular Unordered List (Bullets) */
-  .blog-container ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-      color: #444;
-      list-style-type: disc; /* Regular bullets */
-  }
+     /* Image styling */
+     .blog-container img.fill {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
+         margin-bottom: 25px;
+     }
 
-  .blog-container ul li {
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 12px;
-      padding-left: 0; /* Remove padding for icons */
-      position: relative;
-  }
+     /* Section titles (strong tag) */
+     .blog-container p strong {
+         font-size: 1rem; /* Increased size for better visibility */
+         color: #222;
+         display: block;
+         margin-top: 25px;
+         margin-bottom: 15px;
+     }
 
-  /* Regular Ordered List (Numbers) */
-  .blog-container ol {
-      margin-left: 20px;
-      margin-bottom: 20px;
-      color: #444;
-      list-style-type: decimal; /* Regular numbers */
-  }
+     /* Regular Unordered List (Bullets) */
+     .blog-container ul {
+         margin-left: 20px;
+         margin-bottom: 20px;
+         color: #444;
+         list-style-type: disc; /* Regular bullets */
+     }
 
-  .blog-container ol li {
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 12px;
-      padding-left: 0; /* Remove padding for icons */
-  }
+     .blog-container ul li {
+         font-size: 1rem;
+         line-height: 1.8;
+         margin-bottom: 12px;
+         padding-left: 0; /* Remove padding for icons */
+         position: relative;
+     }
 
-  /* Regular Hyperlink Styling */
-  .blog-container a {
-      color: #e0a20f; /* Use production website colors */
-      font-weight: bold;
-      text-decoration: none;
-  }
+     /* Regular Ordered List (Numbers) */
+     .blog-container ol {
+         margin-left: 20px;
+         margin-bottom: 20px;
+         color: #444;
+         list-style-type: decimal; /* Regular numbers */
+     }
 
-  /* Hover Effect for Hyperlinks */
-  .blog-container a:hover {
-      color: #bb8504; /* Hover color */
-      text-decoration: underline;
-  }
+     .blog-container ol li {
+         font-size: 1rem;
+         line-height: 1.8;
+         margin-bottom: 12px;
+         padding-left: 0; /* Remove padding for icons */
+     }
 
-  /* Styling for Product Hyperlinks (Differentiated from Text Links) */
-  .blog-container a.product-link {
-      color: #0066cc; /* Example of a different color for product links */
-  }
+     /* Regular Hyperlink Styling */
+     .blog-container a {
+         color: #e0a20f; /* Use production website colors */
+         font-weight: bold;
+         text-decoration: none;
+     }
 
-  .blog-container a.product-link:hover {
-      color: #004a99; /* Hover color for product links */
-      text-decoration: underline;
-  }
+     /* Hover Effect for Hyperlinks */
+     .blog-container a:hover {
+         color: #bb8504; /* Hover color */
+         text-decoration: underline;
+     }
 
-  /* Remove FontAwesome Icon After Links */
-  .blog-container a:after {
-      content: none; /* No icon after the link */
-  }
+     /* Styling for Product Hyperlinks (Differentiated from Text Links) */
+     .blog-container a.product-link {
+         color: #0066cc; /* Example of a different color for product links */
+     }
 
-  /* Box shadow and padding only for relevant sections */
-  .blog-container > #LsgArticle > div:not([style*="width: 100%"]) {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      background-color: #fff;
-      border-radius: 8px;
-  }
+     .blog-container a.product-link:hover {
+         color: #004a99; /* Hover color for product links */
+         text-decoration: underline;
+     }
 
-  /* Example of Color for Action Buttons */
-  .text-action-button {
-      color: #e0a20f;
-      box-shadow: #333333;
-  }
+     /* Remove FontAwesome Icon After Links */
+     .blog-container a:after {
+         content: none; /* No icon after the link */
+     }
 
-  .text-action-button:hover {
-      color: #bb8504;
-      text-decoration: underline;
-  }
+     /* Example of Color for Action Buttons */
+     .text-action-button {
+         color: #e0a20f;
+         box-shadow: #333333;
+     }
 
-  /* Responsive text and container for mobile */
-  @media (max-width: 768px) {
-      .blog-container {
-          padding: 10px;
-      }
+     .text-action-button:hover {
+         color: #bb8504;
+         text-decoration: underline;
+     }
 
-      .blog-container #article-name {
-          font-size: 1.8rem; /* Slightly reduced for mobile */
-      }
+     /* Responsive text and container for mobile */
+     @media (max-width: 768px) {
+         .blog-container {
+             padding: 10px;
+         }
 
-      .blog-container #article-author {
-          font-size: 1.1rem;
-      }
+         .blog-container #article-name {
+             font-size: 1.8rem; /* Slightly reduced for mobile */
+         }
 
-      .blog-container ul li,
-      .blog-container ol li {
-          font-size: 1rem; /* More readable on smaller screens */
-      }
-  }
+         .blog-container #article-author {
+             font-size: 1.1rem;
+             display: ruby !important;
+         }
+
+         .blog-container ul li,
+         .blog-container ol li {
+             font-size: 1rem; /* More readable on smaller screens */
+         }
+     }
+
+     /* Fullscreen Image Modal */
+   #fullscreen-carousel {
+     display: none; /* Hidden by default */
+     background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+     position: fixed; /* Fullscreen overlay */
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 1000; /* Ensure it's above all other elements */
+     justify-content: center;
+     align-items: center;
+   }
+
+   #fullscreen-image {
+     max-width: 90%;
+     max-height: 90%;
+   }
+
+   #fullscreen-prev,
+   #fullscreen-next {
+     font-size: 2rem;
+     background: transparent;
+     border: none;
+     color: white;
+     cursor: pointer;
+   }
+
+   #close-fullscreen-carousel {
+     cursor: pointer;
+     z-index: 1001; /* Ensure close button is above image */
+   }
+
+  /* Sticky Cart Summary for large screens */
+     @media (min-width: 1024px) {
+       .cart-summary {
+         position: sticky;
+         position: -webkit-sticky;
+         top: 0px; /* Keeps the summary 20px from the top of the viewport */
+         overflow-y: auto; /* Adds scrolling if content overflows */
+       }
+     }
 </style>

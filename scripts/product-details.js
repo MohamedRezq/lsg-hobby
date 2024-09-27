@@ -31,6 +31,30 @@ function renderProductDetails(product) {
     return;
   }
 
+  if (!product.srp) {
+    document
+      .getElementById("product-details-srp-container")
+      .classList.add("hidden");
+  }
+  if (!product.mfgCode) {
+    document
+      .getElementById("product-mfg-code-container")
+      .classList.add("hidden");
+  }
+  if (!product.upc) {
+    document.getElementById("product-upc-container").classList.add("hidden");
+  }
+  if (!product.scale) {
+    document
+      .getElementById("product-details-scale-container")
+      .classList.add("hidden");
+  }
+  if (!product.category) {
+    document
+      .getElementById("product-category-container")
+      .classList.add("hidden");
+  }
+
   document.getElementById("product-name").innerText = product.name;
   document.getElementById("product-description").innerText =
     product.description;
@@ -40,20 +64,22 @@ function renderProductDetails(product) {
   document.getElementById("product-category").innerText = product.category;
 
   // Set pricing
-  document.getElementById("srp").innerText = product.srp;
-  document.getElementById("net-price").innerText = product.netPrice;
+  document.getElementById("product-details-srp").innerText = product.srp;
+  document.getElementById("final-price").innerText =
+    product.finalPrice ?? product.netPrice ?? "";
   if (product.discount) {
-    document
-      .getElementById("net-price")
-      .classList.add(
-        "line-through",
-        "text-base",
-        "font-normal",
-        "text-gray-500"
-      );
+    document.getElementById("net-price").innerText = product.netPrice;
+    document.getElementById("net-price").classList.add("line-through");
   } else {
-    document.getElementById("net-price").classList.add("text-xl", "font-bold");
+    document.getElementById("net-price").innerText = "";
     document.getElementById("original-price-label").classList.add("hidden");
+  }
+
+  if (!product.tag) {
+    document.getElementById("product-details-tag").classList.add("hidden");
+  } else {
+    document.getElementById("product-details-tag").innerText =
+      product.tag || "";
   }
   document.getElementById("discount").innerText = product.discount || "";
   document.getElementById("product-details-moq").innerText = product.moq || "";
@@ -61,8 +87,6 @@ function renderProductDetails(product) {
     product.backOrdered || "";
   document.getElementById("product-details-last-purchased").innerText =
     product.lastPurchased || "";
-  document.getElementById("final-price").innerText = product.finalPrice || "";
-  document.getElementById("product-details-tag").innerText = product.tag || "";
   document.getElementById("product-details-scale").innerText =
     product.scale || "";
 
@@ -87,6 +111,10 @@ function renderProductDetails(product) {
   document
     .getElementById("product-details-tag")
     .classList.add(...getTagStyling());
+
+  if (!product.reserve) {
+    document.getElementById("availability-status").classList.add("hidden");
+  }
 
   document.getElementById("availability-status").innerText = `${
     product.reserve ?? ""
@@ -143,6 +171,52 @@ function initializeThumbnailCarousel(images) {
     });
     thumbnailContainer.appendChild(thumbnail);
   });
+
+  // Fullscreen Carousel Logic
+  const fullscreenCarousel = document.getElementById("fullscreen-carousel");
+  const fullscreenImage = document.getElementById("fullscreen-image");
+  const closeFullscreenBtn = document.getElementById(
+    "close-fullscreen-carousel"
+  );
+  const fullscreenPrev = document.getElementById("fullscreen-prev");
+  const fullscreenNext = document.getElementById("fullscreen-next");
+
+  // Open fullscreen carousel on image click
+  mainImage.addEventListener("click", () => {
+    fullscreenImage.src = images[activeThumbnailIndex];
+    fullscreenCarousel.classList.remove("hidden");
+    fullscreenCarousel.style.display = "flex"; // Show the modal
+  });
+
+  // Close fullscreen carousel
+  closeFullscreenBtn.addEventListener("click", () => {
+    fullscreenCarousel.classList.add("hidden");
+    fullscreenCarousel.style.display = "none";
+  });
+
+  // Navigate to the previous image
+  fullscreenPrev.addEventListener("click", () => {
+    activeThumbnailIndex =
+      activeThumbnailIndex > 0 ? activeThumbnailIndex - 1 : images.length - 1;
+    fullscreenImage.src = images[activeThumbnailIndex];
+    updateThumbnailBorders(images.length, activeThumbnailIndex);
+  });
+
+  // Navigate to the next image
+  fullscreenNext.addEventListener("click", () => {
+    activeThumbnailIndex = (activeThumbnailIndex + 1) % images.length;
+    fullscreenImage.src = images[activeThumbnailIndex];
+    updateThumbnailBorders(images.length, activeThumbnailIndex);
+  });
+
+  // Function to update thumbnail borders
+  function updateThumbnailBorders(length, activeIndex) {
+    const thumbnails = document.querySelectorAll(".thumbnail-item");
+    for (let i = 0; i < length; i++) {
+      thumbnails[i].style.border =
+        i === activeIndex ? "4px solid yellow" : "2px solid transparent";
+    }
+  }
 
   // Handle thumbnail carousel navigation (left and right arrows)
   document.getElementById("prev-slide").addEventListener("click", () => {
@@ -210,128 +284,18 @@ function setupTabSwitching() {
 // Call this function in the initialization function
 setupTabSwitching();
 
-// Function to render related products with carousel functionality
-function renderRelatedProducts(products) {
-  const relatedProductsContainer = document.getElementById(
-    "related-products-list"
-  );
-  relatedProductsContainer.innerHTML = ""; // Clear previous related products
-
-  let relatedIndex = 0;
-  let maxVisibleProducts = getMaxVisibleProducts(); // Dynamically get the number of visible products
-
-  // Function to render visible related products based on the index
-  function renderVisibleRelatedProducts() {
-    relatedProductsContainer.innerHTML = "";
-    const visibleProducts = products.slice(
-      relatedIndex,
-      relatedIndex + maxVisibleProducts
-    );
-    visibleProducts.forEach((product) => {
-      const productCard = `
-      <div class="product-card max-w-full bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 p-3 flex flex-col items-start space-x-1">
-        <div class="flex flex-col gap-1"></div>
-        <div class="flex gap-2 justify-between items-start w-full">
-          <div class="flex w-5/12 flex-col gap-2">
-            <img
-              class="w-full h-24 object-contain rounded-md"
-              src="${product.image}"
-              alt="${product.name}"
-            />
-            <div style="font-size: 8pt" class="text-gray-500">
-              Scale: <span class="font-bold text-center">${product.scale}</span>
-            </div>
-          </div>
-          <div class="flex flex-col gap-0.25 text-[#333333]">
-            <h2 style="font-size: 8pt" class="font-bold leading-tight text-gray-500">${
-              product.name
-            }</h2>
-            <p style="font-size: 8.5pt" class="font-semibold">${
-              product.description
-            }</p>
-            <div style="font-size: 8pt" class="flex items-center my-1 gap-2 text-green-500 font-bold">
-              <i style="font-size: 8.5pt" class="fas fa-check-circle"></i>
-              <div>In Stock</div>
-            </div>
-            <p class="text-gray-700">SKU: <span class="font-semibold">${
-              product.sku ?? ""
-            }</span></p>
-            <p class="text-gray-700">MFG Code: <span class="font-semibold">${
-              product.mfgCode ?? ""
-            }</span></p>
-            <p class="text-gray-700">UPC: <span class="font-semibold">${
-              product.upc ?? ""
-            }</span></p>
-            <p class="text-gray-700">Category: <span class="font-bold">${
-              product.category ?? ""
-            }</span></p>
-          </div>
-        </div>
-        <div class="w-full flex justify-between items-start">
-          <div class="flex flex-col items-start justify-end h-full">
-            <div style="font-size: 8pt" class="font-semibold text-green-600">
-              Reserve on ${product.reserve ?? ""}
-            </div>
-            <div style="font-size: 8pt" class="font-semibold text-yellow-600">ETA: ${
-              product.eta ?? ""
-            }</div>
-          </div>
-          <div class="flex items-center gap-2 mt-2">
-            <input
-              type="number"
-              class="w-12 p-1 text-xs border border-gray-300 rounded-md"
-              placeholder="2"
-            />
-            <button class="bg-yellow-500 text-white text-xs font-semibold py-1 px-3 rounded-md hover:bg-yellow-600">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>`;
-      relatedProductsContainer.innerHTML += productCard;
-    });
-  }
-
-  // Function to get max visible products based on screen width
-  function getMaxVisibleProducts() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 640) return 1; // Small screens (mobile)
-    if (screenWidth < 1024) return 2; // Medium screens (tablets)
-    return 3; // Large screens (desktops)
-  }
-
-  // Render initial related products
-  renderVisibleRelatedProducts();
-
-  // Event listener for window resize to adjust the number of visible products
-  window.addEventListener("resize", () => {
-    maxVisibleProducts = getMaxVisibleProducts();
-    renderVisibleRelatedProducts();
-  });
-
-  // Add event listeners for related products carousel
-  document.getElementById("related-prev").addEventListener("click", () => {
-    relatedIndex =
-      relatedIndex > 0
-        ? relatedIndex - 1
-        : products.length - maxVisibleProducts;
-    renderVisibleRelatedProducts();
-  });
-
-  document.getElementById("related-next").addEventListener("click", () => {
-    relatedIndex =
-      (relatedIndex + 1) % (products.length - maxVisibleProducts + 1);
-    renderVisibleRelatedProducts();
-  });
-}
-
 // Initialize the page with product details and related products
 async function initializePage() {
   const products = await fetchProducts();
   const productId = getProductIdFromUrl();
   const product = findProductById(productId, products);
   renderProductDetails(product);
-  renderRelatedProducts(products);
+  // Load products table and render products
+  const productsTableResponse = await fetch("/snippets/products-table.html");
+  const productsTableData = await productsTableResponse.text();
+  document.getElementById("related-products-table-placeholder").outerHTML =
+    productsTableData;
+  // Function to initialize product thumbnail carousel with full-screen feature
 }
 
 // Call the initialization function when the DOM is fully loaded
