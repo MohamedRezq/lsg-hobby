@@ -16,14 +16,28 @@
           });
       });
     </script>
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="./snippets/categories-carousel/categories-carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./snippets/banner-carousel/banner-carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./snippets/images-carousel/images-carousel.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./snippets/products-table/products-table.css"
+    />
   </head>
 
   <body>
     <!-- Header PlaceHolder -->
     <div id="header-placeholder"></div>
-
-    <!-- Navigation Menu PlaceHolder -->
-    <div id="navigation-menu-placeholder"></div>
 
     <!-- Main Content -->
     <main
@@ -34,15 +48,10 @@
       <div id="categories-slider-placeholder"></div>
       <!-- Banner Carousel PlaceHolder -->
       <div id="banner-carousel-placeholder"></div>
-      <!-- Three-Images Slider PlaceHolder -->
-      <div id="three-images-slider-placeholder"></div>
-
-      <!-- Products Table Section -->
-      <section class="w-full my-5">
-        <div id="table-controls-placeholder"></div>
-        <div id="products-table-placeholder"></div>
-        <div id="table-pagination-placeholder"></div>
-      </section>
+      <!-- Images Carousel PlaceHolder -->
+      <div id="images-carousel-placeholder"></div>
+      <!-- Images Carousel PlaceHolder -->
+      <div id="products-table-placeholder"></div>
     </main>
 
     <!-- Footer PlaceHolder -->
@@ -53,6 +62,9 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
       // Define the `isAdmin` flag
@@ -62,19 +74,13 @@
       async function loadComponents() {
         try {
           // Load header
-          const headerResponse = await fetch("/layout/header.html");
+          const headerResponse = await fetch("./snippets/header/header.html");
           const headerData = await headerResponse.text();
           document.getElementById("header-placeholder").outerHTML = headerData;
 
-          // Load navigation
-          const navigationResponse = await fetch("/layout/navigation.html");
-          const navigationData = await navigationResponse.text();
-          document.getElementById("navigation-menu-placeholder").outerHTML =
-            navigationData;
-
           // Load categories slider
           const categoriesSliderResponse = await fetch(
-            "/snippets/catgories-slider.html"
+            "/snippets/categories-carousel/categories-carousel.html"
           );
           const categoriesSliderData = await categoriesSliderResponse.text();
           document.getElementById("categories-slider-placeholder").outerHTML =
@@ -82,46 +88,30 @@
 
           // Load banner carousel
           const bannerCarouselResponse = await fetch(
-            "/snippets/banner-carousel.html"
+            "/snippets/banner-carousel/banner-carousel.html"
           );
           const bannerCarouselData = await bannerCarouselResponse.text();
           document.getElementById("banner-carousel-placeholder").outerHTML =
             bannerCarouselData;
 
-          // Load three images slider
-          const threeImagesSliderResponse = await fetch(
-            "/snippets/three-images-slider.html"
+          // Load images carousel
+          const imagesCarouselResponse = await fetch(
+            "/snippets/images-carousel/images-carousel.html"
           );
-          const threeImagesSliderData = await threeImagesSliderResponse.text();
-          document.getElementById("three-images-slider-placeholder").outerHTML =
-            threeImagesSliderData;
+          const imagesCarouselData = await imagesCarouselResponse.text();
+          document.getElementById("images-carousel-placeholder").outerHTML =
+            imagesCarouselData;
 
-          // Load table controls
-          const tableControlsResponse = await fetch(
-            "/snippets/table-controls-w-tabs.html"
-          );
-          const tableControlsData = await tableControlsResponse.text();
-          document.getElementById("table-controls-placeholder").outerHTML =
-            tableControlsData;
-
-          // Load products table and render products
+          // Load images carousel
           const productsTableResponse = await fetch(
-            "/snippets/products-table.html"
+            "/snippets/products-table/products-table.html"
           );
           const productsTableData = await productsTableResponse.text();
           document.getElementById("products-table-placeholder").outerHTML =
             productsTableData;
 
-          // Load products table pagination and render products
-          const tablePaginationResponse = await fetch(
-            "/snippets/table-pagination.html"
-          );
-          const tablePaginationData = await tablePaginationResponse.text();
-          document.getElementById("table-pagination-placeholder").outerHTML =
-            tablePaginationData;
-
           // Load footer
-          const footerResponse = await fetch("/layout/footer.html");
+          const footerResponse = await fetch("./snippets/footer/footer.html");
           const footerData = await footerResponse.text();
           document.getElementById("footer-placeholder").outerHTML = footerData;
         } catch (error) {
@@ -147,11 +137,15 @@
 
         // After loadComponents is done, load the other scripts
         try {
-          await loadScript("/scripts/filter-by-categories.js");
-          await loadScript("/scripts/categories-carousel.js");
-          await loadScript("/scripts/products-data.js");
-          await loadScript("/scripts/table-filters.js");
-          await loadScript("/scripts/table-pagination.js");
+          await loadScript("./snippets/header/header.js");
+          await loadScript(
+            "./snippets/categories-carousel/categories-carousel.js"
+          );
+          await loadScript("./snippets/banner-carousel/banner-carousel.js");
+          await loadScript("./snippets/images-carousel/images-carousel.js");
+          await loadScript(
+            "./snippets/products-table/products-table-w-tabs.js"
+          );
           console.log("All scripts loaded successfully");
         } catch (error) {
           console.error("Error loading external scripts:", error);
