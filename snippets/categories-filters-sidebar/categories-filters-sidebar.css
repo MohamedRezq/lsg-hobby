@@ -5,9 +5,14 @@
   border: 1px solid #e5e7eb;
   padding-bottom: 1rem;
   width: 100%;
-  min-width: 230px;
-  max-width: 230px;
   margin-top: 26px;
+}
+
+@media (min-width: 768px) {
+  .filter-sidebar {
+    min-width: 230px;
+    max-width: 230px;
+  }
 }
 
 /* Filter Header */

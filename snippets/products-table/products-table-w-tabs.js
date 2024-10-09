@@ -35,34 +35,48 @@ function renderProductTable(products) {
 
     const row = `
 <tr style="background-color: white; transition: background-color 200ms ease-in-out;" onmouseover="this.style.backgroundColor='#F9FAFB'" onmouseout="this.style.backgroundColor='white'">
-<td style="padding-left: 10px"><img src="${product?.image}" alt="${
+<td style="padding-left: 10px"><a href="/product?.html?id=${
+      product?.id
+    }"><img src="${product?.image}" alt="${
       product?.name ?? ""
-    }" style="height: 80px; width: 80px; border-radius: 8px; object-fit: contain; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);"></td>
+    }" style="height: 80px; width: 80px; border-radius: 8px; object-fit: contain; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);"></a></td>
 <td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; gap: 0.5rem; align-items: top;">
-    <div style="color: #6B7280;">SKU: <span style="font-weight: 600;">${
+    <div style="display: flex; flex-direction: column">
+        <a href="/product?.html?id=${
+          product?.id
+        }" style="color: #6B7280;">SKU: <span style="font-weight: 600;">${
       product?.sku ?? ""
-    }</span></div>
-    <div style="color: #6B7280;">MFG CODE: <span style="font-weight: 600;">${
+    }</span></a>
+        <a href="/product?.html?id=${
+          product?.id
+        }" style="color: #6B7280;">MFG CODE: <span style="font-weight: 600;">${
       product?.mfgCode ?? ""
-    }</span></div>
-    <div style="color: #6B7280;">UPC: <span style="font-weight: 600;">${
+    }</span></a>
+        <a href="/product?.html?id=${
+          product?.id
+        }" style="color: #6B7280;">UPC: <span style="font-weight: 600;">${
       product?.upc ?? ""
-    }</span></div>
-    <div style="font-weight: normal; color: #6B7280;">Category: <span style="font-weight: bold; color: #374151;">${
-      product?.category ?? ""
-    }</span></div>
+    }</span></a>
+        <a href="#" style="font-weight: normal; color: #6B7280;">Category: <span style="font-weight: bold; color: #374151;">${
+          product?.category ?? ""
+        }</span></a>
+    </div>
 </td>
 <td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; text-align: left;">
-  <a href="/product?.html?id=${
-    product?.id
-  }" style="font-size: 9pt; font-weight: bold; text-decoration: underline;">${
+<div style="display: flex; flex-direction: column;">
+<a href="/product?.html?id=${
+      product?.id
+    }" style="font-size: 9pt; font-weight: bold; text-decoration: underline;">${
       product?.name ?? ""
     }</a>
-  <div style="font-size: 9pt; font-weight: 600; color: #6B7280;">${
-    product?.description ?? ""
-  }</div>
+  <a href="/product?.html?id=${
+    product?.id
+  }" style="font-size: 9pt; font-weight: 600; color: #6B7280;">${
+      product?.description ?? ""
+    }</a>
   <div style="font-size: 8.5pt; color: #16A34A;">${product?.reserve ?? ""}</div>
   <div style="font-size: 8.5pt; color: #CA8A04;">${product?.eta ?? ""}</div>
+</div>
 </td>
 <td style="padding: 0.5rem 0.5rem; font-size: 10pt; color: #4B5563; font-weight: 600;">${
       product?.scale ?? ""
@@ -152,21 +166,27 @@ function renderProductCards(products) {
     const card = `
 <div style="max-width: 100%; height: 100%; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden; border: 1px solid #E5E7EB; padding: 12px 5px; display: flex; flex-direction: column; justify-content: start; align-items: start;">
   <div style="display: flex; gap: 15px; justify-content: start; width: 100%;">
-    <div style="flex: 0 0 30%; display: flex; fjustify-content: flex-start;">
+    <div style="flex: 0 0 30%; display: flex; justify-content: flex-start;">
       <!-- Image (smaller, and aligned) -->
-      <img
+      <a href="/product?.html?id=${product?.id}"><img
         style="width: 100%; object-fit: cover; border-radius: 4px;"
         src="${product?.image}"
         alt="${product?.name}"
-      />
+      /></a>
     </div>
-    <div style="font-size: 9pt; flex: 1; color: #333333; display: flex; flex-direction: column; gap: 4px;">
-      <div style="font-size: 9pt; font-weight: bold; line-height: 1.2;">${
-        product?.name
-      }</div>
-      <div style="font-size: 8.5pt; font-weight: 600;">${
-        product?.description
-      }</div>
+    <div href="/product?.html?id=${
+      product?.id
+    }" style="font-size: 9pt; flex: 1; display: flex; flex-direction: column; gap: 4px;">
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="font-size: 9pt; font-weight: bold; line-height: 1.2; color: #333333;">${
+      product?.name
+    }</a>
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="font-size: 8.5pt; font-weight: 600; color: #333333;">${
+      product?.description
+    }</a>
       <div style="display: flex; gap: 10px; text-align: center; align-items: center;">
         <i class="${
           product?.stock ? "fas fa-check-circle" : "fas fa-times-circle"
@@ -191,21 +211,29 @@ function renderProductCards(products) {
           ${!product?.stock ? "Out of Stock" : ""}
         </div>
       </div>
-      <div style="color: #374151;">Scale: <span style="font-weight: 600;">${
-        product?.scale ?? ""
-      }</span></div>
-      <div style="color: #374151;">SKU: <span style="font-weight: 600;">${
-        product?.sku ?? ""
-      }</span></div>
-      <div style="color: #374151;">MFG Code: <span style="font-weight: 600;">${
-        product?.mfgCode ?? ""
-      }</span></div>
-      <div style="color: #374151;">UPC: <span style="font-weight: 600;">${
-        product?.upc ?? ""
-      }</span></div>
-      <div style="color: #374151;">Category: <span style="font-weight: bold;">${
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="color: #374151;">Scale: <span style="font-weight: 600;">${
+      product?.scale ?? ""
+    }</span></a>
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="color: #374151;">SKU: <span style="font-weight: 600;">${
+      product?.sku ?? ""
+    }</span></a>
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="color: #374151;">MFG Code: <span style="font-weight: 600;">${
+      product?.mfgCode ?? ""
+    }</span></a>
+      <a href="/product?.html?id=${
+        product?.id
+      }" style="color: #374151;">UPC: <span style="font-weight: 600;">${
+      product?.upc ?? ""
+    }</span></a>
+      <a href="#" style="color: #374151;">Category: <span style="font-weight: bold;">${
         product?.category ?? ""
-      }</span></div>
+      }</span></a>
       <div style="display: flex; justify-content: space-between; width: 100%;">
     <div style="display: flex; flex-direction: column; align-items: start;">
       ${
