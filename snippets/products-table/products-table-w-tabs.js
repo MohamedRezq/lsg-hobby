@@ -38,7 +38,7 @@ function renderProductTable(products) {
 <td style="padding-left: 10px"><img src="${product?.image}" alt="${
       product?.name ?? ""
     }" style="height: 80px; width: 80px; border-radius: 8px; object-fit: contain; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);"></td>
-<td style="font-size: 8.5pt; gap: 0.5rem; padding: 0.25rem 0.5rem; align-items: top;">
+<td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; gap: 0.5rem; align-items: top;">
     <div style="color: #6B7280;">SKU: <span style="font-weight: 600;">${
       product?.sku ?? ""
     }</span></div>
@@ -55,7 +55,7 @@ function renderProductTable(products) {
 <td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; text-align: left;">
   <a href="/product?.html?id=${
     product?.id
-  }" style="font-size: 9.5pt; font-weight: bold; text-decoration: underline;">${
+  }" style="font-size: 9pt; font-weight: bold; text-decoration: underline;">${
       product?.name ?? ""
     }</a>
   <div style="font-size: 9pt; font-weight: 600; color: #6B7280;">${
@@ -73,11 +73,11 @@ function renderProductTable(products) {
       <span style="font-size: 8.5pt; font-weight: 600; color: #DC2626;">${
         product?.discount ?? ""
       }</span>
-      <span style="font-size: 12pt; font-weight: bold; color: #333333;">${
+      <span style="font-size: 11pt; font-weight: bold; color: #333333;">${
         product?.finalPrice ?? ""
       }</span>
     </div>
-    <span style="font-size: ${product?.discount ? "9pt" : "12pt"}; ${
+    <span style="font-size: ${product?.discount ? "9pt" : "11pt"}; ${
       product?.discount
         ? "text-decoration: line-through;"
         : "font-weight: bold;"
@@ -104,7 +104,7 @@ function renderProductTable(products) {
     }
   </div>
 </td>
-<td style="font-size: 11pt; text-align: right; padding: 0.25rem; color: #4B5563; font-weight: 600; padding-right: 20px;">${
+<td style="font-size: 10pt; text-align: right; padding: 0.25rem; color: #4B5563; font-weight: 500; padding-right: 20px;">${
       product?.srp ?? ""
     }</td>
 <td style="text-align: center; padding: 0.25rem;">

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Blog Article - Lightspeed Global - Model Kits, Paints, and More
+    </title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+    <style>
+      .blog-container .LsgArticle {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      /* Article name */
+      .blog-container #article-name {
+        font-size: 2.5rem; /* Larger for better visibility */
+        font-weight: 700;
+        color: #333;
+        text-align: center;
+      }
+
+      /* Author info */
+      .blog-container #article-author {
+        font-size: 1.4rem; /* Slightly larger */
+        color: #666;
+        text-align: center;
+        display: ruby !important;
+      }
+
+      .blog-container #article-author strong,
+      .blog-container #article-name strong {
+        font-size: 1.4rem; /* Slightly larger */
+      }
+
+      /* Image styling */
+      .blog-container img.fill {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
+        margin-bottom: 25px;
+      }
+
+      /* Section titles (strong tag) */
+      .blog-container p strong {
+        font-size: 1.5rem; /* Increased size for better visibility */
+        color: #222;
+        display: block;
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      /* Regular Unordered List (Bullets) */
+      .blog-container ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        color: #444;
+        list-style-type: disc; /* Regular bullets */
+      }
+
+      .blog-container ul li {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        margin-bottom: 12px;
+        padding-left: 0; /* Remove padding for icons */
+        position: relative;
+      }
+
+      /* Regular Ordered List (Numbers) */
+      .blog-container ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        color: #444;
+        list-style-type: decimal; /* Regular numbers */
+      }
+
+      .blog-container ol li {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        margin-bottom: 12px;
+        padding-left: 0; /* Remove padding for icons */
+      }
+
+      /* Regular Hyperlink Styling */
+      .blog-container a {
+        color: #e0a20f; /* Use production website colors */
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* Hover Effect for Hyperlinks */
+      .blog-container a:hover {
+        color: #bb8504; /* Hover color */
+        text-decoration: underline;
+      }
+
+      /* Styling for Product Hyperlinks (Differentiated from Text Links) */
+      .blog-container a.product-link {
+        color: #0066cc; /* Example of a different color for product links */
+      }
+
+      .blog-container a.product-link:hover {
+        color: #004a99; /* Hover color for product links */
+        text-decoration: underline;
+      }
+
+      /* Remove FontAwesome Icon After Links */
+      .blog-container a:after {
+        content: none; /* No icon after the link */
+      }
+
+      /* Example of Color for Action Buttons */
+      .text-action-button {
+        color: #e0a20f;
+        box-shadow: #333333;
+      }
+
+      .text-action-button:hover {
+        color: #bb8504;
+        text-decoration: underline;
+      }
+
+      /* Responsive text and container for mobile */
+      @media (max-width: 768px) {
+        .blog-container {
+          padding: 10px;
+        }
+
+        .blog-container #article-name {
+          font-size: 1.8rem; /* Slightly reduced for mobile */
+        }
+
+        .blog-container #article-author {
+          font-size: 1.1rem;
+          display: ruby !important;
+        }
+
+        .blog-container ul li,
+        .blog-container ol li {
+          font-size: 1rem; /* More readable on smaller screens */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Product Details Section -->
+      <section style="width: 100%">
+        <div id="blog-article-content-placeholder"></div>
+      </section>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("/snippets/header/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load product details
+          const blogArticleResponse = await fetch(
+            "/snippets/blog-content/blog-content.html"
+          );
+          const blogArticleData = await blogArticleResponse.text();
+          document.getElementById(
+            "blog-article-content-placeholder"
+          ).outerHTML = blogArticleData;
+
+          // Load footer
+          const footerResponse = await fetch("/snippets/footer/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          await loadScript("/snippets/header/header.js");
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
