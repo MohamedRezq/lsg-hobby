@@ -1,0 +1,63 @@
+/* Pagination Container */
+.pagination-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Pagination Navigation */
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem; /* Equivalent to text-xs */
+}
+
+/* Pagination Buttons */
+.pagination-btn {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+/* Inactive Pagination Button */
+.pagination-inactive {
+  background-color: #e5e7eb; /* Equivalent to bg-gray-200 */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+}
+
+.pagination-inactive:hover {
+  background-color: #d1d5db; /* Equivalent to hover:bg-gray-300 */
+}
+
+/* Active Page */
+.active-page {
+  background-color: #fcd34d; /* Equivalent to bg-yellow-300 */
+  color: white;
+  font-weight: 700;
+}
+
+/* Inactive Page Numbers */
+.inactive-page {
+  background-color: #e5e7eb; /* Equivalent to bg-gray-200 */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+}
+
+.inactive-page:hover {
+  background-color: #d1d5db; /* Equivalent to hover:bg-gray-300 */
+}
+
+/* Pagination Numbers Container */
+.pagination-numbers {
+  display: flex;
+  gap: 2px;
+  font-size: 1.2rem; /* Equivalent to text-xs */
+}
+
+/* Focus and Accessibility Styles */
+.focus-outline {
+  outline: none;
+}

@@ -33,6 +33,14 @@
       rel="stylesheet"
       href="./snippets/products-table/products-table.css"
     />
+    <link
+      rel="stylesheet"
+      href="./snippets/products-table-tabs/products-table-tabs.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./snippets/products-table-pagination/products-table-pagination.css"
+    />
   </head>
 
   <body>
@@ -50,8 +58,13 @@
       <div id="banner-carousel-placeholder"></div>
       <!-- Images Carousel PlaceHolder -->
       <div id="images-carousel-placeholder"></div>
-      <!-- Images Carousel PlaceHolder -->
-      <div id="products-table-placeholder"></div>
+
+      <!-- Products Table PlaceHolder -->
+      <section style="margin-top: 30px; margin-bottom: 50px">
+        <div id="table-controls-placeholder"></div>
+        <div id="products-table-placeholder"></div>
+        <div id="table-pagination-placeholder"></div>
+      </section>
     </main>
 
     <!-- Footer PlaceHolder -->
@@ -110,6 +123,22 @@
           document.getElementById("products-table-placeholder").outerHTML =
             productsTableData;
 
+          // Load table controls
+          const tableControlsResponse = await fetch(
+            "/snippets/products-table-tabs/products-table-tabs.html"
+          );
+          const tableControlsData = await tableControlsResponse.text();
+          document.getElementById("table-controls-placeholder").outerHTML =
+            tableControlsData;
+
+          // Load products table pagination and render products
+          const tablePaginationResponse = await fetch(
+            "/snippets/products-table-pagination/products-table-pagination.html"
+          );
+          const tablePaginationData = await tablePaginationResponse.text();
+          document.getElementById("table-pagination-placeholder").outerHTML =
+            tablePaginationData;
+
           // Load footer
           const footerResponse = await fetch("./snippets/footer/footer.html");
           const footerData = await footerResponse.text();
@@ -145,6 +174,12 @@
           await loadScript("./snippets/images-carousel/images-carousel.js");
           await loadScript(
             "./snippets/products-table/products-table-w-tabs.js"
+          );
+          await loadScript(
+            "./snippets/products-table-tabs/products-table-tabs.js"
+          );
+          await loadScript(
+            "./snippets/products-table-pagination/products-table-pagination.js"
           );
           console.log("All scripts loaded successfully");
         } catch (error) {

@@ -1,8 +1,7 @@
 .products-table-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 /* Main Table Styling */
@@ -12,7 +11,6 @@
 }
 
 .products-table-main-table {
-  margin-top: 3rem;
   min-width: 100%;
   border-radius: 0.5rem; /* This is for rounded-lg */
   border: 1px solid #d1d5db; /* This is for border-gray-300 */
@@ -37,6 +35,7 @@
 .products-table-table-body td {
   padding: 12px 8px;
   border-bottom: 1px solid #ccc;
+  vertical-align: top;
 }
 
 .products-table-table-body tr:nth-child(even) {
@@ -48,13 +47,14 @@
   display: inline-flex; /* This is for "inline-flex" */
   flex-direction: column; /* This is for "flex-col" */
   align-items: center; /* This is for "items-center" */
-  margin-top: -0.5rem; /* This is for "-space-y-2" which creates vertical negative spacing */
+  margin-bottom: 5px;
 }
 
 .products-table-sort-icons i {
   font-size: 10px;
   color: #777;
   cursor: pointer;
+  height: 5px;
 }
 
 .products-table-sort-icons i:hover {
@@ -97,12 +97,14 @@ th:nth-child(6),
 td:nth-child(6) {
   width: 60px;
   min-width: 60px;
+  text-align: right;
 }
 
 th:nth-child(7),
 td:nth-child(7) {
   width: 100px;
   min-width: 100px;
+  text-align: right;
 }
 
 th:nth-child(8),
@@ -152,7 +154,7 @@ td:nth-child(8) {
 
 .products-table-product-card img {
   width: 100%;
-  height: 100px;
+  height: 80px;
   object-fit: contain;
   border-radius: 8px;
   margin-bottom: 10px;
