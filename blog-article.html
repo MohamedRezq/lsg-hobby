@@ -19,9 +19,14 @@
       });
     </script>
     <style>
-      .blog-container .LsgArticle {
+      .blog-container #LsgArticle {
         padding-left: 0 !important;
         padding-right: 0 !important;
+      }
+
+      .blog-container #LsgArticle div {
+        box-shadow: none !important; /* Removes the box-shadow */
+        padding: 0 !important; /* Removes padding */
       }
       /* Article name */
       .blog-container #article-name {
@@ -65,7 +70,7 @@
       /* Regular Unordered List (Bullets) */
       .blog-container ul {
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #444;
         list-style-type: disc; /* Regular bullets */
       }
@@ -81,7 +86,7 @@
       /* Regular Ordered List (Numbers) */
       .blog-container ol {
         margin-left: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #444;
         list-style-type: decimal; /* Regular numbers */
       }
@@ -149,7 +154,7 @@
 
         .blog-container ul li,
         .blog-container ol li {
-          font-size: 1rem; /* More readable on smaller screens */
+          font-size: 1.4rem; /* More readable on smaller screens */
         }
       }
     </style>
