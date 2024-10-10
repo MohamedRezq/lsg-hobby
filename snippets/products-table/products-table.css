@@ -200,3 +200,7 @@ td:nth-child(8) {
 .products-table-product-card .stock-status i {
   font-size: 14px;
 }
+
+.product-details-related-products {
+  margin-top: 80px;
+}

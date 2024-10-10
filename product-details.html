@@ -21,6 +21,10 @@
       rel="stylesheet"
       href="./snippets/product-details/product-details.css"
     />
+    <link
+      rel="stylesheet"
+      href="./snippets/products-table/products-table.css"
+    />
   </head>
 
   <body>
@@ -28,92 +32,180 @@
     <div id="header-placeholder"></div>
 
     <main class="main-container">
-      <!-- Product Details Container -->
-      <div id="product-details-container" class="product-details-container">
+      <div id="product-details-container" class="product-info-container">
         <!-- Product Image and Carousel Section -->
-        <div class="image-carousel-container">
-          <div id="main-product-image" class="main-product-image">
+        <div class="product-details-image-carousel">
+          <!-- Main Image -->
+          <div id="main-product-image" class="product-details-main-image">
             <img
-              id="current-main-image"
               src=""
               alt="Product Image"
-              class="main-image"
+              id="current-main-image"
+              class="product-details-current-image"
             />
-            <button id="prev-slide" class="slide-button">&#10094;</button>
-            <button id="next-slide" class="slide-button">&#10095;</button>
+            <button id="prev-slide" class="product-details-prev-slide">
+              &#10094;
+            </button>
+            <button id="next-slide" class="product-details-next-slide">
+              &#10095;
+            </button>
           </div>
-          <div id="thumbnail-carousel" class="thumbnail-carousel"></div>
+          <!-- Thumbnails -->
+          <div
+            id="thumbnail-carousel"
+            class="product-details-thumbnail-carousel"
+          ></div>
         </div>
 
         <!-- Product Info Section -->
-        <div class="product-info-container">
-          <div class="product-header">
-            <h1 id="product-name" class="product-name"></h1>
-            <span id="product-details-tag" class="product-tag"></span>
+        <div class="product-details-info">
+          <div class="product-details-header">
+            <div id="product-name" class="product-details-name"></div>
+            <div id="product-details-tag" class="product-details-tag"></div>
           </div>
-          <h2 id="product-description" class="product-description"></h2>
-          <div class="product-meta">
-            <p>SKU: <span id="product-sku"></span></p>
-            <p id="product-mfg-code-container">
-              MFG CODE: <span id="product-mfg-code"></span>
-            </p>
-            <p id="product-upc-container">
-              UPC: <span id="product-upc"></span>
-            </p>
-            <p id="product-category-container">
-              Category: <span id="product-category"></span>
-            </p>
-            <p id="product-details-scale-container">
-              Scale: <span id="product-details-scale"></span>
-            </p>
-            <p id="product-details-srp-container">
-              SRP: <span id="product-details-srp"></span>
-            </p>
-          </div>
-          <div class="availability-status" id="availability-status"></div>
-
-          <!-- Pricing -->
-          <div id="pricing">
-            <span id="discount" class="discount"></span>
-            <span id="final-price" class="final-price"></span>
-            <div class="original-price">
-              <span id="net-price"></span>
-              <span id="original-price-label">Original:</span>
+          <div
+            id="product-description"
+            class="product-details-description"
+          ></div>
+          <div class="product-details-metadata">
+            <div class="product-details-text">
+              <div>
+                SKU: <span id="product-sku" class="product-details-bold"></span>
+              </div>
+              <div id="product-mfg-code-container">
+                MFG CODE:
+                <span id="product-mfg-code" class="product-details-bold"></span>
+              </div>
+              <div id="product-upc-container">
+                UPC: <span id="product-upc" class="product-details-bold"></span>
+              </div>
+              <div
+                id="product-category-container"
+                class="product-details-category"
+              >
+                Category:
+                <span id="product-category" class="product-details-bold"></span>
+              </div>
+              <div
+                id="product-details-scale-container"
+                class="product-details-scale"
+              >
+                Scale:
+                <span
+                  id="product-details-scale"
+                  class="product-details-bold"
+                ></span>
+              </div>
+              <div
+                id="product-details-srp-container"
+                class="product-details-srp"
+              >
+                SRP:
+                <span
+                  id="product-details-srp"
+                  class="product-details-bold"
+                ></span>
+              </div>
+              <div
+                id="availability-status"
+                class="product-details-availability"
+              ></div>
             </div>
-          </div>
+            <div class="product-details-pricing">
+              <div class="product-details-pricing-info">
+                <span
+                  ><span id="discount" class="product-details-discount"></span
+                  ><span
+                    id="final-price"
+                    class="product-details-final-price"
+                  ></span
+                ></span>
+              </div>
+              <p class="product-details-original-price">
+                <span id="net-price" class="product-details-net-price"></span>
+              </p>
+              <!-- Stock and Add to Cart -->
+              <div class="product-details-cart-section">
+                <div class="product-details-quantity">
+                  <input
+                    type="number"
+                    id="quantity-input"
+                    class="product-details-input"
+                    placeholder="2"
+                  />
+                  <button id="add-to-cart" class="product-details-add-to-cart">
+                    Add to Cart
+                  </button>
+                </div>
 
-          <!-- Add to Cart -->
-          <div class="add-to-cart">
-            <input id="quantity-input" type="number" value="1" min="1" />
-            <button id="add-to-cart" class="add-to-cart-button">
-              Add to Cart
-            </button>
-          </div>
-
-          <!-- Additional Info -->
-          <div class="additional-info">
-            <div id="product-details-moq"></div>
-            <div id="product-details-back-ordered"></div>
-            <div id="product-details-last-purchased"></div>
+                <div class="product-details-additional-info">
+                  <div
+                    id="product-details-moq"
+                    class="product-details-moq"
+                  ></div>
+                  <div
+                    id="product-details-back-ordered"
+                    class="product-details-back-ordered"
+                  ></div>
+                  <div
+                    id="product-details-last-purchased"
+                    class="product-details-last-purchased"
+                  ></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Product Details and Specifications Tabs -->
-      <div class="tabs-container">
-        <button id="details-tab" class="tab-button tab-active">
-          Product Details
-        </button>
-        <button id="specifications-tab" class="tab-button">
-          Specifications
-        </button>
+      <div class="product-details-container">
+        <div class="product-details-tabs">
+          <button id="details-tab" class="product-details-tab-active">
+            Product Details
+          </button>
+          <button id="specifications-tab" class="product-details-tab">
+            Specifications
+          </button>
+        </div>
+        <div id="product-details" class="product-details-info-content">
+          <p id="details"></p>
+        </div>
+        <div id="product-specifications" class="product-details-hidden">
+          <ul id="spec-list" class="product-details-spec-list"></ul>
+        </div>
       </div>
-      <div id="product-details" class="tab-content"><p id="details"></p></div>
-      <div id="product-spec
-    </main>
 
-    <!-- Footer PlaceHolder -->
-    <div id="footer-placeholder"></div>
+      <!-- Related Products Section -->
+      <div id="related-products" class="product-details-related-products">
+        <h2 class="product-details-related-title">Related Products</h2>
+        <div id="related-products-table-placeholder"></div>
+      </div>
+
+      <!-- Fullscreen Image Carousel Modal -->
+      <div id="fullscreen-carousel" class="product-details-fullscreen-carousel">
+        <button
+          id="close-fullscreen-carousel"
+          class="product-details-close-fullscreen"
+        >
+          &times;
+        </button>
+        <div id="carousel-content" class="product-details-carousel-content">
+          <img
+            id="fullscreen-image"
+            src=""
+            alt="Product Image"
+            class="product-details-fullscreen-image"
+          />
+          <button id="fullscreen-prev" class="product-details-fullscreen-prev">
+            &#10094;
+          </button>
+          <button id="fullscreen-next" class="product-details-fullscreen-next">
+            &#10095;
+          </button>
+        </div>
+      </div>
+    </main>
 
     <!-- JavaScript -->
     <script
@@ -170,6 +262,7 @@
         try {
           await loadScript("/snippets/header/header.js");
           await loadScript("/snippets/product-details/product-details.js");
+          await loadScript("/snippets/products-table/products-table-w-tabs.js");
           console.log("All scripts loaded successfully");
         } catch (error) {
           console.error("Error loading external scripts:", error);
