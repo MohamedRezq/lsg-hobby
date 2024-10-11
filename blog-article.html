@@ -28,9 +28,14 @@
         box-shadow: none !important; /* Removes the box-shadow */
         padding: 0 !important; /* Removes padding */
       }
+
+      .blog-container .col-xs-12:first-child {
+        margin: 0px !important;
+      }
+
       /* Article name */
       .blog-container #article-name {
-        font-size: 2.5rem; /* Larger for better visibility */
+        font-size: 3rem; /* Larger for better visibility */
         font-weight: 700;
         color: #333;
         text-align: center;
@@ -55,7 +60,7 @@
         height: auto;
         border-radius: 8px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* A larger shadow for emphasis */
-        margin-bottom: 25px;
+        margin-bottom: 40px !important;
       }
 
       /* Section titles (strong tag) */
@@ -105,6 +110,11 @@
         text-decoration: none;
       }
 
+      .blog-container img {
+        margin: 0 auto 30px !important;
+        height: auto;
+      }
+
       /* Hover Effect for Hyperlinks */
       .blog-container a:hover {
         color: #bb8504; /* Hover color */
@@ -141,6 +151,12 @@
       @media (max-width: 768px) {
         .blog-container {
           padding: 10px;
+        }
+
+        .blog-container img {
+          margin: 30px auto;
+          width: 100%;
+          height: auto;
         }
 
         .blog-container #article-name {
@@ -192,14 +208,45 @@
           const headerData = await headerResponse.text();
           document.getElementById("header-placeholder").outerHTML = headerData;
 
-          // Load product details
-          const blogArticleResponse = await fetch(
-            "/snippets/blog-content/blog-content.html"
-          );
-          const blogArticleData = await blogArticleResponse.text();
-          document.getElementById(
-            "blog-article-content-placeholder"
-          ).outerHTML = blogArticleData;
+          // Function to get blog ID from the URL
+          function getBlogIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get("id")); // Extract 'id' as an integer
+          }
+
+          // Function to load the corresponding blog content
+          async function loadBlogContent() {
+            const blogId = getBlogIdFromUrl(); // Get the blog ID from URL
+
+            if (!blogId) {
+              console.error("Blog ID is missing in the URL.");
+              return;
+            }
+
+            try {
+              // Load the appropriate blog content based on the 'id' value
+              const blogArticleResponse = await fetch(
+                `/snippets/blog-content/blog-content-${blogId}.html`
+              );
+
+              if (!blogArticleResponse.ok) {
+                throw new Error(`Blog content for id ${blogId} not found`);
+              }
+
+              const blogArticleData = await blogArticleResponse.text();
+              document.getElementById(
+                "blog-article-content-placeholder"
+              ).outerHTML = blogArticleData;
+            } catch (error) {
+              console.error("Error loading blog content:", error);
+              document.getElementById(
+                "blog-article-content-placeholder"
+              ).innerText = "Error loading blog content.";
+            }
+          }
+
+          // Call the function to load the content when the DOM is ready
+          loadBlogContent();
 
           // Load footer
           const footerResponse = await fetch("/snippets/footer/footer.html");

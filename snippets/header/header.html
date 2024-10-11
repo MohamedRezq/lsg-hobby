@@ -4,15 +4,22 @@
     <div class="logo-menu">
       <!-- Hamburger Menu for Mobile with Alpine.js -->
       <div x-data="{ open: false }" class="hamburger-menu">
-        <button @click="open = !open" class="menu-button">
+        <button
+          @click="open = !open; document.body.classList.toggle('body-no-scroll', open)"
+          class="menu-button"
+        >
           <i :class="open ? 'fas fa-times' : 'fas fa-bars'"></i>
         </button>
 
         <!-- Mobile Menu -->
-        <nav x-show="open" @click.away="open = false" class="mobile-nav">
+        <nav
+          x-show="open"
+          @click.away="open = false; document.body.classList.remove('body-no-scroll')"
+          class="mobile-nav"
+        >
           <div class="mobile-nav-content">
             <ul class="mobile-nav-menu">
-              <li><a href="/blog-article.html">BLOG</a></li>
+              <li><a href="/blogs.html">BLOG</a></li>
               <li><a href="#">NEW</a></li>
               <li><a href="#">RESERVE</a></li>
               <li><a href="#">FEATURED DEALS</a></li>
@@ -103,7 +110,7 @@
 <div class="desktop-navbar">
   <nav class="desktop-nav-container">
     <ul class="nav-menu">
-      <li><a href="/blog-article.html" class="nav-link">BLOG</a></li>
+      <li><a href="/blogs.html" class="nav-link">BLOG</a></li>
       <li><a href="#" class="nav-link">NEW</a></li>
       <li><a href="#" class="nav-link">RESERVE</a></li>
       <li><a href="#" class="nav-link">FEATURED DEALS</a></li>

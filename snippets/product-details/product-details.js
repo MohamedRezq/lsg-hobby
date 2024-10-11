@@ -203,11 +203,26 @@ function initializeThumbnailCarousel(images) {
   mainImage.addEventListener("click", () => {
     fullscreenImage.src = images[activeThumbnailIndex];
     fullscreenCarousel.style.display = "flex"; // Show the modal
+    document.body.classList.add("body-no-scroll"); // Disable background scroll
+  });
+
+  // Event listener to close the menu or carousel when the Esc key is pressed
+  document.addEventListener("keydown", (event) => {
+    // Check if the Esc key was pressed
+    if (event.key === "Escape") {
+      // Check if fullscreen carousel is open and close it
+      const fullscreenCarousel = document.getElementById("fullscreen-carousel");
+      if (fullscreenCarousel && fullscreenCarousel.style.display === "flex") {
+        fullscreenCarousel.style.display = "none";
+        document.body.classList.remove("body-no-scroll"); // Remove no-scroll class if carousel is closed
+      }
+    }
   });
 
   // Close fullscreen carousel
   closeFullscreenBtn.addEventListener("click", () => {
     fullscreenCarousel.style.display = "none";
+    document.body.classList.remove("body-no-scroll"); // Re-enable background scroll
   });
 
   // Navigate to the previous image in fullscreen carousel
