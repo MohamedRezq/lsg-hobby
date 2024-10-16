@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Reserve - Lightspeed Global - Model Kits, Paints, and More</title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+    <style>
+      .tab-container {
+        display: flex;
+        border-bottom: 2px solid #ddd;
+      }
+
+      .tab {
+        padding: 10px 20px;
+        background-color: #f1f1f1;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.3s;
+      }
+
+      .tab.active {
+        background-color: #333;
+        color: white;
+        border-bottom: 3px solid orange;
+      }
+
+      .tab:hover {
+        background-color: #ddd;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      thead th {
+        background-color: #f2f2f2;
+        cursor: pointer;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        position: relative;
+      }
+
+      th:hover::after {
+        content: " ⇅";
+        position: absolute;
+        right: 10px;
+        color: #333;
+      }
+
+      tbody tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      tbody tr td:nth-child(2) {
+        font-weight: 600;
+      }
+
+      #mobile-cards {
+        display: none;
+      }
+
+      .reserve-days-left {
+        width: fit-content;
+        background-color: #f2dede;
+        color: #bc462b;
+        font-weight: 700;
+        text-align: center;
+        padding: 2px 5px;
+        border-radius: 2px;
+      }
+
+      /* Button styling */
+      .learn-more-button {
+        background-color: #e0f4fc; /* Light blue background */
+        border: 2px solid #bbe1f1; /* Light blue border */
+        border-radius: 2px;
+        padding: 10px 24px;
+        height: fit-content;
+        font-size: 1.2rem;
+        color: #e79800; /* Gold color for text */
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Hover and Focus Effects */
+      .learn-more-button:hover,
+      .learn-more-button:focus {
+        background-color: #bbe1f1; /* Darker blue on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        outline: none;
+      }
+
+      /* Active Button (When Clicked) */
+      .learn-more-button:active {
+        background-color: #a9d9f0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+      }
+
+      /* Responsive Styles */
+      /* Card view for mobile screens */
+      @media (max-width: 768px) {
+        #mobile-cards {
+          display: block;
+        }
+
+        table {
+          display: none; /* Hide the table on small screens */
+        }
+
+        .card {
+          background-color: #f9f9f9;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          padding: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .card-body {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .card-body div {
+          width: 48%;
+          margin-bottom: 10px;
+        }
+
+        .card-body div span {
+          font-weight: bold;
+          margin-right: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          align-items: top;
+          justify-content: space-between;
+        "
+      >
+        <div class="tab-container">
+          <button class="tab active" data-target="reserve-by-po">
+            Reserve By PO
+          </button>
+          <button class="tab" data-target="reserve-by-brand">
+            Reserve By Brand
+          </button>
+        </div>
+        <button class="learn-more-button" onclick="buttonClick()">
+          Learn more about our new Reservation system
+        </button>
+      </div>
+
+      <!-- PO Table Section -->
+      <div id="reserve-by-po" class="tab-content active">
+        <!-- Table for larger screens -->
+        <table id="po-table">
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">PO #</th>
+              <th onclick="sortTable(1)">Brand</th>
+              <th onclick="sortTable(2)">Listed Date</th>
+              <th onclick="sortTable(3)">Days Left</th>
+              <th onclick="sortTable(4)">ETA</th>
+              <th onclick="sortTable(5)"># of Items</th>
+              <th onclick="sortTable(6)">Items Ordered</th>
+              <th onclick="sortTable(7)">Order Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>002521</td>
+              <td>X-PLUS</td>
+              <td>2024-09-25</td>
+              <td class="reserve-days-left">0</td>
+              <td>2025-Feb late</td>
+              <td>1</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>002597</td>
+              <td>Bandai Collectible</td>
+              <td>2024-10-10</td>
+              <td class="reserve-days-left">1</td>
+              <td>2025-Jul late</td>
+              <td>6</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>002598</td>
+              <td>Bandai Figurine</td>
+              <td>2024-10-10</td>
+              <td class="reserve-days-left">1</td>
+              <td>2025-Jul late</td>
+              <td>2</td>
+              <td>0</td>
+              <td></td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+
+        <!-- Card layout for mobile view -->
+        <div id="mobile-cards">
+          <div class="card">
+            <div class="card-header">PO # 002521</div>
+            <div class="card-body">
+              <div><span>Brand:</span> X-PLUS</div>
+              <div><span>Listed Date:</span> 2024-09-25</div>
+              <div>
+                <span>Days Left:</span> <span class="reserve-days-left">0</span>
+              </div>
+              <div><span>ETA:</span> 2025-Feb late</div>
+              <div><span># of Items:</span> 1</div>
+              <div><span>Items Ordered:</span> 0</div>
+              <div><span>Order Status:</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">PO # 002597</div>
+            <div class="card-body">
+              <div><span>Brand:</span> Bandai Collectible</div>
+              <div><span>Listed Date:</span> 2024-10-10</div>
+              <div>
+                <span>Days Left:</span> <span class="reserve-days-left">1</span>
+              </div>
+              <div><span>ETA:</span> 2025-Jul late</div>
+              <div><span># of Items:</span> 6</div>
+              <div><span>Items Ordered:</span> 0</div>
+              <div><span>Order Status:</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">PO # 002598</div>
+            <div class="card-body">
+              <div><span>Brand:</span> Bandai Figurine</div>
+              <div><span>Listed Date:</span> 2024-10-10</div>
+              <div>
+                <span>Days Left:</span> <span class="reserve-days-left">1</span>
+              </div>
+              <div><span>ETA:</span> 2025-Jul late</div>
+              <div><span># of Items:</span> 2</div>
+              <div><span>Items Ordered:</span> 0</div>
+              <div><span>Order Status:</span></div>
+            </div>
+          </div>
+
+          <!-- Add more cards as needed -->
+        </div>
+      </div>
+
+      <!-- Placeholder for second tab content -->
+      <div id="reserve-by-brand" class="tab-content">
+        <!-- You can add content for this tab later -->
+      </div>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("/snippets/header/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load footer
+          const footerResponse = await fetch("/snippets/footer/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          await loadScript("/snippets/header/header.js");
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+    <script>
+      // Tab functionality
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          const tabContainer = button.parentElement;
+          const targetContent = document.getElementById(
+            button.getAttribute("data-target")
+          );
+
+          // Deactivate all tabs
+          tabContainer.querySelectorAll(".tab").forEach((tab) => {
+            tab.classList.remove("active");
+          });
+
+          // Deactivate all tab contents
+          document.querySelectorAll(".tab-content").forEach((content) => {
+            content.classList.remove("active");
+          });
+
+          // Activate the clicked tab and corresponding content
+          button.classList.add("active");
+          targetContent.classList.add("active");
+        });
+      });
+
+      // Sort table functionality
+      function sortTable(columnIndex) {
+        const table = document.getElementById("po-table");
+        let rows = Array.from(table.rows).slice(1); // Exclude header
+        const isNumeric = !isNaN(rows[0].cells[columnIndex].innerText.trim());
+
+        rows.sort((rowA, rowB) => {
+          const cellA = rowA.cells[columnIndex].innerText.trim();
+          const cellB = rowB.cells[columnIndex].innerText.trim();
+
+          if (isNumeric) {
+            return parseFloat(cellA) - parseFloat(cellB);
+          } else {
+            return cellA.localeCompare(cellB);
+          }
+        });
+
+        // Re-append sorted rows to the table
+        rows.forEach((row) => table.appendChild(row));
+      }
+
+      function buttonClick() {
+        alert("Redirecting to the reservation system...");
+        // Perform the action, e.g., redirecting the user
+        window.location.href = "https://your-link-here.com";
+      }
+    </script>
+  </body>
+</html>
