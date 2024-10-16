@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cart - Lightspeed Global - Model Kits, Paints, and More</title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="./snippets/cart/cart.css" />
+    <link
+      rel="stylesheet"
+      href="./snippets/products-table/products-table.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <main class="main-container">
+      <!-- Cart Items Section -->
+      <h2 class="cart-page-title">
+        Shopping Cart (<span id="shopping-cart-count"></span>)
+      </h2>
+      <div class="cart-page-content">
+        <!-- Cart Items -->
+
+        <div class="cart-page-items-container">
+          <!-- Update and Clear Cart Buttons -->
+          <div class="cart-page-buttons">
+            <button id="update-cart" class="cart-page-button">
+              Continue Shopping <i class="fas fa-cart-plus"></i>
+            </button>
+            <button id="clear-cart" class="cart-page-clear-button">
+              Clear Cart
+            </button>
+          </div>
+          <div id="cart-items"></div>
+        </div>
+
+        <!-- Cart Summary Section (Sticky Sidebar) -->
+        <div class="cart-page-summary">
+          <h3 class="cart-page-summary-title">Cart Summary</h3>
+          <div class="cart-page-summary-item">
+            <div>Subtotal (items)</div>
+            <div id="subtotal" class="cart-page-summary-price">$0.00</div>
+          </div>
+          <div class="cart-page-summary-item">
+            <div>Shipping</div>
+            <div class="cart-page-summary-price">$5.00</div>
+          </div>
+          <hr />
+          <div class="cart-page-summary-total">
+            <div>Total Invoice Shippable:</div>
+            <div id="total" class="cart-page-summary-total-price">$0.00</div>
+          </div>
+          <button class="cart-page-checkout-button">Proceed to Checkout</button>
+
+          <!-- Shipping Address Section -->
+          <div class="cart-page-address-section">
+            <h5>
+              Shipping Address
+              <a href="edit-shipping-address.html" class="cart-page-edit-link">
+                <i class="fas fa-edit"></i>
+              </a>
+            </h5>
+            <div id="shipping-address"></div>
+          </div>
+
+          <!-- Billing Address Section -->
+          <div class="cart-page-address-section">
+            <h5>
+              Billing Address
+              <a href="edit-billing-address.html" class="cart-page-edit-link">
+                <i class="fas fa-edit"></i>
+              </a>
+            </h5>
+            <div id="billing-address"></div>
+          </div>
+
+          <!-- Shipping Option -->
+          <div class="cart-page-shipping-options">
+            <h5>Shipping Option</h5>
+            <div class="cart-page-shipping-labels">
+              <label>
+                <input
+                  type="radio"
+                  name="shippingOption"
+                  value="ship"
+                  checked
+                />
+                Ship this order
+              </label>
+              <label>
+                <input type="radio" name="shippingOption" value="hold" />
+                Hold this order
+              </label>
+            </div>
+          </div>
+          <div class="cart-page-checkout-helper-text">
+            <hr />
+            * By completing this authorization form, you are authorizing LSG
+            Hobby to charge your credit card for purchases at the time of
+            shipment or according to your payment terms.
+
+            <hr />
+
+            * You will not be charged until your shipment is ready.
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products Section -->
+      <div
+        id="saved-later"
+        class="cart-page-saved-later"
+        style="margin-top: 50px"
+      >
+        <h2 class="cart-page-title">Save for Later (20)</h2>
+        <div id="saved-later-table-placeholder"></div>
+      </div>
+
+      <!-- Modal Background -->
+      <div id="confirmation-modal" class="cart-page-modal">
+        <div class="cart-page-modal-content">
+          <h2>Clear Cart</h2>
+          <p>
+            Are you sure you want to clear the cart? This action cannot be
+            undone.
+          </p>
+          <div class="cart-page-modal-buttons">
+            <button id="confirm-clear" class="cart-page-clear-button">
+              Yes, Clear Cart
+            </button>
+            <button id="cancel-clear" class="cart-page-cancel-button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("./snippets/header/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load footer
+          const footerResponse = await fetch("./snippets/footer/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          await loadScript("/snippets/header/header.js");
+          await loadScript("/snippets/cart/cart.js");
+          await loadScript("/snippets/products-table/products-table-w-tabs.js");
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
