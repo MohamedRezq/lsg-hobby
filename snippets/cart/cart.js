@@ -274,9 +274,7 @@ function renderCartItems(items) {
           </p>
           <p class="cart-page-item-srp">
             <span style="font-weight: 500; font-size: 1.2rem; margin-right: 5px;">SRP: </span>$${(
-              item.finalPrice *
-              item.quantity *
-              1.5
+              item.finalPrice * 1.5
             ).toFixed(2)}
           </p>
           <div class="cart-page-item-quantity">

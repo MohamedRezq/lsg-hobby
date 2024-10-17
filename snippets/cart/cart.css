@@ -20,13 +20,13 @@
 
 .cart-page-summary {
   position: sticky;
-  top: 10px; /* The distance from the top */
+  top: 0px; /* The distance from the top */
   align-self: flex-start;
   background-color: #f0f0f0;
   padding: 10px 20px 30px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 30%; /* Set a fixed width */
+  width: 100%;
 }
 
 .cart-page-title,
@@ -46,18 +46,24 @@ hr {
 .cart-page-summary-total {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .cart-page-summary-total {
   font-size: 1.7rem;
   font-weight: bold;
   margin-bottom: 15px;
+  flex-direction: column;
 }
 
 .cart-page-summary-price {
   font-weight: 600;
+}
+
+.cart-page-summary-total-price {
+  text-align: right;
 }
 
 /* Buttons */
@@ -81,6 +87,13 @@ hr {
 
 .cart-page-cancel-button {
   background-color: #6b7280;
+  color: white;
+  border-radius: 3px;
+  border: none;
+}
+
+.cart-page-cancel-button:hover {
+  background-color: #50555f;
 }
 
 /* Hover Effects */
@@ -164,14 +177,14 @@ hr {
 
 .cart-page-shipping-labels {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  align-items: start;
+  padding-left: 5px;
 }
 
 .cart-page-shipping-options label {
   display: flex;
-  margin-bottom: 5px;
   font-weight: 500;
   align-items: start;
   gap: 5px;
@@ -204,8 +217,12 @@ hr {
 
 /* Cart Item Image */
 .cart-page-item-image {
-  width: 30%;
-  max-width: 100px;
+  width: 60%;
+  max-width: 160px;
+}
+
+.cart-page-item-image img {
+  width: 100%;
   object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -331,7 +348,6 @@ hr {
 @media (min-width: 1024px) {
   .cart-page-content {
     display: flex;
-    height: 90vh;
     overflow-y: auto;
     flex-direction: row; /* Change to row for desktop layout */
     gap: 20px;
@@ -339,51 +355,13 @@ hr {
     justify-content: space-between; /* Ensure items are spaced out */
   }
 
-  /* Style the entire scrollbar container */
-  /* Style the entire scrollbar container */
-  .cart-page-content::-webkit-scrollbar {
-    width: 8px; /* Adjust the width of the scrollbar */
-    height: 8px; /* Adjust the height for horizontal scrollbars */
-  }
-
-  /* Style the scrollbar track */
-  .cart-page-content::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Background color of the track */
-    border-radius: 10px;
-  }
-
-  /* Style the scrollbar handle */
-  .cart-page-content::-webkit-scrollbar-thumb {
-    background-color: #cccccc; /* Color of the scrollbar thumb */
-    border-radius: 10px;
-    border: 2px solid #f0f0f0; /* Border for better visibility */
-  }
-
-  /* Style the scrollbar handle when hovered */
-  .cart-page-content::-webkit-scrollbar-thumb:hover {
-    background-color: #999999; /* Darker color on hover */
-  }
-
-  /* Firefox scrollbar styling */
-  .cart-page-content {
-    scrollbar-width: thin; /* Makes the scrollbar thinner in Firefox */
-    scrollbar-color: #cccccc #f0f0f0; /* Thumb color and track color for Firefox */
-  }
-
   .cart-page-summary {
-    width: 33.33%;
+    width: 260px;
   }
 
   .cart-page-item-image {
     width: 30%;
-    max-width: 100px;
-  }
-
-  .cart-page-item-image img {
-    width: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 120px;
   }
 
   .cart-page-item-data {
