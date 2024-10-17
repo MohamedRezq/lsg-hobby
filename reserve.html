@@ -4,7 +4,7 @@
     <title>Reserve - Lightspeed Global - Model Kits, Paints, and More</title>
     <meta
       name="description"
-      content="Lightspeed Global is your destination for high-quality paints, finishing products, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+      content="Lightspeed Global is your destination for high-quality paints, finishing reserve, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
     />
     <!-- Placeholder for common head content -->
     <script>
@@ -20,6 +20,13 @@
       .tab-container {
         display: flex;
         border-bottom: 2px solid #ddd;
+      }
+
+      .reserve-tabs-header {
+        width: 100%;
+        display: flex;
+        align-items: top;
+        justify-content: space-between;
       }
 
       .tab {
@@ -47,47 +54,6 @@
 
       .tab-content.active {
         display: block;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-
-      thead th {
-        background-color: #f2f2f2;
-        cursor: pointer;
-      }
-
-      th,
-      td {
-        padding: 12px;
-        border: 1px solid #ddd;
-        text-align: left;
-      }
-
-      th {
-        position: relative;
-      }
-
-      th:hover::after {
-        content: " ⇅";
-        position: absolute;
-        right: 10px;
-        color: #333;
-      }
-
-      tbody tr:hover {
-        background-color: #f5f5f5;
-      }
-
-      tbody tr td:nth-child(2) {
-        font-weight: 600;
-      }
-
-      #mobile-cards {
-        display: none;
       }
 
       .reserve-days-left {
@@ -135,6 +101,13 @@
           display: block;
         }
 
+        .reserve-tabs-header {
+          width: 100%;
+          display: flex;
+          flex-direction: column-reverse;
+          gap: 10px;
+        }
+
         table {
           display: none; /* Hide the table on small screens */
         }
@@ -170,6 +143,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="./snippets/reserve-table/reserve-table.css" />
   </head>
 
   <body>
@@ -178,14 +152,7 @@
 
     <!-- Main Content -->
     <main>
-      <div
-        style="
-          width: 100%;
-          display: flex;
-          align-items: top;
-          justify-content: space-between;
-        "
-      >
+      <div class="reserve-tabs-header">
         <div class="tab-container">
           <button class="tab active" data-target="reserve-by-po">
             Reserve By PO
@@ -199,112 +166,17 @@
         </button>
       </div>
 
-      <!-- PO Table Section -->
-      <div id="reserve-by-po" class="tab-content active">
-        <!-- Table for larger screens -->
-        <table id="po-table">
-          <thead>
-            <tr>
-              <th onclick="sortTable(0)">PO #</th>
-              <th onclick="sortTable(1)">Brand</th>
-              <th onclick="sortTable(2)">Listed Date</th>
-              <th onclick="sortTable(3)">Days Left</th>
-              <th onclick="sortTable(4)">ETA</th>
-              <th onclick="sortTable(5)"># of Items</th>
-              <th onclick="sortTable(6)">Items Ordered</th>
-              <th onclick="sortTable(7)">Order Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>002521</td>
-              <td>X-PLUS</td>
-              <td>2024-09-25</td>
-              <td class="reserve-days-left">0</td>
-              <td>2025-Feb late</td>
-              <td>1</td>
-              <td>0</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>002597</td>
-              <td>Bandai Collectible</td>
-              <td>2024-10-10</td>
-              <td class="reserve-days-left">1</td>
-              <td>2025-Jul late</td>
-              <td>6</td>
-              <td>0</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>002598</td>
-              <td>Bandai Figurine</td>
-              <td>2024-10-10</td>
-              <td class="reserve-days-left">1</td>
-              <td>2025-Jul late</td>
-              <td>2</td>
-              <td>0</td>
-              <td></td>
-            </tr>
-            <!-- Add more rows as needed -->
-          </tbody>
-        </table>
-
-        <!-- Card layout for mobile view -->
-        <div id="mobile-cards">
-          <div class="card">
-            <div class="card-header">PO # 002521</div>
-            <div class="card-body">
-              <div><span>Brand:</span> X-PLUS</div>
-              <div><span>Listed Date:</span> 2024-09-25</div>
-              <div>
-                <span>Days Left:</span> <span class="reserve-days-left">0</span>
-              </div>
-              <div><span>ETA:</span> 2025-Feb late</div>
-              <div><span># of Items:</span> 1</div>
-              <div><span>Items Ordered:</span> 0</div>
-              <div><span>Order Status:</span></div>
-            </div>
+      <!-- Products Table PlaceHolder -->
+      <section style="margin-top: 0px; margin-bottom: 50px">
+        <div class="reserve-page-container">
+          <div id="categories-filters-placeholder"></div>
+          <div style="width: auto">
+            <div id="table-controls-placeholder"></div>
+            <div id="reserve-table-placeholder"></div>
+            <div id="table-pagination-placeholder"></div>
           </div>
-
-          <div class="card">
-            <div class="card-header">PO # 002597</div>
-            <div class="card-body">
-              <div><span>Brand:</span> Bandai Collectible</div>
-              <div><span>Listed Date:</span> 2024-10-10</div>
-              <div>
-                <span>Days Left:</span> <span class="reserve-days-left">1</span>
-              </div>
-              <div><span>ETA:</span> 2025-Jul late</div>
-              <div><span># of Items:</span> 6</div>
-              <div><span>Items Ordered:</span> 0</div>
-              <div><span>Order Status:</span></div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">PO # 002598</div>
-            <div class="card-body">
-              <div><span>Brand:</span> Bandai Figurine</div>
-              <div><span>Listed Date:</span> 2024-10-10</div>
-              <div>
-                <span>Days Left:</span> <span class="reserve-days-left">1</span>
-              </div>
-              <div><span>ETA:</span> 2025-Jul late</div>
-              <div><span># of Items:</span> 2</div>
-              <div><span>Items Ordered:</span> 0</div>
-              <div><span>Order Status:</span></div>
-            </div>
-          </div>
-
-          <!-- Add more cards as needed -->
         </div>
-      </div>
-
-      <!-- Placeholder for second tab content -->
-      <div id="reserve-by-brand" class="tab-content">
-        <!-- You can add content for this tab later -->
-      </div>
+      </section>
     </main>
 
     <!-- Footer PlaceHolder -->
@@ -326,6 +198,14 @@
           const headerResponse = await fetch("/snippets/header/header.html");
           const headerData = await headerResponse.text();
           document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load images carousel
+          const reserveTableResponse = await fetch(
+            "/snippets/reserve-table/reserve-table.html"
+          );
+          const reserveTableData = await reserveTableResponse.text();
+          document.getElementById("reserve-table-placeholder").outerHTML =
+            reserveTableData;
 
           // Load footer
           const footerResponse = await fetch("/snippets/footer/footer.html");
@@ -355,6 +235,7 @@
         // After loadComponents is done, load the other scripts
         try {
           await loadScript("/snippets/header/header.js");
+          await loadScript("./snippets/reserve-table/reserve-table.js");
           console.log("All scripts loaded successfully");
         } catch (error) {
           console.error("Error loading external scripts:", error);
