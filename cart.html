@@ -28,33 +28,48 @@
     <!-- Header PlaceHolder -->
     <div id="header-placeholder"></div>
 
-    <main class="main-container">
+    <main class="main-containers">
       <!-- Cart Items Section -->
-      <h2 class="cart-page-title">
-        Shopping Cart (<span id="shopping-cart-count"></span>)
-      </h2>
-      <div class="cart-page-content">
-        <!-- Cart Items -->
 
-        <div class="cart-page-items-container">
-          <!-- Update and Clear Cart Buttons -->
-          <div class="cart-page-buttons">
-            <button id="update-cart" class="cart-page-button">
-              Continue Shopping
-              <i
-                class="fas fa-cart-plus"
-                style="color: white; margin-left: 5px"
-              ></i>
-            </button>
-            <button id="clear-cart" class="cart-page-clear-button">
-              Clear Cart
-              <i
-                class="fas fa-trash-alt"
-                style="color: white; margin-left: 5px"
-              ></i>
-            </button>
+      <div class="cart-page-content">
+        <div class="main-content-container">
+          <!-- Cart Items -->
+
+          <div class="cart-page-items-container">
+            <!-- Update and Clear Cart Buttons -->
+            <div class="cart-page-items-header">
+              <h2 class="cart-page-title">
+                Shopping Cart (<span id="shopping-cart-count"></span>)
+              </h2>
+              <div class="cart-page-buttons">
+                <button id="update-cart" class="cart-page-button">
+                  Continue Shopping
+                  <i
+                    class="fas fa-cart-plus"
+                    style="color: white; margin-left: 5px"
+                  ></i>
+                </button>
+                <button id="clear-cart" class="cart-page-clear-button">
+                  Clear Cart
+                  <i
+                    class="fas fa-trash-alt"
+                    style="color: white; margin-left: 5px"
+                  ></i>
+                </button>
+              </div>
+            </div>
+            <div id="cart-items"></div>
           </div>
-          <div id="cart-items"></div>
+
+          <!-- Related Products Section -->
+          <div
+            id="saved-later"
+            class="cart-page-saved-later"
+            style="margin-top: 50px"
+          >
+            <h2 class="cart-page-title">Save for Later (20)</h2>
+            <div id="saved-later-table-placeholder"></div>
+          </div>
         </div>
 
         <!-- Cart Summary Section (Sticky Sidebar) -->
@@ -127,16 +142,6 @@
             * You will not be charged until your shipment is ready.
           </div>
         </div>
-      </div>
-
-      <!-- Related Products Section -->
-      <div
-        id="saved-later"
-        class="cart-page-saved-later"
-        style="margin-top: 50px"
-      >
-        <h2 class="cart-page-title">Save for Later (20)</h2>
-        <div id="saved-later-table-placeholder"></div>
       </div>
 
       <!-- Modal Background -->

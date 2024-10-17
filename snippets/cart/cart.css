@@ -2,7 +2,7 @@
 .cart-page-content {
   display: flex;
   flex-direction: column-reverse;
-  gap: 20px;
+  gap: 10px;
 }
 
 .cart-page-items-container {
@@ -14,12 +14,16 @@
   background-color: #fafafa;
 }
 
+.cart-page-items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .cart-page-buttons {
   text-align: right;
 }
 
 .cart-page-summary {
-  position: sticky;
   top: 0px; /* The distance from the top */
   align-self: flex-start;
   background-color: #f0f0f0;
@@ -27,6 +31,7 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
+  min-width: 240px;
 }
 
 .cart-page-title,
@@ -46,13 +51,13 @@ hr {
 .cart-page-summary-total {
   display: flex;
   justify-content: space-between;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 5px;
   font-weight: 500;
 }
 
 .cart-page-summary-total {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 15px;
   flex-direction: column;
@@ -155,13 +160,13 @@ hr {
 
 #billing-address,
 #shipping-address {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding-left: 2px;
 }
 
 /* Address Section */
 .cart-page-address-section {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .cart-page-address-section h5,
@@ -171,7 +176,7 @@ hr {
 }
 
 .cart-page-shipping-options {
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 1.3rem;
 }
 
@@ -194,7 +199,7 @@ hr {
 .cart-page-checkout-helper-text {
   margin-top: 25px;
   color: rgb(146, 15, 15);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 /* Cart Item Container */
