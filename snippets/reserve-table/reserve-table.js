@@ -150,9 +150,9 @@ function renderReserveTable(reserveData) {
   reserveData.forEach((po) => {
     const row = `
       <tr>
-        <td style="font-weight: 600"><a style="color: #E0A900;" href="/reserve.html?po=${
+        <td style="font-weight: 600"><a style="color: #E0A900;" href="/reserve-po.html">${
           po.po
-        }">${po.po}</a></td>
+        }</a></td>
         <td style="font-weight: 600">${po.brand}</td>
         <td>${po.listed_date}</td>
         <td style="text-align: center"><span style="width: fit-content; padding: 2px 6px; background-color: #f2dede; color: #B56451; font-weight: 600; font-size: 11pt; border-radius: 3px;">${
@@ -177,11 +177,9 @@ function renderReserveCards(reserveData) {
   reserveData.forEach((po) => {
     const card = `
       <div class="reserve-table-product-card">
-        <a href="/reserve.html?po=${
+        <a href="/reserve-po.html">PO # <span style="font-weight: 600; color: #333333">${
           po.po
-        }">PO # <span style="font-weight: 600; color: #333333">${
-      po.po
-    }</span></a>
+        }</span></a>
         <p>Brand: <span style="font-weight: 600; color: #333333">${
           po.brand
         }</span></p>
