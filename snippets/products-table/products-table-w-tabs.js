@@ -35,24 +35,24 @@ function renderProductTable(products) {
 
     const row = `
 <tr style="background-color: white; transition: background-color 200ms ease-in-out;" onmouseover="this.style.backgroundColor='#F9FAFB'" onmouseout="this.style.backgroundColor='white'">
-<td style="padding-left: 10px"><a href="/product-details?.html?id=${
+<td style="padding-left: 10px"><a href="/product-details.html?id=${
       product?.id
     }"><img src="${product?.image}" alt="${
       product?.name ?? ""
     }" style="height: 80px; width: 80px; border-radius: 8px; object-fit: contain; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);"></a></td>
 <td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; gap: 0.5rem; align-items: top;">
     <div style="display: flex; flex-direction: column">
-        <a href="/product-details?.html?id=${
+        <a href="/product-details.html?id=${
           product?.id
         }" style="color: #6B7280;">SKU: <span style="font-weight: 600;">${
       product?.sku ?? ""
     }</span></a>
-        <a href="/product-details?.html?id=${
+        <a href="/product-details.html?id=${
           product?.id
         }" style="color: #6B7280;">MFG CODE: <span style="font-weight: 600;">${
       product?.mfgCode ?? ""
     }</span></a>
-        <a href="/product-details?.html?id=${
+        <a href="/product-details.html?id=${
           product?.id
         }" style="color: #6B7280;">UPC: <span style="font-weight: 600;">${
       product?.upc ?? ""
@@ -64,12 +64,12 @@ function renderProductTable(products) {
 </td>
 <td style="padding: 0.5rem 0.5rem; font-size: 8.5pt; text-align: left;">
 <div style="display: flex; flex-direction: column;">
-<a href="/product-details?.html?id=${
+<a href="/product-details.html?id=${
       product?.id
     }" style="font-size: 9pt; font-weight: bold; text-decoration: underline;">${
       product?.name ?? ""
     }</a>
-  <a href="/product-details?.html?id=${
+  <a href="/product-details.html?id=${
     product?.id
   }" style="font-size: 9pt; font-weight: 600; color: #6B7280;">${
       product?.description ?? ""
@@ -168,21 +168,21 @@ function renderProductCards(products) {
   <div style="display: flex; gap: 15px; justify-content: start; width: 100%;">
     <div style="flex: 0 0 30%; display: flex; justify-content: flex-start;">
       <!-- Image (smaller, and aligned) -->
-      <a href="/product-details?.html?id=${product?.id}"><img
+      <a href="/product-details.html?id=${product?.id}"><img
         style="width: 100%; object-fit: cover; border-radius: 4px;"
         src="${product?.image}"
         alt="${product?.name}"
       /></a>
     </div>
-    <div href="/product-details?.html?id=${
+    <div href="/product-details.html?id=${
       product?.id
     }" style="font-size: 9pt; flex: 1; display: flex; flex-direction: column; gap: 4px;">
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="font-size: 9pt; font-weight: bold; line-height: 1.2; color: #333333;">${
       product?.name
     }</a>
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="font-size: 8.5pt; font-weight: 600; color: #333333;">${
       product?.description
@@ -211,22 +211,22 @@ function renderProductCards(products) {
           ${!product?.stock ? "Out of Stock" : ""}
         </div>
       </div>
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="color: #374151;">Scale: <span style="font-weight: 600;">${
       product?.scale ?? ""
     }</span></a>
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="color: #374151;">SKU: <span style="font-weight: 600;">${
       product?.sku ?? ""
     }</span></a>
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="color: #374151;">MFG Code: <span style="font-weight: 600;">${
       product?.mfgCode ?? ""
     }</span></a>
-      <a href="/product-details?.html?id=${
+      <a href="/product-details.html?id=${
         product?.id
       }" style="color: #374151;">UPC: <span style="font-weight: 600;">${
       product?.upc ?? ""
