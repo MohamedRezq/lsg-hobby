@@ -209,6 +209,39 @@
         // First, wait for the components to load
         await loadComponents();
 
+        window.addEventListener("scroll", function () {
+          // Use querySelector to target the single element
+          var cartSummary = document.querySelector(".cart-page-summary");
+
+          // Log the scroll position
+          console.log("Scroll Position:", window.scrollY);
+
+          // Ensure the element exists
+          if (cartSummary) {
+            console.log("Cart Summary Element Found");
+
+            // Check if the page has been scrolled 100px or more
+            if (
+              window.scrollY + 550 + window.innerHeight >=
+              document.documentElement.scrollHeight
+            ) {
+              cartSummary.classList.remove("cart-page-summary-fixed");
+              cartSummary.classList.remove("cart-page-summary-absolute");
+              cartSummary.classList.add("cart-page-summary-absolute-bottom"); // Add fixed class
+            } else if (window.scrollY < 100) {
+              cartSummary.classList.remove("cart-page-summary-fixed");
+              cartSummary.classList.remove("cart-page-summary-absolute-bottom");
+              cartSummary.classList.add("cart-page-summary-absolute"); // Remove fixed class
+            } else {
+              cartSummary.classList.remove("cart-page-summary-absolute-bottom");
+              cartSummary.classList.remove("cart-page-summary-absolute");
+              cartSummary.classList.add("cart-page-summary-fixed"); // Add fixed class
+            }
+          } else {
+            console.error("Cart Summary Element Not Found");
+          }
+        });
+
         // After loadComponents is done, load the other scripts
         try {
           await loadScript("/snippets/header/header.js");

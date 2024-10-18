@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column-reverse;
   gap: 10px;
+  position: relative;
 }
 
 .cart-page-items-container {
@@ -16,18 +17,21 @@
 
 .cart-page-items-header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  padding-bottom: 10px;
 }
+
 .cart-page-buttons {
   text-align: right;
+  align-self: flex-end;
 }
 
 .cart-page-summary {
-  top: 0px; /* The distance from the top */
   align-self: flex-start;
   background-color: #f0f0f0;
-  padding: 10px 20px 30px;
+  padding: 10px 15px 20px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
@@ -356,8 +360,41 @@ hr {
     overflow-y: auto;
     flex-direction: row; /* Change to row for desktop layout */
     gap: 20px;
-    padding: 0px 10px;
     justify-content: space-between; /* Ensure items are spaced out */
+  }
+
+  .cart-page-items-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-page-buttons {
+    text-align: right;
+    align-self: auto;
+  }
+
+  .main-content-container {
+    width: calc(100% - 270px);
+  }
+
+  .cart-page-summary-absolute {
+    position: absolute; /* Initially absolute */
+    top: 0px; /* Example top positioning */
+    right: 0;
+  }
+
+  .cart-page-summary-fixed {
+    position: fixed; /* Fixed when scrolled */
+    right: calc((100% - 1200px) / 2);
+    top: 10px; /* Fix it at the top of the viewport when it becomes fixed */
+  }
+
+  .cart-page-summary-absolute-bottom {
+    position: absolute; /* Initially absolute */
+    bottom: 20px; /* Example top positioning */
+    right: 0;
   }
 
   .cart-page-summary {
