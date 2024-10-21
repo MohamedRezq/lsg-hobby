@@ -176,7 +176,7 @@ function renderProductCards(products) {
     </div>
     <div href="/product-details.html?id=${
       product?.id
-    }" style="font-size: 9pt; flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 0 20px 0 0;">
+    }" style="font-size: 9pt; flex: 1; display: flex; flex-direction: column; gap: 4px;">
       <a href="/product-details.html?id=${
         product?.id
       }" style="font-size: 9pt; font-weight: bold; line-height: 1.2; color: #333333;">${
@@ -187,7 +187,7 @@ function renderProductCards(products) {
       }" style="font-size: 8.5pt; font-weight: 600; color: #333333;">${
       product?.description
     }</a>
-      <div style="display: flex; gap: 10px; text-align: center; align-items: center; width: 100%;">
+      <div style="display: flex; gap: 10px; text-align: center; align-items: center;">
         <i class="${
           product?.stock ? "fas fa-check-circle" : "fas fa-times-circle"
         }" style="color: ${
@@ -235,7 +235,7 @@ function renderProductCards(products) {
         product?.category ?? ""
       }</span></a>
       <div style="display: flex; justify-content: space-between; width: 100%;">
-      <div style="display: flex; flex-direction: column; align-items: start; width: 100%;">
+    <div style="display: flex; flex-direction: column; align-items: start;">
       ${
         product?.reserve
           ? `<div style="font-size: 9pt; color: #16A34A; font-weight: 600;">Reserve on ${
@@ -250,15 +250,7 @@ function renderProductCards(products) {
             }</div>`
           : ""
       }
-      <div style="display: flex; align-items: end; gap: 0.5rem; width: 100%; justify-content: end;">
-      <span style="font-size: 9pt; font-weight: 600; color: #DC2626;">${
-        product?.discount ?? ""
-      }</span>
-      <span style="font-size: 12pt; font-weight: 600; color: #333333;">${
-        product?.finalPrice ?? ""
-      }</span>
-    </div>
-      <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; width: 100%; justify-content: end;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
       <input type="number" style="max-width: 50px; border-radius: 8px; border: 1px solid #D1D5DB; background-color: white; padding: 0.25rem 5px; font-size: 12px;" placeholder="2" ${
         !product?.stock ? "disabled" : ""
       }>

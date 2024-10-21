@@ -78,8 +78,12 @@ function renderProductTable(products) {
   <div style="font-size: 8.5pt; color: #CA8A04;">${product?.eta ?? ""}</div>
 </div>
 </td>
-<td style="padding: 0.5rem 0.5rem; font-size: 10pt; color: #4B5563; font-weight: 600;">${
-      product?.scale ?? ""
+<td style="padding: 0.5rem 0.5rem; font-size: 10pt; color: #4B5563; font-weight: 500;padding-right: 20px;">2025-Apr early</td>
+<td style="text-align: center; padding: 0.25rem; font-weight: 600;">
+  0
+</td>
+<td style="font-size: 10pt; text-align: right; padding: 0.25rem; color: #333333; font-weight: 600; padding-right: 20px;">${
+      product?.srp ?? ""
     }</td>
 <td style="text-align: right; padding: 0.25rem; padding-right: 20px; font-size: 8.5pt;">
   <div style="display: flex; flex-direction: column; align-items: end; justify-content: flex-start; height: 100%;">
@@ -87,7 +91,7 @@ function renderProductTable(products) {
       <span style="font-size: 8.5pt; font-weight: 600; color: #DC2626;">${
         product?.discount ?? ""
       }</span>
-      <span style="font-size: 11pt; font-weight: bold; color: #333333;">${
+      <span style="font-size: 11pt; font-weight: 600; color: #333333;">${
         product?.finalPrice ?? ""
       }</span>
     </div>
@@ -118,40 +122,11 @@ function renderProductTable(products) {
     }
   </div>
 </td>
-<td style="font-size: 10pt; text-align: right; padding: 0.25rem; color: #4B5563; font-weight: 500; padding-right: 20px;">${
+<td style="font-size: 11.5pt; font-weight: 600; text-align: right; padding: 0.25rem; color: #333333; padding-right: 20px;">${
       product?.srp ?? ""
     }</td>
-<td style="text-align: center; padding: 0.25rem;">
-  <i class="${
-    product?.stock ? "fas fa-check-circle" : "fas fa-times-circle"
-  }" style="color: ${product?.stock ? "#16A34A" : "#DC2626"};"></i>
-  <div style="margin-top: 0.5rem; display: flex; flex-direction: column;">
-    <div style="font-size: 8.5pt; font-weight: 600; color: #6B7280;">TOR: ${
-      product?.stock?.toronto ?? ""
-    }</div>
-    <div style="font-size: 8.5pt; font-weight: 600; color: #6B7280;">PHX: ${
-      product?.stock?.phoenix ?? ""
-    }</div>
-  </div>
-</td>
 <td style="padding: 0.5rem;">
-  <div style="margin-bottom: 0.25rem; display: flex; gap: 0.5rem; align-items: center;">
-    <input type="number" style="max-width: 50px; border-radius: 8px; border: 1px solid #D1D5DB; background-color: white; padding: 0.25rem 5px; font-size: 12px;" placeholder="2" ${
-      isOutOfStock ? "disabled" : ""
-    }>
-    <button style="font-size: 12px; width: 80px; border-radius: 4px; padding: 0.25rem 0.5rem; border: none; background-color: ${
-      isOutOfStock ? "#9CA3AF" : "#F59E0B"
-    }; color: white;" ${isOutOfStock ? "disabled" : ""}>
-      Add to Cart
-    </button>
-  </div>
-  <div style="margin-top: 0.5rem; padding-left: 0.25rem; font-size: 8.5pt; display: flex; flex-direction: column; gap: 0.25rem;">
-    <div style="font-weight: 600; color: #333333;">${product?.moq ?? ""}</div>
-    <div style="font-weight: 600; color: #CA8A04;">${
-      product?.backOrdered ?? ""
-    }</div>
-    <div style="color: #6B7280;">${product?.lastPurchased ?? ""}</div>
-  </div>
+
 </td>
 </tr>
 `;
@@ -184,10 +159,10 @@ function renderProductCards(products) {
     }</a>
       <a href="/product-details.html?id=${
         product?.id
-      }" style="font-size: 8.5pt; font-weight: 600; color: #333333;">${
+      }" style="font-size: 8.5pt; font-weight: 600; color: grey;">${
       product?.description
     }</a>
-      <div style="display: flex; gap: 10px; text-align: center; align-items: center; width: 100%;">
+      <div style="display: flex; gap: 10px; text-align: center; align-items: center;">
         <i class="${
           product?.stock ? "fas fa-check-circle" : "fas fa-times-circle"
         }" style="color: ${
@@ -235,22 +210,23 @@ function renderProductCards(products) {
         product?.category ?? ""
       }</span></a>
       <div style="display: flex; justify-content: space-between; width: 100%;">
-      <div style="display: flex; flex-direction: column; align-items: start; width: 100%;">
+    <div style="display: flex; flex-direction: column; align-items: start; width: 100%;">
       ${
         product?.reserve
-          ? `<div style="font-size: 9pt; color: #16A34A; font-weight: 600;">Reserve on ${
+          ? `<div style="font-size: 9pt; color: #16A34A; font-weight: 600;">${
               product?.reserve ?? ""
             }</div>`
           : ""
       }
       ${
         product?.eta
-          ? `<div style="font-size: 9pt; color: #CA8A04; font-weight: 600;">ETA: ${
+          ? `<div style="font-size: 9pt; color: #CA8A04; font-weight: 600;">${
               product?.eta ?? ""
             }</div>`
           : ""
       }
-      <div style="display: flex; align-items: end; gap: 0.5rem; width: 100%; justify-content: end;">
+      <div style="display: flex; margin: 10px 0; flex-direction: column; align-items: end; justify-content: flex-end; width: 100%;">
+    <div style="display: flex; align-items: end; gap: 0.5rem;">
       <span style="font-size: 9pt; font-weight: 600; color: #DC2626;">${
         product?.discount ?? ""
       }</span>
@@ -258,15 +234,39 @@ function renderProductCards(products) {
         product?.finalPrice ?? ""
       }</span>
     </div>
-      <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; width: 100%; justify-content: end;">
-      <input type="number" style="max-width: 50px; border-radius: 8px; border: 1px solid #D1D5DB; background-color: white; padding: 0.25rem 5px; font-size: 12px;" placeholder="2" ${
-        !product?.stock ? "disabled" : ""
-      }>
-    <button style="font-size: 12px; width: 80px; border-radius: 4px; padding: 0.25rem 0.5rem; border: none; background-color: ${
-      !product?.stock ? "#9CA3AF" : "#F59E0B"
-    }; color: white;" ${!product?.stock ? "disabled" : ""}>
-      Add to Cart
-    </button>
+    <span style="font-size: ${product?.discount ? "9pt" : "11pt"}; ${
+      product?.discount
+        ? "text-decoration: line-through;"
+        : "font-weight: bold;"
+    }">${product?.netPrice ?? ""}</span>
+        <div style="display: flex; align-items: end; gap: 0.5rem;"> SRP: 
+      <span style="font-size: 11pt; font-weight: 500; color: #333333;">${
+        product?.srp ?? ""
+      }</span>
+    </div>
+    ${
+      product?.tag == "New"
+        ? "<div style='font-size: 8pt; background-color: #D1FAE5; color: #059669; margin-top: 0.5rem; padding: 0.25rem 0.5rem; border-radius: 4px;'>New</div>"
+        : ""
+    }
+    ${
+      product?.tag == "Special Order"
+        ? "<div style='font-size: 8pt; background-color: #EDE9FE; color: #7C3AED; margin-top: 0.5rem; padding: 0.25rem 0.5rem; border-radius: 4px;'>Special Order</div>"
+        : ""
+    }
+    ${
+      product?.tag == "PreOrder"
+        ? "<div style='font-size: 8pt; background-color: #DBEAFE; color: #1D4ED8; margin-top: 0.5rem; padding: 0.25rem 0.5rem; border-radius: 4px;'>PreOrder</div>"
+        : ""
+    }
+    ${
+      product?.tag == "Discontinued"
+        ? "<div style='font-size: 8pt; background-color: #F3F4F6; color: #6B7280; margin-top: 0.5rem; padding: 0.25rem 0.5rem; border-radius: 4px;'>Discontinued</div>"
+        : ""
+    }
+  </div>
+      <div style="display: flex; align-items: center; gap: 8px; align-self: end; margin-top: 8px; font-size: 13pt">
+        Sub-Total: <span style="font-weight: 600">$1,024</span>
     </div>
     </div>
   </div>

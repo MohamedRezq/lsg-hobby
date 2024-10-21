@@ -18,7 +18,7 @@
     </script>
     <style>
       /* Reserve Container */
-      .reserve-container {
+      .reserve-po-container {
         padding: 20px;
         font-family: Arial, sans-serif;
         max-width: 1200px;
@@ -26,7 +26,7 @@
       }
 
       /* Reserve Info */
-      .reserve-info {
+      .reserve-po-info {
         border: 1px solid #e0a900;
         padding: 20px;
         background-color: #fff6e5;
@@ -34,12 +34,12 @@
         border-radius: 8px;
       }
 
-      .reserve-info h2 {
+      .reserve-po-info h2 {
         font-size: 24px;
         color: #333;
       }
 
-      .reserve-meta {
+      .reserve-po-meta {
         display: flex;
         gap: 70px;
         margin-top: 10px;
@@ -153,7 +153,7 @@
 
       /* Responsive Design */
       @media (max-width: 768px) {
-        .reserve-meta {
+        .reserve-po-meta {
           flex-direction: column;
           gap: 15px;
         }
@@ -174,7 +174,7 @@
         border-bottom: 2px solid #ddd;
       }
 
-      .reserve-tabs-header {
+      .reserve-po-tabs-header {
         width: 100%;
         display: flex;
         align-items: top;
@@ -208,7 +208,7 @@
         display: block;
       }
 
-      .reserve-days-left {
+      .reserve-po-days-left {
         width: fit-content;
         background-color: #f2dede;
         color: #bc462b;
@@ -253,7 +253,7 @@
           display: block;
         }
 
-        .reserve-tabs-header {
+        .reserve-po-tabs-header {
           width: 100%;
           display: flex;
           flex-direction: column-reverse;
@@ -297,7 +297,7 @@
     </style>
     <link
       rel="stylesheet"
-      href="./snippets/products-table/products-table.css"
+      href="./snippets/reserve-po-table/reserve-po-table.css"
     />
   </head>
 
@@ -307,17 +307,17 @@
 
     <!-- Main Content -->
     <main>
-      <div class="reserve-container">
+      <div class="reserve-po-container">
         <!-- Reserve PO Section -->
-        <div class="reserve-info">
-          <div class="reserve-tabs-header">
+        <div class="reserve-po-info">
+          <div class="reserve-po-tabs-header">
             <h4 style="font-weight: 600">Reserve PO # 002339</h4>
             <button class="learn-more-button" onclick="buttonClick()">
               Learn more about our new Reservation system
             </button>
           </div>
 
-          <div class="reserve-meta">
+          <div class="reserve-po-meta">
             <div class="meta-item">
               <span>Days Left</span>
               <span class="days-left">2</span>
@@ -339,8 +339,26 @@
 
         <!-- Details Section -->
         <div class="details-section">
-          <h3>Details</h3>
-          <div id="products-table-placeholder"></div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 15px;
+            "
+          >
+            <h4 style="font-weight: 600">Details</h4>
+            <div class="review-order">
+              <button>
+                <i
+                  class="fas fa-arrow-circle-down"
+                  style="color: white; margin-right: 5px"
+                ></i>
+                Download PO & Images
+              </button>
+            </div>
+          </div>
+          <div id="reserve-po-table-placeholder"></div>
           <div class="review-order">
             <button>Review Order</button>
           </div>
@@ -349,11 +367,11 @@
 
       <!-- Products Table PlaceHolder -->
       <section style="margin-top: 0px; margin-bottom: 50px">
-        <div class="reserve-page-container">
+        <div class="reserve-po-page-container">
           <div id="categories-filters-placeholder"></div>
           <div style="width: auto">
             <div id="table-controls-placeholder"></div>
-            <div id="products-table-placeholder"></div>
+            <div id="reserve-po-table-placeholder"></div>
             <div id="table-pagination-placeholder"></div>
           </div>
         </div>
@@ -381,12 +399,12 @@
           document.getElementById("header-placeholder").outerHTML = headerData;
 
           // Load images carousel
-          const productsTableResponse = await fetch(
-            "/snippets/products-table/products-table.html"
+          const reserveTableResponse = await fetch(
+            "/snippets/reserve-po-table/reserve-po-table.html"
           );
-          const productsTableData = await productsTableResponse.text();
-          document.getElementById("products-table-placeholder").outerHTML =
-            productsTableData;
+          const reserveTableData = await reserveTableResponse.text();
+          document.getElementById("reserve-po-table-placeholder").outerHTML =
+            reserveTableData;
 
           // Load footer
           const footerResponse = await fetch("/snippets/footer/footer.html");
@@ -416,9 +434,7 @@
         // After loadComponents is done, load the other scripts
         try {
           await loadScript("/snippets/header/header.js");
-          await loadScript(
-            "./snippets/products-table/products-table-w-tabs.js"
-          );
+          await loadScript("./snippets/reserve-po-table/reserve-po-table.js");
           console.log("All scripts loaded successfully");
         } catch (error) {
           console.error("Error loading external scripts:", error);
