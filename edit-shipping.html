@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Edit Shipping Address - Lightspeed Global - Model Kits, Paints, and More
+    </title>
+    <meta
+      name="description"
+      content="Lightspeed Global is your destination for high-quality paints, finishing reserve, tools, and supplies. Explore a vast range of model kits, including wargames, puzzles, toys, and more."
+    />
+    <!-- Placeholder for common head content -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/meta/head.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.head.innerHTML = data + document.head.innerHTML;
+          });
+      });
+    </script>
+    <style>
+      /* Global Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Container */
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+      }
+
+      .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+
+      /* Form Grid */
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 10px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      input[type="text"],
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 100%;
+      }
+
+      input[type="text"]:focus,
+      select:focus {
+        outline: none;
+      }
+
+      select {
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"><path d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat right 10px center;
+        background-size: 12px;
+        padding-right: 30px;
+      }
+
+      /* Save Button */
+      .btn-save {
+        background-color: #e0a20f;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: #333333;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+
+      .btn-save:hover {
+        background-color: #bb8504;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .form-container {
+          padding: 15px;
+        }
+
+        .btn-save {
+          font-size: 14px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./snippets/reserve-table/reserve-table.css" />
+  </head>
+
+  <body>
+    <!-- Header PlaceHolder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main style="max-width: 1200px">
+      <div class="form-container">
+        <h1 style="margin-bottom: 40px">Change Shipping Address</h1>
+        <form>
+          <div class="form-grid">
+            <!-- Country -->
+            <div class="form-group">
+              <label for="country">Country</label>
+              <select id="country" name="country">
+                <option value="Canada">Canada</option>
+                <option value="USA">USA</option>
+              </select>
+            </div>
+
+            <!-- Ship To -->
+            <div class="form-group">
+              <label for="ship-to">Ship To</label>
+              <input
+                type="text"
+                id="ship-to"
+                name="ship-to"
+                placeholder="Recipient Name"
+              />
+            </div>
+
+            <!-- Address 1 -->
+            <div class="form-group">
+              <label for="address1">Address 1</label>
+              <input
+                type="text"
+                id="address1"
+                name="address1"
+                placeholder="Street Address"
+              />
+            </div>
+
+            <!-- Address 2 -->
+            <div class="form-group">
+              <label for="address2">Address 2</label>
+              <input
+                type="text"
+                id="address2"
+                name="address2"
+                placeholder="Apartment, Suite, etc."
+              />
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City" />
+            </div>
+
+            <!-- Province/State -->
+            <div class="form-group">
+              <label for="province">Province/State</label>
+              <select id="province" name="province">
+                <option value="Ontario">Ontario</option>
+                <option value="Quebec">Quebec</option>
+                <option value="British Columbia">British Columbia</option>
+              </select>
+            </div>
+
+            <!-- Zip -->
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input
+                type="text"
+                id="zip"
+                name="zip"
+                placeholder="Postal Code"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-save">Save</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer PlaceHolder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      // Define the `isAdmin` flag
+      const isAdmin = true; // Change to false if the user is not an admin
+
+      // Define an async function to handle the sequential loading
+      async function loadComponents() {
+        try {
+          // Load header
+          const headerResponse = await fetch("/snippets/header/header.html");
+          const headerData = await headerResponse.text();
+          document.getElementById("header-placeholder").outerHTML = headerData;
+
+          // Load images carousel
+          const reserveTableResponse = await fetch(
+            "/snippets/reserve-table/reserve-table.html"
+          );
+          const reserveTableData = await reserveTableResponse.text();
+          document.getElementById("reserve-table-placeholder").outerHTML =
+            reserveTableData;
+
+          // Load footer
+          const footerResponse = await fetch("/snippets/footer/footer.html");
+          const footerData = await footerResponse.text();
+          document.getElementById("footer-placeholder").outerHTML = footerData;
+        } catch (error) {
+          console.error("Error loading components:", error);
+        }
+      }
+
+      // Helper function to dynamically load external scripts
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      // Call the function on DOM content loaded
+      document.addEventListener("DOMContentLoaded", async function () {
+        // First, wait for the components to load
+        await loadComponents();
+
+        // After loadComponents is done, load the other scripts
+        try {
+          await loadScript("/snippets/header/header.js");
+          await loadScript("./snippets/reserve-table/reserve-table.js");
+          console.log("All scripts loaded successfully");
+        } catch (error) {
+          console.error("Error loading external scripts:", error);
+        }
+      });
+    </script>
+    <script>
+      // Tab functionality
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          const tabContainer = button.parentElement;
+          const targetContent = document.getElementById(
+            button.getAttribute("data-target")
+          );
+
+          // Deactivate all tabs
+          tabContainer.querySelectorAll(".tab").forEach((tab) => {
+            tab.classList.remove("active");
+          });
+
+          // Deactivate all tab contents
+          document.querySelectorAll(".tab-content").forEach((content) => {
+            content.classList.remove("active");
+          });
+
+          // Activate the clicked tab and corresponding content
+          button.classList.add("active");
+          targetContent.classList.add("active");
+        });
+      });
+
+      // Sort table functionality
+      function sortTable(columnIndex) {
+        const table = document.getElementById("po-table");
+        let rows = Array.from(table.rows).slice(1); // Exclude header
+        const isNumeric = !isNaN(rows[0].cells[columnIndex].innerText.trim());
+
+        rows.sort((rowA, rowB) => {
+          const cellA = rowA.cells[columnIndex].innerText.trim();
+          const cellB = rowB.cells[columnIndex].innerText.trim();
+
+          if (isNumeric) {
+            return parseFloat(cellA) - parseFloat(cellB);
+          } else {
+            return cellA.localeCompare(cellB);
+          }
+        });
+
+        // Re-append sorted rows to the table
+        rows.forEach((row) => table.appendChild(row));
+      }
+
+      function buttonClick() {
+        alert("Redirecting to the reservation system...");
+        // Perform the action, e.g., redirecting the user
+        window.location.href = "https://your-link-here.com";
+      }
+    </script>
+  </body>
+</html>

@@ -80,7 +80,7 @@ function renderProductTable(products) {
 </td>
 <td style="padding: 0.5rem 0.5rem; font-size: 10pt; color: #4B5563; font-weight: 500;padding-right: 20px;">2025-Apr early</td>
 <td style="text-align: center; padding: 0.25rem; font-weight: 600;">
-  0
+  <input type="number" value="${0}" onfocus="this.select()" class="reserve-page-quantity-input">
 </td>
 <td style="font-size: 10pt; text-align: right; padding: 0.25rem; color: #333333; font-weight: 600; padding-right: 20px;">${
       product?.srp ?? ""

@@ -94,7 +94,11 @@
           <div class="cart-page-address-section">
             <h5>
               Shipping Address
-              <a href="edit-shipping-address.html" class="cart-page-edit-link">
+              <a
+                href="#"
+                class="cart-page-edit-link"
+                id="edit-shipping-address"
+              >
                 <i class="fas fa-edit"></i>
               </a>
             </h5>
@@ -105,7 +109,7 @@
           <div class="cart-page-address-section">
             <h5>
               Billing Address
-              <a href="edit-billing-address.html" class="cart-page-edit-link">
+              <a href="#" class="cart-page-edit-link" id="edit-billing-address">
                 <i class="fas fa-edit"></i>
               </a>
             </h5>
@@ -160,6 +164,16 @@
               Cancel
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div class="modal-overlay" id="address-modal">
+        <div class="modal-content">
+          <span class="modal-close" id="modal-close"
+            ><i class="fa-solid fa-xmark"></i
+          ></span>
+          <div id="modal-body"></div>
         </div>
       </div>
     </main>
@@ -252,6 +266,246 @@
           console.error("Error loading external scripts:", error);
         }
       });
+    </script>
+    <script>
+      // Show Modal Function
+      function showModal(title, formContent) {
+        const modalBody = document.getElementById("modal-body");
+        modalBody.innerHTML = formContent;
+        document.getElementById("address-modal").style.display = "flex";
+
+        // Update title and close button
+        document.querySelector(".modal-content h3").innerText = title;
+      }
+
+      // Event Listeners for Edit Buttons
+      document
+        .getElementById("edit-shipping-address")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          showModal("Change Shipping Address", getBillingAddressForm());
+        });
+
+      document
+        .getElementById("edit-billing-address")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          showModal("Change Billing Address", getBillingAddressForm());
+        });
+
+      // Close Modal
+      document
+        .getElementById("modal-close")
+        .addEventListener("click", function () {
+          document.getElementById("address-modal").style.display = "none";
+        });
+
+      // Simulated Shipping Address Form Content
+      function getShippingAddressForm() {
+        return `
+          <div class="form-container">
+            <h3 style="margin-bottom: 40px">Change Shipping Address</h3>
+            <form>
+              <div class="form-grid">
+                <!-- Country -->
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <select id="country" name="country">
+                    <option value="Canada">Canada</option>
+                    <option value="USA">USA</option>
+                  </select>
+                </div>
+
+                <!-- Ship To -->
+                <div class="form-group">
+                  <label for="ship-to">Ship To</label>
+                  <input
+                    type="text"
+                    id="ship-to"
+                    name="ship-to"
+                    placeholder="Recipient Name"
+                  />
+                </div>
+
+                <!-- Address 1 -->
+                <div class="form-group">
+                  <label for="address1">Address 1</label>
+                  <input
+                    type="text"
+                    id="address1"
+                    name="address1"
+                    placeholder="Street Address"
+                  />
+                </div>
+
+                <!-- Address 2 -->
+                <div class="form-group">
+                  <label for="address2">Address 2</label>
+                  <input
+                    type="text"
+                    id="address2"
+                    name="address2"
+                    placeholder="Apartment, Suite, etc."
+                  />
+                </div>
+
+                <!-- City -->
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" placeholder="City" />
+                </div>
+
+                <!-- Province/State -->
+                <div class="form-group">
+                  <label for="province">Province/State</label>
+                  <select id="province" name="province">
+                    <option value="Ontario">Ontario</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="British Columbia">British Columbia</option>
+                  </select>
+                </div>
+
+                <!-- Zip -->
+                <div class="form-group">
+                  <label for="zip">Zip</label>
+                  <input
+                    type="text"
+                    id="zip"
+                    name="zip"
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="btn-save">Save</button>
+            </form>
+          </div>`;
+      }
+
+      // Simulated Billing Address Form Content
+      function getBillingAddressForm() {
+        return `
+          <h3 style="margin-bottom: 40px">Change Billing Address</h3>
+            <form>
+              <div class="form-grid">
+                <!-- Country -->
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <select id="country" name="country">
+                    <option value="Canada">Canada</option>
+                    <option value="USA">USA</option>
+                  </select>
+                </div>
+
+                <!-- Billing To -->
+                <div class="form-group">
+                  <label for="ship-to">Billing To</label>
+                  <input
+                    type="text"
+                    id="ship-to"
+                    name="ship-to"
+                    placeholder="Recipient Name"
+                  />
+                </div>
+
+                <!-- Address 1 -->
+                <div class="form-group">
+                  <label for="address1">Address 1</label>
+                  <input
+                    type="text"
+                    id="address1"
+                    name="address1"
+                    placeholder="Street Address"
+                  />
+                </div>
+
+                <!-- Address 2 -->
+                <div class="form-group">
+                  <label for="address2">Address 2</label>
+                  <input
+                    type="text"
+                    id="address2"
+                    name="address2"
+                    placeholder="Apartment, Suite, etc."
+                  />
+                </div>
+
+                <!-- City -->
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" placeholder="City" />
+                </div>
+
+                <!-- Province/State -->
+                <div class="form-group">
+                  <label for="province">Province/State</label>
+                  <select id="province" name="province">
+                    <option value="Ontario">Ontario</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="British Columbia">British Columbia</option>
+                  </select>
+                </div>
+
+                <!-- Zip -->
+                <div class="form-group">
+                  <label for="zip">Zip</label>
+                  <input
+                    type="text"
+                    id="zip"
+                    name="zip"
+                    placeholder="Postal Code"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="btn-save">Save</button>
+            </form>
+          </div>`;
+      }
+
+      // Simulated Update Address Function
+      function updateAddress(type, event) {
+        event.preventDefault();
+        const addressInput =
+          event.target.querySelector("input[name='ship-to']") ||
+          event.target.querySelector("input[name='bill-to']");
+        const addressText = addressInput.value || "Updated Address";
+
+        if (type === "shipping") {
+          document.getElementById("shipping-address").innerText = addressText;
+        } else {
+          document.getElementById("billing-address").innerText = addressText;
+        }
+
+        document.getElementById("address-modal").style.display = "none";
+      }
+
+      // Show Modal Function
+      function showModal(title, formContent) {
+        const modalBody = document.getElementById("modal-body");
+        modalBody.innerHTML = formContent;
+        document.getElementById("address-modal").style.display = "flex";
+        document.body.classList.add("no-scroll"); // Disable background scrolling
+      }
+
+      // Close Modal
+      document
+        .getElementById("modal-close")
+        .addEventListener("click", function () {
+          document.getElementById("address-modal").style.display = "none";
+          document.body.classList.remove("no-scroll"); // Enable background scrolling
+        });
+
+      // Close Modal when clicking outside of it
+      document
+        .getElementById("address-modal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            // Check if the click is on the overlay, not the modal content
+            document.getElementById("address-modal").style.display = "none";
+            document.body.classList.remove("no-scroll"); // Enable background scrolling
+          }
+        });
     </script>
   </body>
 </html>

@@ -211,3 +211,13 @@ td:nth-child(9) {
 .product-details-related-products {
   margin-top: 80px;
 }
+
+.reserve-page-quantity-input {
+  width: 50px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  outline: none;
+}
